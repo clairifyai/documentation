@@ -8,5 +8,6 @@ theme:
   name: material
 plugins:
   - git-revision-date-localized
+  - git-latest-changes
 markdown_extensions:
   - admonition
