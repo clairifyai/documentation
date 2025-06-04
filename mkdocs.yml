@@ -1,6 +1,8 @@
 site_name: Everything You Need to Know About Clairify
 nav:
   - Home: index.md
+  - Features:
+    - Digests: digests.md
   - Security:
     - Security: security.md
     - OAuth: oauth-scopes.md
