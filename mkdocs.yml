@@ -1,3 +1,12 @@
 site_name: Everything You Need to Know About Clairify
+nav:
+  - Home: index.md
+  - Security:
+    - Security: security.md
+    - OAuth: oauth-scopes.md
 theme:
   name: material
+plugins:
+  - git-revision-date-localized
+markdown_extensions:
+  - admonition
