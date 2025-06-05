@@ -1,0 +1,23 @@
+name: whatsapp-notify
+
+# on: [push]
+on:
+  workflow_dispatch:
+jobs:
+  notify_team:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: whatsapp-notify
+        # id: whatsapp-notify
+        env:
+          account_sid: ${{ secrets.twilio_account_sid }}
+          auth_token: ${{ secrets.twilio_auth_token }}
+          to_whatsapp_no: ${{ secrets.to_whatsapp_no }}
+
+
+        uses: clairifyai/whatsapp-push-notify-action@master
+      
+      - name : Run
+        run: |
+          echo 'Start!'
