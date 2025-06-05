@@ -2,6 +2,7 @@ site_name: Everything You Need to Know About Clairify
 nav:
   - Home: index.md
   - Features:
+    - Summarization: summarization.md
     - Digests: digests.md
   - Security:
     - Security: security.md
