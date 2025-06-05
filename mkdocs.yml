@@ -11,6 +11,14 @@ theme:
   name: material
 plugins:
   - git-revision-date-localized
-  - git-latest-changes
+  - git-latest-changes:
+      history_limit: 10                # Number of changes to show
+      timestamp_format: "%B %d, %Y, %I:%M %p PST"
+      timezone: Etc/GMT+8              # Pacific Standard Time (fixed, no DST)
+      table_features:
+        - "page_path_link"             # Link to the changed page
+        - "timestamp"                  # Show commit timestamp
+        - "author"                     # Show commit author
+        - "message"                    # Show commit message
 markdown_extensions:
   - admonition
