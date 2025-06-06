@@ -4,6 +4,7 @@ nav:
   - Features:
     - Summarization: summarization.md
     - Digests: digests.md
+    - On-Demand Sync: on-demand-sync.md
   - Security:
     - Security: security.md
     - OAuth: oauth-scopes.md
