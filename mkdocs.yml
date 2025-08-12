@@ -7,7 +7,10 @@ nav:
     - On-Demand Sync: on-demand-sync.md
   - Security:
     - Security: security.md
+    - PII: pii-policy.md
     - OAuth: oauth-scopes.md
+  - Release Notes:
+    - '2.0.0': release-notes/rn-200.md
 theme:
   name: material
 plugins:
