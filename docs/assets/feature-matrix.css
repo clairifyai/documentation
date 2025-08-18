@@ -1,0 +1,25 @@
+/* docs/assets/view-toggle.css */
+
+/* Default: show icons, hide value spans */
+.feat__value {
+    display: none;
+}
+
+/* In values mode, if a cell has a numeric value, hide the icon and show the value */
+[data-view="values"] .feat.has-value svg {
+    display: none;
+}
+
+[data-view="values"] .feat.has-value .feat__value {
+    display: inline;
+}
+
+/* Optional: make numbers align neatly */
+[data-view="values"] .feat.has-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Optional: button group polish */
+.md-button-group .md-button[aria-pressed="true"] {
+    cursor: default;
+}
