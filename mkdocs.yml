@@ -5,6 +5,8 @@ nav:
     - Summarization: summarization.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
+  - Pricing:
+    - feature-matrix.md
   - Security:
     - Security: security.md
     - PII: pii-policy.md
@@ -13,6 +15,13 @@ nav:
     - '2.0.0': release-notes/rn-200.md
 theme:
   name: material
+  features:
+    - content.tooltips                 # Style over the browser default tooltip
+extra_css:
+  - assets/feature-matrix.css
+extra_javascript:
+  - assets/feature-matrix.js
+  - assets/feat-tip.js
 plugins:
   - git-revision-date-localized
   - git-latest-changes:
@@ -25,4 +34,15 @@ plugins:
         - "author"                     # Show commit author
         - "message"                    # Show commit message
 markdown_extensions:
-  - admonition
+  - admonition                         # Render note/warning/info callout blocks
+  - attr_list                          # Allow attributes on Markdown elements (e.g., {.class key=value})
+  - md_in_html                         # Enable Markdown inside HTML tags (needed for our tables)
+  - pymdownx.snippets:                 # Include reusable Markdown/HTML snippets via --8<-- syntax
+      base_path: [docs]                # Uses pwd by default. Without this line mkserve fails
+      check_paths: true                # Validate that snippet paths exist during build
+  - pymdownx.emoji:                    # Render emoji/Material icon shortcodes as inline SVG
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+
+ 
