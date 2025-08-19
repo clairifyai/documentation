@@ -15,7 +15,7 @@ git commit -m 'Added a CNAME file to preserve the custom domain configuration.'
 # To deploy the docs
 
 1. Push your change: ```git push origin main```
-2. In local, run: ```mkdocs deploy```
+2. In local, run: ```mkdocs gh-deploy```
 3. Go to docs.clairify.ai to observe your changes
 
 > [!TIP]
