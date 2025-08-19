@@ -2,6 +2,8 @@ site_name: Everything You Need to Know About Clairify
 nav:
   - Home: index.md
   - Features:
+    - Primary Email: primary-email.md
+    - Email Classification: email-classification.md
     - Summarization: summarization.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
@@ -37,6 +39,7 @@ markdown_extensions:
   - admonition                         # Render note/warning/info callout blocks
   - attr_list                          # Allow attributes on Markdown elements (e.g., {.class key=value})
   - md_in_html                         # Enable Markdown inside HTML tags (needed for our tables)
+  - meta
   - pymdownx.snippets:                 # Include reusable Markdown/HTML snippets via --8<-- syntax
       base_path: [docs]                # Uses pwd by default. Without this line mkserve fails
       check_paths: true                # Validate that snippet paths exist during build
