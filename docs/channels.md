@@ -1,21 +1,24 @@
 # Channels
 
-Clairify Channels are dedicated, semantic spaces for organizing communications. Each channel is powered by an agent that can filters noise, extract meaningful signals, and turn conversations into knowledge. Channels are designed to drive organizational alignment while reducing cognitive load, eliminating FOMO, and supporting healthier, async-first workflows.
+Clairify Channels are dedicated, semantic spaces for organizing communications. That's a douchey way of saying that they are named folders, thanks ChatGPT! 
+
+But, unlike email folders or Microsoft Teams channels, our channels are designed lower cognitive load, eliminate fear of missing out, and supporting healthier, async-first workflows. To do this, our channels are supported by agents that can filter noise, extract signals, priorize, and turn messages into knowledge via Q&A. 
 
 Highlights:
 
-- **Separate Streams** – Channels split your communications by any project or topic so you’re not overwhelmed by a single messy inbox.
-- **Seamless Distribution** – Make it simple to keep the right people in the loop without blasting their inbox.
-- **Signal Extraction** – An always-on agent, guided by your instructions extracts meaningful signals and directs your attention to what matters most in the moment.
-- **Q&A** – Channels allows conversations to becaome a living knowledge base. Instead of searching or scrolling, you can ask a Q&A agent.
+- **Organize** - Split messages by any topic so you’re not overwhelmed by a single messy inbox.
+- **Distribute** - Keep the right people in the loop without blasting their inbox.
+- **Monitor** - An ambient agent directs your attention to what matters most in the moment.
+- **Prioritize** - Re-stack messages based on your instructions.
+- **Retrieve** - A Q&A agent turns messages a living knowledge base.
 
 ## Personal Channels
 
-A **Personal Channel** works much like folders or labels in Gmail or Outlook: It’s a personal categorization system for keeping related messages together. You can create a channel from your own message categories (for example, “Finance Alerts,” “Client Updates,” or “Family Messages”), and it will de-clutter in a familiar way. But Private Channels go beyond static filing: You can instruct an always-on agent to monitor activity inside the channel to pull out meaningful signals — like deadlines, approvals, or sudden activity spikes — highlight them for you.
+A **Personal Channel** works much like folders or labels in Gmail or Outlook: It’s a personal categorization system for keeping related messages together. You can create a channel from your own message categories (for example, “Finance Alerts,” “Client Updates,” or “Family Messages”), and it will de-clutter in a familiar way.
 
 ## Shared Channels
 
-A **Shared Channel** adds delegation and observability. Unlike labels or folders, which stay locked to one person’s view, a channel can be carved out of a private inbox and selectively shared. This creates a “partially shared inbox” experience: you don’t need to forward every relevant message manually, and collaborators gain visibility into just the stream you’ve exposed. Shared channels are especially useful in targeted scenarios — for example, if the CEO receives a customer request, it can be dropped into a “Delegated to Sulav." He then has direct visibility into those messages without needing full inbox access, making shared channels ideal for lightweight delegation, accountability, and small-circle observability.
+A **Shared Channel** adds delegation and observability. Unlike labels or folders, which stay locked to one person’s view, a channel can be carved out of a private inbox and selectively shared. This creates a “partially shared inbox” experience: you don’t need to forward every relevant message manually, and collaborators gain visibility into just the stream you’ve exposed. Shared Channels are especially useful in targeted scenarios — for example, if the CEO receives a customer request, it can be dropped into a “Delegated to Sulav." He then has direct visibility into those messages without needing full inbox access, making shared channels ideal for lightweight delegation, accountability, and small-circle observability.
 
 ## Team Channels
 
@@ -35,11 +38,46 @@ Any channel can have AI-powered question and answering (Q&A) turned on. Q&A turn
 !!! tip    
     The knowledge captured is limited to information passing in an out of the executive sphere. This results in a smaller corpus with a high signal-to-noise ratio. Since AI answers degrade in proportion to the length of the context window, for any given period time, our AI agent yields better results than those built on mixed organizational chatter. 
 
-## Signal Extraction
+## Ambient Agent
 
 Any channel can have ambient agent turned on. An ambient agent continuously monitors the channel for important information based on a prompt you write, for example, "highlight any customer complaints." You also control how signals arrive, choosing between instant alerts, digests, or incorporated into daily briefings. You can change the instruction at any time, so the agent adapts as your priorities shift. Ambient agents eliminate the need to constantly monitor multiple streams, preventing the fractured attention that comes from trying to stay aware of everything at once.
 
-## Channels vs. Others
+## Stack Ranking
+
+Any channel can have stack ranking turned on. By default, messages in a channel are shown in the order they arrive, but stack ranking lets you change that. You write a simple prompt to tell the agent how you want items organized — for example, “rank by urgency,” or “show customer requests before internal updates.” The agent will re-order the channel based on your instruction, so the most relevant items rise to the top. You can adjust or replace the prompt at any time, making it easy to shift priorities as your work changes.
+
+## Full Feature List
+
+| **Feature**             | **Description** |
+|--------------------------|-----------------|
+| **Organize**             | Split messages by any topic so you’re not overwhelmed by a single messy inbox. |
+| **Distribute**           | Keep the right people in the loop without blasting their inbox. |
+| **Monitor**              | An ambient agent directs your attention to what matters most in the moment. |
+| **Prioritize**           | Re-stack messages based on your instructions. |
+| **Retrieve**             | A Q&A agent turns messages into a living knowledge base. |
+| **Avatars**              | Name, describe, and assign icons so channels are easy to recognize in your dashboard. |
+| **Controls**             | Dial down engagement without losing organization through filter, mute, and disable. |
+| **Recap**                | Receive recaps of unread items in your twice-daily briefings. |
+| **Refactor**             | Create a new channel and re-organize your stories on demand. |
+| **Engagement Analytics** | Monitor engagement and resonance for shared content. |
+| **Message Analytics**    | Track message counts and the percentage of messages flowing through the channel. |
+| **Attention Analytics**  | View where your attention is demanded versus where it is spent. |
+| **Upgrade**              | Convert a Private Channel to Shared when collaboration is needed. |
+| **Tap**                  | Contribute to a Team Channel by redirecting a copy of all messages. |
+| **Expire**               | Set channels to expire or delete them while retaining their knowledge. |
+
+
+## Different Strokes
+
+On the surface, and in the name, Clairfy Channels sound like email folders or instant messaging. The thematic differencs is that Clairify Channels are designed for executive awareness, not communication, and capturing organziational knowledge relevant to executive leadership. To put a fine point on it, the functional differences are outlined in this section.
+
+!!! tip
+    
+    Labels and folders are static filing systems inside one inbox, while Clairify Channesl are dynamic, multi-feature message streams that can evolve into collaboration, generate insight, and support automation.
+
+!!! tip
+
+    Slack and Microsoft Teams channels are fast-moving chat streams that demand constant attention. Clairify Channels keep you aware of what matters without requiring you to watch every message — reducing cognitive load and eliminating the fear of missing out.   
 
 | **Category** | **Strengths** | **Limits** |
 |--------------|---------------|------------|
