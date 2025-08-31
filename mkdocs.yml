@@ -16,6 +16,7 @@ nav:
     - PII: pii-policy.md
     - OAuth: oauth-scopes.md
   - Latest Release: release-notes/rn-200.md
+  - Troubleshooting: troubleshooting.md
 theme:
   name: material
   features:
@@ -52,7 +53,7 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.details
+  - pymdownx.details                  # Allows collapsible admonitions
 
 
  
