@@ -8,6 +8,7 @@ nav:
     - Summarization: summarization.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
+    - Channels: channels.md
   - Pricing:
     - feature-matrix.md
   - Security:
@@ -51,6 +52,7 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.details
 
 
  
