@@ -592,6 +592,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -663,13 +685,13 @@ Rules:
   C. Snippets must remain on their own line inside <td markdown="1">.
 
 Tooltips:
-- Feature names and descriptions are defined in snippets/feature-tooltips.md.
+- Feature names and descriptions are defined in includes/feature-tooltips.md.
 - Each feature has 2 regions: <id>_name and <id>_description.
 - The description snippet is injected into a hidden <span> inside the table cell.
 - The <feat-tip> custom element displays the info icon and, via JS, reads the hidden description to set a tooltip (Material tooltips style if enabled).
 
 Adding a new row:
-1. Create or update the name & description regions in snippets/feature-tooltips.md.
+1. Create or update the name & description regions in includes/feature-tooltips.md.
 2. Add a new <tr markdown="1">.
    - In the first <td markdown="1">:
      • Include the name snippet.
@@ -679,7 +701,7 @@ Adding a new row:
    - If the feature has a numeric value, add it via data-value="N" on the :material-check:.
 
 Single source of truth:
-- Only maintain names and descriptions in snippets/feature-tooltips.md.
+- Only maintain names and descriptions in includes/feature-tooltips.md.
 - The table pulls both from snippets + renders tooltips automatically.
 -->
 
@@ -824,7 +846,7 @@ Group multiple classes by topic and apply view permissions.
 Channels
 <feat-tip id="user_channels" markdown="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span></feat-tip>
 <span id="tip-src-user_channels" hidden>
-Publish one or more topics to across your organization.
+A named, dedicated space for messages, just like a label/folder in email, or a Slack/Teams channel. Designed for maximizing awareness while minimizing cognitive load, rather than facilitating communication.
 </span>
   </td>
 <td><span class="twemoji feat" data-value="3"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span></td>
@@ -888,7 +910,7 @@ Add team members to your account to drive organizational alignment.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 18, 2025 20:43:40 UTC">August 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 31, 2025 20:57:41 PDT">August 31, 2025</span>
   </span>
 
     
