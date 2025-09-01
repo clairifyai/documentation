@@ -42,6 +42,7 @@ plugins:
         - "message"                    # Show commit message
 markdown_extensions:
   - admonition                         # Render note/warning/info callout blocks
+  - abbr
   - attr_list                          # Allow attributes on Markdown elements (e.g., {.class key=value})
   - md_in_html                         # Enable Markdown inside HTML tags (needed for our tables)
   - pymdownx.snippets:                 # Include reusable Markdown/HTML snippets via --8<-- syntax
@@ -50,10 +51,8 @@ markdown_extensions:
   - pymdownx.emoji:                    # Render emoji/Material icon shortcodes as inline SVG
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.details                  # Allows collapsible admonitions
-
 
  
