@@ -1,8 +1,4 @@
-# OAuth Scopes (Gmail)
-
-!!! warning
-
-    This page is under construction, and will be removed once it’s good to go.
+# OAuth Scopes - Gmail
 
 !!! tip inline end
 
@@ -27,7 +23,7 @@ Table: Complete List of Requested Gmail Scopes {#gmail-scopes}
 | **Sensitive** |  |  |  |
 | Push notifications (infrastructure) | `pubsub` | View and manage Pub/Sub topics/subscriptions used for Gmail push (watch) notifications; does not grant access to email content. | Create/verify the topic and manage the Gmail watch subscription. |
 | **Restricted** |  |  |  |
-| Read mail for summarization | `gmail.modify` | Read messages and attachments to generate summaries. | Generate summaries for new messages and newsletters. |
+| Read mail for summarization | `gmail.modify` | Read messages and attachments. | Generate summaries for new messages and newsletters. |
 | Apply user-initiated mailbox changes | `gmail.modify` | Add/remove labels on messages/threads; toggle `UNREAD`; archive (remove `INBOX`); move to Trash. | Swipe right to mark as read; tap Archive to file; apply the corresponding label, e.g., `ClairifyRead`. |
 | Read mail | `gmail.readonly` | View email messages and certain settings without modifying mailbox state. | Redundant when `gmail.modify` is granted. |
 | Read message metadata only | `gmail.metadata` | View message metadata (labels, headers), but not the email body or attachments. | Faster inbox syncing. |
