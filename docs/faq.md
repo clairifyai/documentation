@@ -1,0 +1,7 @@
+??? question "How does Clairify compare to Superhuman/Missive?"
+
+    **A:** Email folders help you file messages but you still have to manually dig through them to find what matters, and you can't share or collaborate around them. Inbox clients with split views and screeners help with triage but they're still email-centric, and designed for team addresses like support@ or sales@. And for any email client, email is the only data source for an AI agent. Clairify channels on the other hand, create shareable, queryable knowledge spaces where you can share a slice of a personal inbox and integrate information from multiple connected sources, enhanced by AI agents that surface important signals automatically.
+
+??? question "How does Clairify compare to Slack/Teams?"
+
+    **A:** Chat platforms like Slack and Teams create fear of missing important information, which drives always-on pressure to constantly check messages. This frequent checking fractures attention, and the constant context-switching across multiple channels drains your mental energy. Channels solve this at the root cause with dedicated agents that monitor conversations for you, eliminating the fear of missing out by surfacing only what truly needs your attention now and deferring everything else for later. 
