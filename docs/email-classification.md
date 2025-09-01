@@ -1,6 +1,6 @@
-# Email classification
+# Email Classification
 
-In Clairify you can customize the way that messages are summarized, so whether you like terse one-liners or nested bullets, you have the ability to completely personalize your experience.
+You can customize the way that messages are summarized, so whether you like terse one-liners or nested bullets, you have the ability to completely personalize your experience.
 
 The foundation is an email classification system. For example, it should be intuitive that newsletters and SaaS notifications should be summarized differently, and so it follows that the first thing we need to do is distinguish between them. To that end, Clarirify has many system-defined classes. 
 
@@ -8,10 +8,14 @@ The result of the classification exercise is that we are able to categorize all 
 
 By default we have paired each category with one of several sytem-defined summarization prompts. But, using web app, you can create custom classes and new system prompts to get everything exactly the way you like it.
 
+!!! tip
+
+    Personalize your experience using a combination of custom classes and custom summarization prompts.
+
 
 | Category       | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
-| 📰 **Digest**     | Summaries of content from multiple sources (e.g., daily news digests, weekly roundups). |
+| 📰 **Digest**       | Summaries of content from multiple sources (e.g., daily news digests, weekly roundups). |
 | 🙏 **Solicitation** | Emails asking for donations, crowdfunding support, or contributions to a cause. |
 | 📬 **Subscriptions** | Updates from platforms like Substack, Medium, or individual creators. |
 | 🛒 **Shopping**   | Order confirmations, shipping notifications, or receipts from online retailers. |
