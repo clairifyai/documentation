@@ -4,7 +4,7 @@ Clairify helps you move through inbound messages faster so you can reach inbox z
 
 ## 1. Install Clairify
 
-Install the Clairify mobile app for iOS, have a Gmail or Outlook account, and be prepared to grant [read, write, and delete permissions](/oauth-scopes) so Clairify can summarize and organize messages on your behalf.
+Install the Clairify mobile app for iOS, have a Gmail or Outlook account, and be prepared to grant [read, write, and delete permissions](oauth-scopes.md) so Clairify can summarize and organize messages on your behalf.
 
 ## 2. Connect Your Inbox
 
