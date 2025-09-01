@@ -2,7 +2,8 @@
 
 1. Create a virtual environment: ```conda create --name docs```
 1. Activate the virtual environment: ```conda activate docs```
-1. Install these packages: ```pip install mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-latest-changes-plugin mkdocs-caption```
+1. Install these packages: ```pip install mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-latest-changes-plugin mkdocs-caption mkdocs-exclude```
+```
 1. Run: ```mkdocs serve```
 
 # To commit changes to the docs
