@@ -27,14 +27,18 @@ extra_javascript:
   - assets/feature-matrix.js
   - assets/feat-tip.js
 plugins:
+  - exclude:
+      glob:
+        - slack.md               # Exclude WIP
+        - executive-producers.md # Exclude WIP
   - caption:
       table:
         position: top
-  - git-revision-date-localized
+  - git-revision-date-localized:
+      timezone: America/Vancouver      
   - git-latest-changes:
       history_limit: 10                # Number of changes to show
       timestamp_format: "%B %d, %Y, %I:%M %p PST"
-      timezone: Etc/GMT+8              # Pacific Standard Time (fixed, no DST)
       table_features:
         - "page_path_link"             # Link to the changed page
         - "timestamp"                  # Show commit timestamp
@@ -46,7 +50,7 @@ markdown_extensions:
   - attr_list                          # Allow attributes on Markdown elements (e.g., {.class key=value})
   - md_in_html                         # Enable Markdown inside HTML tags (needed for our tables)
   - pymdownx.snippets:                 # Include reusable Markdown/HTML snippets via --8<-- syntax
-      base_path: [docs]                # Uses pwd by default. Without this line mkserve fails
+      base_path: [includes]            # Uses pwd by default. Without this line mkserve fails
       check_paths: true                # Validate that snippet paths exist during build
   - pymdownx.emoji:                    # Render emoji/Material icon shortcodes as inline SVG
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -54,5 +58,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.details                  # Allows collapsible admonitions
-
- 
