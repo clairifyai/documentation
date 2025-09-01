@@ -105,7 +105,7 @@ Channels
 --8<-- [end:user_channels_name]
 
 --8<-- [start:user_channels_description]
-Publish one or more topics to across your organization.
+A named, dedicated space for messages, just like a label/folder in email, or a Slack/Teams channel. Designed for maximizing awareness while minimizing cognitive load, rather than facilitating communication.
 --8<-- [end:user_channels_description]
 
 --8<-- [start:vendor_channels_name]
@@ -132,4 +132,10 @@ Organizations
 Add team members to your account to drive organizational alignment.
 --8<-- [end:multi_user_description]
 
+--8<-- [start:instack_name]
+Organizations
+--8<-- [end:instack_name]
 
+--8<-- [start:instack_description]
+All messages associated to an email address, whether the connected 3rd-party app is Gmail, Youtube or some other, is viewable here &mdash; essentially an omni-channel.
+--8<-- [end:instack_description]
