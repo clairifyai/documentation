@@ -10,6 +10,10 @@ Install the Clairify mobile app for iOS, have a Gmail or Outlook account, and be
 
 Open the app and sign in with Google or Microsoft. The account you use to sign in becomes your the email associated to your Clairify accountm, and is used for account notices. If Microsoft sign-in shows an Entra configuration message, follow the on-screen instructions to complete setup and try again.
 
+!!! warning "Do This First"
+
+    Before anyone at a company can sign in to Clairify using Outlook, someone who manages the company’s Microsoft account needs to permit Clairify. See [Outlook Initial Login](outlook-sso.md).
+
 ## 3. See Messages as Cards
 
 New items appear as swipeable cards. Each card shows a concise AI summary; tap to reveal the original message whenever you want full detail. This flow lets you absorb information quickly while keeping the source one tap away.
