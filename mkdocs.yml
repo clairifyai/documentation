@@ -1,7 +1,9 @@
 site_name: Everything You Need to Know About Clairify
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Getting Started:
+    - Start Here: getting-started.md
+    - Outlook: outlook-sso.md
   - Features:
     - Primary Email: primary-email.md
     - Email Classification: email-classification.md
@@ -45,6 +47,7 @@ plugins:
         - "author"                     # Show commit author
         - "message"                    # Show commit message
 markdown_extensions:
+  - sane_lists                         # Continue list numbering
   - admonition                         # Render note/warning/info callout blocks
   - abbr
   - attr_list                          # Allow attributes on Markdown elements (e.g., {.class key=value})
