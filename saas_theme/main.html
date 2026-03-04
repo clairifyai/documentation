@@ -66,7 +66,7 @@
     <div class="docs-content">
 
       <!-- Breadcrumbs -->
-      {% if page and page.parent %}
+      {% if page %}
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <ol class="breadcrumb-list">
           <li><a href="{{ nav.homepage.url | url }}">Home</a></li>
@@ -80,15 +80,6 @@
 
       <!-- Article -->
       <article class="docs-article">
-        {% if page and page.title %}
-        <header class="article-header">
-          <h1 class="article-title">{{ page.title }}</h1>
-          {% if page.meta and page.meta.description %}
-          <p class="article-description">{{ page.meta.description }}</p>
-          {% endif %}
-        </header>
-        {% endif %}
-
         <div class="article-body md-content">
           {{ page.content }}
         </div>
