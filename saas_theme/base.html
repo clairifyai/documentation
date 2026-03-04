@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ config.theme.locale | default('en') }}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{% block title %}{% if page and page.title %}{{ page.title }} — {% endif %}{{ config.site_name }}{% endblock %}</title>
+
+  {% if config.site_description %}
+  <meta name="description" content="{{ config.site_description }}">
+  {% endif %}
+  {% if config.site_author %}
+  <meta name="author" content="{{ config.site_author }}">
+  {% endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page and page.title %}{{ page.title }} — {% endif %}{{ config.site_name }}">
+  {% if config.site_description %}
+  <meta property="og:description" content="{{ config.site_description }}">
+  {% endif %}
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  {% if page and page.canonical_url %}
+  <link rel="canonical" href="{{ page.canonical_url }}">
+  {% endif %}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ 'css/theme.css' | url }}">
+  <link rel="stylesheet" href="{{ 'css/syntax.css' | url }}">
+
+  <!-- Annotation system CSS -->
+  <link rel="stylesheet" href="{{ 'css/annotations.css' | url }}">
+
+  <!-- Extra CSS from mkdocs.yml -->
+  {%- for path in config.extra_css %}
+  <link rel="stylesheet" href="{{ path | url }}">
+  {%- endfor %}
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}page{% endblock %}">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Top Navigation -->
+  {% include "partials/nav.html" %}
+
+  <!-- Main Content -->
+  <div class="layout-wrapper">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Footer -->
+  {% include "partials/footer.html" %}
+
+  <!-- Theme JS -->
+  <script src="{{ 'js/theme.js' | url }}"></script>
+
+  <!-- Extra JS from mkdocs.yml -->
+  {%- for script in config.extra_javascript %}
+  {%- if script.path %}
+    {{ script | script_tag }}
+  {%- else %}
+    <script src="{{ script | url }}"></script>
+  {%- endif %}
+  {%- endfor %}
+
+  {% block extra_scripts %}{% endblock %}
+
+  <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
+  {% block annotation_scripts %}
+  {% if page %}
+  <script src="{{ 'js/annotations.js' | url }}"></script>
+  {% endif %}
+  {% endblock %}
+</body>
+</html>
