@@ -198,7 +198,7 @@
           </svg>
         </div>
         <div class="ann-panel-auth-text">Sign in to ask questions, request features, or give kudos on any highlighted text.</div>
-        <button class="ann-panel-auth-btn" id="ann-panel-signin-btn">Sign in / Create account</button>
+        <button class="ann-panel-auth-btn" id="ann-panel-signin-btn">Log in</button>
       </div>
 
       <!-- List -->
