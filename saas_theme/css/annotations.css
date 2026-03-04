@@ -1,0 +1,659 @@
+/* ============================================================
+   ANNOTATION SYSTEM — Styles
+   ============================================================ */
+
+/* ── 1. Auth modal ─────────────────────────────────────────── */
+.ann-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+.ann-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.ann-modal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(12px);
+  transition: transform 200ms ease;
+}
+.ann-modal-overlay.open .ann-modal {
+  transform: translateY(0);
+}
+.ann-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.ann-modal-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+.ann-modal-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  transition: all 150ms ease;
+  cursor: pointer;
+}
+.ann-modal-close:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text);
+}
+.ann-modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+  gap: 0;
+}
+.ann-modal-tab {
+  flex: 1;
+  padding: 0.625rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.ann-modal-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.ann-modal-form { display: flex; flex-direction: column; gap: 1rem; }
+.ann-modal-form label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+.ann-modal-form input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  box-sizing: border-box;
+}
+.ann-modal-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+.ann-modal-error {
+  font-size: 0.8125rem;
+  color: var(--color-error);
+  display: none;
+}
+.ann-modal-error.visible { display: block; }
+.ann-modal-submit {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity 150ms ease, transform 150ms ease;
+  margin-top: 0.25rem;
+}
+.ann-modal-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+.ann-modal-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── 2. Annotation tab trigger (right edge) ────────────────── */
+.ann-tab-trigger {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+}
+.ann-tab-btn {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 1rem 0.625rem;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: -2px 0 12px rgba(99,102,241,0.3);
+  transition: background 150ms ease, padding 150ms ease;
+  user-select: none;
+}
+.ann-tab-btn:hover { background: var(--color-primary-dark); padding-left: 0.875rem; }
+.ann-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  background: white;
+  color: var(--color-primary);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0 4px;
+}
+
+/* ── 3. Side panel ─────────────────────────────────────────── */
+.ann-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 360px;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+}
+.ann-panel.open {
+  transform: translateX(0);
+}
+.ann-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.ann-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+.ann-panel-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  margin-top: 2px;
+}
+.ann-panel-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 150ms ease;
+  flex-shrink: 0;
+}
+.ann-panel-close:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text);
+}
+
+/* Filter tabs */
+.ann-panel-filters {
+  display: flex;
+  gap: 0.375rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.ann-filter-btn {
+  padding: 0.3125rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.ann-filter-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+.ann-filter-btn:not(.active):hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Auth prompt inside panel */
+.ann-panel-auth-prompt {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ann-panel-auth-prompt.visible { display: flex; }
+.ann-panel-auth-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  background: rgba(99,102,241,0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ann-panel-auth-text {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+.ann-panel-auth-btn {
+  padding: 0.5rem 1.25rem;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+.ann-panel-auth-btn:hover { opacity: 0.9; }
+
+/* User info bar */
+.ann-panel-user-bar {
+  padding: 0.625rem 1.25rem;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.ann-panel-user-bar.visible { display: flex; }
+.ann-panel-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ann-panel-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ann-panel-username {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.ann-panel-logout {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+.ann-panel-logout:hover { color: var(--color-error); }
+
+/* Annotation list */
+.ann-panel-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+.ann-panel-list::-webkit-scrollbar { width: 4px; }
+.ann-panel-list::-webkit-scrollbar-track { background: transparent; }
+.ann-panel-list::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 9999px; }
+
+.ann-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--color-text-subtle);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.ann-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* Individual annotation card */
+.ann-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.625rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+  position: relative;
+}
+.ann-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+}
+.ann-card.highlighted {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.15);
+}
+.ann-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.ann-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.ann-type-question       { background: rgba(59,130,246,0.12); color: #3b82f6; }
+.ann-type-feature_request { background: rgba(139,92,246,0.12); color: #8b5cf6; }
+.ann-type-kudos          { background: rgba(245,158,11,0.12); color: #f59e0b; }
+
+.ann-card-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.ann-card-date {
+  font-size: 0.6875rem;
+  color: var(--color-text-subtle);
+  margin-left: auto;
+}
+
+.ann-card-anchor {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  background: var(--color-bg-tertiary);
+  border-left: 2px solid var(--color-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: italic;
+  font-family: var(--font-sans);
+}
+
+.ann-card-body {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.ann-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.625rem;
+}
+.ann-card-action-btn {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 150ms ease;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-subtle);
+}
+.ann-card-action-btn:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.ann-card-action-btn.resolve {
+  border-color: rgba(16,185,129,0.3);
+  color: var(--color-success);
+}
+.ann-card-action-btn.resolve:hover {
+  background: rgba(16,185,129,0.1);
+}
+.ann-card-action-btn.delete:hover {
+  border-color: rgba(239,68,68,0.3);
+  color: var(--color-error);
+}
+.ann-resolved-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-success);
+  background: rgba(16,185,129,0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-left: auto;
+}
+
+/* ── 4. Text selection popup ───────────────────────────────── */
+.ann-selection-popup {
+  position: fixed;
+  z-index: 500;
+  background: var(--color-text);
+  border-radius: var(--radius-lg);
+  padding: 0.375rem 0.5rem;
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-8px);
+  white-space: nowrap;
+  /* Arrow */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+.ann-selection-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-text);
+}
+.ann-selection-popup.visible { display: flex; }
+
+.ann-sel-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3125rem 0.625rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background 150ms ease;
+  white-space: nowrap;
+}
+.ann-sel-btn:hover { background: rgba(255,255,255,0.15); }
+.ann-sel-btn svg { flex-shrink: 0; }
+
+.ann-sel-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+/* ── 5. Inline comment form ────────────────────────────────── */
+.ann-form-popup {
+  position: fixed;
+  z-index: 500;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1rem;
+  width: 300px;
+  box-shadow: var(--shadow-xl);
+  display: none;
+}
+.ann-form-popup.visible { display: block; }
+
+.ann-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.ann-form-type-label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.ann-form-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.ann-form-close:hover { background: var(--color-bg-tertiary); color: var(--color-text); }
+
+.ann-form-anchor-preview {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  background: var(--color-bg-secondary);
+  border-left: 2px solid var(--color-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: italic;
+}
+
+.ann-form-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.625rem 0.75rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  box-sizing: border-box;
+}
+.ann-form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+.ann-form-textarea::placeholder { color: var(--color-text-subtle); }
+
+.ann-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.625rem;
+}
+.ann-form-cancel {
+  padding: 0.4375rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.ann-form-cancel:hover { background: var(--color-bg-tertiary); color: var(--color-text); }
+.ann-form-submit {
+  padding: 0.4375rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+.ann-form-submit:hover { opacity: 0.9; }
+.ann-form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── 6. Highlighted text in docs ───────────────────────────── */
+.ann-highlight {
+  background: rgba(99,102,241,0.15);
+  border-bottom: 2px solid rgba(99,102,241,0.5);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.ann-highlight:hover { background: rgba(99,102,241,0.25); }
+.ann-highlight.ann-highlight-question       { background: rgba(59,130,246,0.12); border-bottom-color: #3b82f6; }
+.ann-highlight.ann-highlight-feature_request { background: rgba(139,92,246,0.12); border-bottom-color: #8b5cf6; }
+.ann-highlight.ann-highlight-kudos          { background: rgba(245,158,11,0.12); border-bottom-color: #f59e0b; }
+
+/* ── 7. Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ann-panel { width: 100%; }
+  .ann-tab-trigger { display: none; }
+}
