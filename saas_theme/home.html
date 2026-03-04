@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block body_class %}page home-page{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================
+     HERO SECTION — Product showcase with visual placeholder
+============================================================ -->
+<section class="hero-section">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow hero-glow-1"></div>
+  <div class="hero-bg-glow hero-glow-2"></div>
+
+  <div class="container">
+    <div class="hero-layout">
+
+      <!-- Left: Product copy -->
+      <div class="hero-copy">
+
+        <!-- Version badge -->
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Version 2.4 is out — <a href="#whats-new" class="badge-link">See what's new</a></span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-title">
+          The documentation platform built for
+          <span class="gradient-text">modern teams.</span>
+        </h1>
+
+        <!-- Product description -->
+        <p class="hero-subtitle">
+          LaunchPad gives your team a single place to write, organize, and ship beautiful documentation — with powerful search, versioning, and integrations built in.
+        </p>
+
+        <!-- Key capabilities (short list) -->
+        <ul class="hero-features-list">
+          <li>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Write in Markdown, publish anywhere
+          </li>
+          <li>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Instant full-text search across all pages
+          </li>
+          <li>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Version your docs alongside your code
+          </li>
+          <li>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Deploy in seconds with one command
+          </li>
+        </ul>
+
+        <!-- CTA buttons -->
+        <div class="hero-actions">
+          {% set first_doc = None %}
+          {% for nav_item in nav %}
+            {% if nav_item.children %}
+              {% for child in nav_item.children %}
+                {% if child.url and not first_doc %}
+                  {% set first_doc = child.url %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+          <a href="getting-started/quickstart/" class="btn-primary btn-lg">
+            Get Started
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="guides/api-reference/" class="btn-ghost btn-lg">
+            Explore the API
+          </a>
+        </div>
+
+      </div><!-- /hero-copy -->
+
+      <!-- Right: Visual placeholder -->
+      <div class="hero-visual-placeholder">
+        <div class="visual-placeholder-inner">
+          <div class="visual-placeholder-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <p class="visual-placeholder-label">Your product screenshot or demo video</p>
+          <p class="visual-placeholder-hint">Replace this block in <code>home.html</code> with an <code>&lt;img&gt;</code> or <code>&lt;video&gt;</code></p>
+        </div>
+        <!-- Decorative corner accents -->
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+      </div><!-- /hero-visual-placeholder -->
+
+    </div><!-- /hero-layout -->
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT'S NEW SECTION
+============================================================ -->
+<section class="whats-new-section" id="whats-new">
+  <div class="container">
+
+    <div class="whats-new-header">
+      <div class="section-badge">What's New</div>
+      <h2 class="section-title">Latest updates &amp; releases</h2>
+      <p class="section-subtitle">Stay up to date with the latest features, improvements, and fixes shipped to LaunchPad.</p>
+    </div>
+
+    <div class="whats-new-grid">
+
+      <!-- Entry 1 — Major release -->
+      <div class="release-card release-card-featured">
+        <div class="release-meta">
+          <span class="release-tag release-tag-major">v2.4 — Major</span>
+          <span class="release-date">Mar 1, 2026</span>
+        </div>
+        <h3 class="release-title">AI-powered search &amp; smart suggestions</h3>
+        <p class="release-desc">
+          Search now understands natural language queries and surfaces the most relevant pages, headings, and code snippets — even when the exact wording doesn't match.
+        </p>
+        <ul class="release-changes">
+          <li>Semantic search across all documentation pages</li>
+          <li>Inline code snippet previews in search results</li>
+          <li>"Did you mean?" suggestions for typos</li>
+          <li>Keyboard-first navigation in the search modal</li>
+        </ul>
+        <a href="getting-started/quickstart/" class="release-link">
+          Read the release notes
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="release-card">
+        <div class="release-meta">
+          <span class="release-tag release-tag-minor">v2.3 — Feature</span>
+          <span class="release-date">Feb 10, 2026</span>
+        </div>
+        <h3 class="release-title">Multi-version documentation</h3>
+        <p class="release-desc">
+          Publish and maintain multiple versions of your docs side by side. Users can switch between versions with a single click from any page.
+        </p>
+        <a href="getting-started/configuration/" class="release-link">
+          Configuration guide
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Entry 3 -->
+      <div class="release-card">
+        <div class="release-meta">
+          <span class="release-tag release-tag-minor">v2.2 — Feature</span>
+          <span class="release-date">Jan 20, 2026</span>
+        </div>
+        <h3 class="release-title">GitHub &amp; GitLab sync</h3>
+        <p class="release-desc">
+          Connect your repository and let LaunchPad automatically rebuild and redeploy your docs on every push to <code>main</code>.
+        </p>
+        <a href="guides/deployment/" class="release-link">
+          Deployment guide
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Entry 4 -->
+      <div class="release-card">
+        <div class="release-meta">
+          <span class="release-tag release-tag-patch">v2.1 — Improvement</span>
+          <span class="release-date">Jan 5, 2026</span>
+        </div>
+        <h3 class="release-title">Faster builds &amp; cold starts</h3>
+        <p class="release-desc">
+          Build times reduced by 60% through incremental compilation. Pages now load in under 200ms on the global edge network.
+        </p>
+        <a href="guides/deployment/" class="release-link">
+          Performance docs
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div><!-- /whats-new-grid -->
+
+    <div class="whats-new-footer">
+      <a href="#" class="btn-outline">
+        View full changelog
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     QUICK LINKS / EXPLORE THE DOCS
+============================================================ -->
+<section class="explore-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Explore the documentation</h2>
+      <p class="section-subtitle">Everything you need to get up and running.</p>
+    </div>
+
+    <div class="explore-grid">
+
+      <a href="getting-started/quickstart/" class="explore-card">
+        <div class="explore-icon explore-icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">Quick Start</h3>
+          <p class="explore-desc">Up and running in under 5 minutes.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="getting-started/installation/" class="explore-card">
+        <div class="explore-icon explore-icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">Installation</h3>
+          <p class="explore-desc">System requirements and setup options.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="getting-started/configuration/" class="explore-card">
+        <div class="explore-icon explore-icon-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">Configuration</h3>
+          <p class="explore-desc">Customize every aspect of your project.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="guides/authentication/" class="explore-card">
+        <div class="explore-icon explore-icon-orange">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">Authentication</h3>
+          <p class="explore-desc">JWT, OAuth 2.0, and API key guides.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="guides/deployment/" class="explore-card">
+        <div class="explore-icon explore-icon-pink">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/>
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">Deployment</h3>
+          <p class="explore-desc">CI/CD, rollbacks, and zero-downtime deploys.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="guides/api-reference/" class="explore-card">
+        <div class="explore-icon explore-icon-indigo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="explore-body">
+          <h3 class="explore-title">API Reference</h3>
+          <p class="explore-desc">Full REST API documentation and examples.</p>
+        </div>
+        <svg class="explore-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Page content (if any markdown content exists on the home page) -->
+{% if page.content %}
+<section class="home-content">
+  <div class="container">
+    <div class="md-content">{{ page.content }}</div>
+   </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block annotation_scripts %}{% endblock %}
