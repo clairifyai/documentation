@@ -17,7 +17,9 @@ nav:
     - Security: security.md
     - PII: pii-policy.md
     - OAuth: oauth-scopes.md
-  - Latest Release: release-notes/rn-200.md
+  - Release Notes:
+    - Version 3.0.0: release-notes/rn-300.md
+    - Version 2.0.0: release-notes/rn-200.md
   - Troubleshooting: troubleshooting.md
 theme:
   name: material
