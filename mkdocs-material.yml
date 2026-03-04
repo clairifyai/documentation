@@ -1,0 +1,6 @@
+INHERIT: mkdocs-base.yml
+
+theme:
+  name: material
+  features:
+    - content.tooltips
