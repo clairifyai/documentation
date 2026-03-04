@@ -22,9 +22,8 @@ nav:
     - Version 2.0.0: release-notes/rn-200.md
   - Troubleshooting: troubleshooting.md
 theme:
-  name: material
-  features:
-    - content.tooltips                 # Style over the browser default tooltip
+  name: null
+  custom_dir: saas_theme/
 extra_css:
   - assets/feature-matrix.css
 extra_javascript:

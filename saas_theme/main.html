@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block body_class %}page docs-page{% endblock %}
+
+{% block content %}
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation navigation">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">Documentation</span>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation tree -->
+      <nav class="sidebar-nav" aria-label="Site navigation">
+        {% if nav %}
+          {% for nav_item in nav %}
+            {% if nav_item.children %}
+              <div class="nav-section">
+                <div class="nav-section-title">{{ nav_item.title }}</div>
+                <ul class="nav-list">
+                  {% for child in nav_item.children %}
+                    {% if child.children %}
+                      <li class="nav-item has-children {% if child.active %}active{% endif %}">
+                        <div class="nav-group-label">{{ child.title }}</div>
+                        <ul class="nav-sublist">
+                          {% for subchild in child.children %}
+                            <li class="nav-item {% if subchild.active %}active{% endif %}">
+                              <a href="{{ subchild.url | url }}" class="nav-link {% if subchild.active %}current{% endif %}">{{ subchild.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                    {% else %}
+                      <li class="nav-item {% if child.active %}active{% endif %}">
+                        <a href="{{ child.url | url }}" class="nav-link {% if child.active %}current{% endif %}">{{ child.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% else %}
+              <ul class="nav-list">
+                <li class="nav-item {% if nav_item.active %}active{% endif %}">
+                  <a href="{{ nav_item.url | url }}" class="nav-link {% if nav_item.active %}current{% endif %}">{{ nav_item.title }}</a>
+                </li>
+              </ul>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <main class="docs-main" id="main-content">
+    <div class="docs-content">
+
+      <!-- Breadcrumbs -->
+      {% if page and page.parent %}
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="{{ nav.homepage.url | url }}">Home</a></li>
+          {% if page.parent %}
+          <li><span>{{ page.parent.title }}</span></li>
+          {% endif %}
+          <li aria-current="page">{{ page.title }}</li>
+        </ol>
+      </nav>
+      {% endif %}
+
+      <!-- Article -->
+      <article class="docs-article">
+        {% if page and page.title %}
+        <header class="article-header">
+          <h1 class="article-title">{{ page.title }}</h1>
+          {% if page.meta and page.meta.description %}
+          <p class="article-description">{{ page.meta.description }}</p>
+          {% endif %}
+        </header>
+        {% endif %}
+
+        <div class="article-body md-content">
+          {{ page.content }}
+        </div>
+
+        <!-- Prev / Next navigation -->
+        {% if page.previous_page or page.next_page %}
+        <nav class="page-nav" aria-label="Page navigation">
+          {% if page.previous_page %}
+          <a href="{{ page.previous_page.url | url }}" class="page-nav-link page-nav-prev">
+            <span class="page-nav-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              Previous
+            </span>
+            <span class="page-nav-title">{{ page.previous_page.title }}</span>
+          </a>
+          {% else %}
+          <div></div>
+          {% endif %}
+
+          {% if page.next_page %}
+          <a href="{{ page.next_page.url | url }}" class="page-nav-link page-nav-next">
+            <span class="page-nav-label">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span class="page-nav-title">{{ page.next_page.title }}</span>
+          </a>
+          {% endif %}
+        </nav>
+        {% endif %}
+      </article>
+    </div>
+  </main>
+
+  <!-- Table of Contents -->
+  {% if page and page.toc %}
+  <aside class="docs-toc" aria-label="Table of contents">
+    <div class="toc-inner">
+      <div class="toc-label">On this page</div>
+      <nav class="toc-nav">
+        <ul class="toc-list">
+          {% for toc_item in page.toc %}
+          <li class="toc-item">
+            <a href="{{ toc_item.url }}" class="toc-link">{{ toc_item.title }}</a>
+            {% if toc_item.children %}
+            <ul class="toc-sublist">
+              {% for child in toc_item.children %}
+              <li class="toc-item">
+                <a href="{{ child.url }}" class="toc-link toc-link-sub">{{ child.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  {% endif %}
+
+</div>
+{% endblock %}

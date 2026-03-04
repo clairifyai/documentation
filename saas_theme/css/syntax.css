@@ -1,0 +1,101 @@
+/* ============================================================
+   SAAS THEME — Syntax Highlighting (Pygments-compatible)
+   ============================================================ */
+
+/* Base code block */
+.highlight {
+  position: relative;
+  margin: 1.5em 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-code-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 1.25em 1.5em;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Copy button on code blocks */
+.highlight::before {
+  content: '';
+}
+
+/* Pygments token classes */
+.highlight .hll  { background-color: #2d3748; }
+.highlight .c    { color: #718096; font-style: italic; }   /* Comment */
+.highlight .err  { color: #fc8181; }                        /* Error */
+.highlight .k    { color: #a78bfa; font-weight: 600; }      /* Keyword */
+.highlight .l    { color: #68d391; }                        /* Literal */
+.highlight .n    { color: #e2e8f0; }                        /* Name */
+.highlight .o    { color: #f472b6; }                        /* Operator */
+.highlight .p    { color: #e2e8f0; }                        /* Punctuation */
+.highlight .cm   { color: #718096; font-style: italic; }   /* Comment.Multiline */
+.highlight .cp   { color: #718096; }                        /* Comment.Preproc */
+.highlight .c1   { color: #718096; font-style: italic; }   /* Comment.Single */
+.highlight .cs   { color: #718096; font-style: italic; }   /* Comment.Special */
+.highlight .gd   { color: #fc8181; }                        /* Generic.Deleted */
+.highlight .ge   { font-style: italic; }                    /* Generic.Emph */
+.highlight .gh   { color: #a78bfa; font-weight: bold; }     /* Generic.Heading */
+.highlight .gi   { color: #68d391; }                        /* Generic.Inserted */
+.highlight .gp   { color: #6366f1; }                        /* Generic.Prompt */
+.highlight .gs   { font-weight: bold; }                     /* Generic.Strong */
+.highlight .gu   { color: #a78bfa; }                        /* Generic.Subheading */
+.highlight .kc   { color: #a78bfa; font-weight: 600; }      /* Keyword.Constant */
+.highlight .kd   { color: #a78bfa; font-weight: 600; }      /* Keyword.Declaration */
+.highlight .kn   { color: #f472b6; font-weight: 600; }      /* Keyword.Namespace */
+.highlight .kp   { color: #a78bfa; }                        /* Keyword.Pseudo */
+.highlight .kr   { color: #a78bfa; font-weight: 600; }      /* Keyword.Reserved */
+.highlight .kt   { color: #67e8f9; }                        /* Keyword.Type */
+.highlight .ld   { color: #68d391; }                        /* Literal.Date */
+.highlight .m    { color: #fbbf24; }                        /* Literal.Number */
+.highlight .s    { color: #68d391; }                        /* Literal.String */
+.highlight .na   { color: #67e8f9; }                        /* Name.Attribute */
+.highlight .nb   { color: #67e8f9; }                        /* Name.Builtin */
+.highlight .nc   { color: #fbbf24; font-weight: 600; }      /* Name.Class */
+.highlight .no   { color: #fbbf24; }                        /* Name.Constant */
+.highlight .nd   { color: #f472b6; }                        /* Name.Decorator */
+.highlight .ni   { color: #e2e8f0; }                        /* Name.Entity */
+.highlight .ne   { color: #fc8181; font-weight: 600; }      /* Name.Exception */
+.highlight .nf   { color: #93c5fd; }                        /* Name.Function */
+.highlight .nl   { color: #e2e8f0; }                        /* Name.Label */
+.highlight .nn   { color: #fbbf24; }                        /* Name.Namespace */
+.highlight .nx   { color: #93c5fd; }                        /* Name.Other */
+.highlight .py   { color: #e2e8f0; }                        /* Name.Property */
+.highlight .nt   { color: #f472b6; }                        /* Name.Tag */
+.highlight .nv   { color: #e2e8f0; }                        /* Name.Variable */
+.highlight .ow   { color: #f472b6; font-weight: 600; }      /* Operator.Word */
+.highlight .w    { color: #e2e8f0; }                        /* Text.Whitespace */
+.highlight .mf   { color: #fbbf24; }                        /* Literal.Number.Float */
+.highlight .mh   { color: #fbbf24; }                        /* Literal.Number.Hex */
+.highlight .mi   { color: #fbbf24; }                        /* Literal.Number.Integer */
+.highlight .mo   { color: #fbbf24; }                        /* Literal.Number.Oct */
+.highlight .sb   { color: #68d391; }                        /* Literal.String.Backtick */
+.highlight .sc   { color: #68d391; }                        /* Literal.String.Char */
+.highlight .sd   { color: #68d391; font-style: italic; }   /* Literal.String.Doc */
+.highlight .s2   { color: #68d391; }                        /* Literal.String.Double */
+.highlight .se   { color: #fbbf24; }                        /* Literal.String.Escape */
+.highlight .sh   { color: #68d391; }                        /* Literal.String.Heredoc */
+.highlight .si   { color: #fbbf24; }                        /* Literal.String.Interpol */
+.highlight .sx   { color: #68d391; }                        /* Literal.String.Other */
+.highlight .sr   { color: #67e8f9; }                        /* Literal.String.Regex */
+.highlight .s1   { color: #68d391; }                        /* Literal.String.Single */
+.highlight .ss   { color: #68d391; }                        /* Literal.String.Symbol */
+.highlight .bp   { color: #67e8f9; }                        /* Name.Builtin.Pseudo */
+.highlight .vc   { color: #e2e8f0; }                        /* Name.Variable.Class */
+.highlight .vg   { color: #e2e8f0; }                        /* Name.Variable.Global */
+.highlight .vi   { color: #e2e8f0; }                        /* Name.Variable.Instance */
+.highlight .il   { color: #fbbf24; }                        /* Literal.Number.Integer.Long */
+
+/* Line numbers */
+.highlight .ln { color: #4a5568; user-select: none; margin-right: 1em; }
+.linenodiv pre { color: #4a5568; }
