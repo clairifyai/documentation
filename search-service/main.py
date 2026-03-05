@@ -92,12 +92,21 @@ class SearchResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 
+def _strip_heading(text: str) -> str:
+    lines = text.split("\n")
+    if lines and lines[0].startswith("#"):
+        lines = lines[1:]
+    return "\n".join(lines).strip()
+
+
 def _file_name_to_url(file_name: str) -> str:
     """Convert a docs-relative file path to a site URL slug.
 
     e.g. "docs/getting-started/overview.md" → "/getting-started/overview/"
     """
     path = re.sub(r"^.*?docs/", "", file_name)  # strip prefix up to docs/
+    if path == "index.md":
+        return "/"  # handled separately — title set to "Home" in _page_title
     path = re.sub(r"\.md$", "/", path)
     if not path.startswith("/"):
         path = "/" + path
@@ -106,10 +115,20 @@ def _file_name_to_url(file_name: str) -> str:
 
 def _page_title(node: Any) -> str:
     meta = node.metadata or {}
-    # LlamaIndex may store title in metadata or we derive from file name
-    if "file_name" in meta:
-        name = meta["file_name"].rsplit("/", 1)[-1]
+    nested = meta.get("metadata")
+    if isinstance(nested, dict):
+        meta = nested
+    elif isinstance(nested, str):
+        import ast
+        try:
+            meta = ast.literal_eval(nested)
+        except (ValueError, SyntaxError):
+            pass
+    if "file_name" in meta or "file_path" in meta:
+        name = meta.get("file_name", meta.get("file_path", "")).rsplit("/", 1)[-1]
         name = re.sub(r"\.md$", "", name)
+        if name == "index":
+            return "Home"
         name = name.replace("-", " ").replace("_", " ").title()
         return name
     return "Documentation"
@@ -154,6 +173,16 @@ async def search(body: SearchRequest) -> SearchResponse:
     sources: list[Source] = []
     for n in nodes:
         meta = n.node.metadata or {}
+        # Newer llama-index-vector-stores-qdrant nests metadata under a "metadata" key
+        nested = meta.get("metadata")
+        if isinstance(nested, dict):
+            meta = nested
+        elif isinstance(nested, str):
+            import ast
+            try:
+                meta = ast.literal_eval(nested)
+            except (ValueError, SyntaxError):
+                pass
         file_name = meta.get("file_path", meta.get("file_name", ""))
         url = _file_name_to_url(file_name) if file_name else "#"
         if url in seen_urls:
@@ -163,7 +192,7 @@ async def search(body: SearchRequest) -> SearchResponse:
             Source(
                 title=_page_title(n.node),
                 url=url,
-                excerpt=n.node.get_content()[:200].strip() + "…",
+                excerpt=_strip_heading(n.node.get_content())[:200].strip() + "…",
             )
         )
 
