@@ -30,6 +30,9 @@
   <!-- Annotation system CSS -->
   <link rel="stylesheet" href="../css/annotations.css">
 
+  <!-- AI Search CSS -->
+  <link rel="stylesheet" href="../css/search.css">
+
   <!-- Extra CSS from mkdocs.yml -->
   <link rel="stylesheet" href="../assets/feature-matrix.css">
 
@@ -74,6 +77,13 @@
 
       <!-- Right side actions -->
       <div class="nav-actions">
+        <!-- AI Search button -->
+        <button class="nav-btn-ghost" id="search-btn" aria-label="Search docs (⌘K)" title="Search docs (⌘K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
         <!-- Theme toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -678,6 +688,9 @@
     <script src="../assets/feat-tip.js"></script>
 
   
+
+  <!-- AI Search -->
+  <script src="../js/search.js"></script>
 
   <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
   
