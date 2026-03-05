@@ -1,2 +1,6 @@
 /site
 .DS_Store
+search-service/.env
+search-service/__pycache__/
+__pycache__/
+*.pyc
