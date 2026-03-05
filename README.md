@@ -96,6 +96,8 @@ The search service is containerised and deployed to **Cloudflare Containers**, w
 
 The frontend automatically points to the correct backend — `localhost:8082` during local development and the Cloudflare URL in production — so no manual URL changes are needed.
 
+**Note:** The container cold starts on the first request after a period of inactivity (set to 2 minutes). Cold starts can take 10–20 seconds as the container boots, Python/uvicorn starts, and LlamaIndex initialises the Qdrant connection. Subsequent requests will be fast.
+
 The static site makes HTTP requests to whatever `API` points to — the two remain fully decoupled.
 
 ## Committing changes
