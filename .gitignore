@@ -2,5 +2,6 @@
 .DS_Store
 search-service/.env
 search-service/__pycache__/
+search-service/node_modules/
 __pycache__/
 *.pyc

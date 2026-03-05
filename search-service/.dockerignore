@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+index.py
+.git
+node_modules/
+package.json
+package-lock.json
