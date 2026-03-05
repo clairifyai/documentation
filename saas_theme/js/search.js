@@ -61,6 +61,8 @@
     var overlay = document.getElementById('search-overlay');
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
+    document.getElementById('search-input').value = '';
+    setBody('<p class="search-hint">Type a question and press <strong>Enter</strong></p>');
   }
 
   // -------------------------------------------------------------------------
