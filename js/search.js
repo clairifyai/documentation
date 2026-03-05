@@ -1,7 +1,9 @@
 (function () {
   'use strict';
 
-  const API = 'http://localhost:8082';
+  const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8082'
+    : 'https://clairify-search.mehul-26a.workers.dev';
 
   // -------------------------------------------------------------------------
   // Build modal HTML and inject into <body>
