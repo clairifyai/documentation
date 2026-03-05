@@ -1,0 +1,15 @@
+{
+  "name": "search-service",
+  "version": "1.0.0",
+  "description": "FastAPI backend that powers the AI search widget on [docs.clairify.ai](https://docs.clairify.ai). Accepts a natural-language query, retrieves relevant documentation chunks from Qdrant, and synthesises an answer using Claude.",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudflare/containers": "^0.1.1"
+  }
+}
