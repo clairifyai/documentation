@@ -38,6 +38,9 @@
   <!-- Annotation system CSS -->
   <link rel="stylesheet" href="{{ 'css/annotations.css' | url }}">
 
+  <!-- AI Search CSS -->
+  <link rel="stylesheet" href="{{ 'css/search.css' | url }}">
+
   <!-- Extra CSS from mkdocs.yml -->
   {%- for path in config.extra_css %}
   <link rel="stylesheet" href="{{ path | url }}">
@@ -74,6 +77,9 @@
   {%- endfor %}
 
   {% block extra_scripts %}{% endblock %}
+
+  <!-- AI Search -->
+  <script src="{{ 'js/search.js' | url }}"></script>
 
   <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
   {% block annotation_scripts %}
