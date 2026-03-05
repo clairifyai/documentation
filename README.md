@@ -63,6 +63,18 @@ The frontend (`saas_theme/js/search.js`) points to `http://localhost:8082` by de
 
 Run `python search-service/index.py` any time doc content changes to keep the vector index in sync.
 
+### Production deployment
+
+`mkdocs gh-deploy` only builds and deploys the static site (HTML/CSS/JS) — it has no knowledge of `.env` secrets. The secrets are only needed by the search service (`uvicorn main:app --port 8082`), which is a separate backend that runs independently of the static site.
+
+For production:
+
+1. Host the search service separately (e.g. Railway, Render, Fly.io) with the `.env` vars set as environment variables on that platform
+2. Update `const API` at the top of `saas_theme/js/search.js` from `http://localhost:8082` to your production URL (e.g. `https://search.clairify.ai`)
+3. Deploy the docs as normal with `mkdocs gh-deploy`
+
+The static site makes HTTP requests to whatever `API` points to — the two are fully decoupled.
+
 ## Committing changes
 
 The git commit history is displayed publicly on the homepage as documentation release notes. **Commit each changed file separately** with a descriptive message — these messages are user-facing.
