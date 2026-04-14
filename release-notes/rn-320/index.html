@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Version 3.0.1 — Everything You Need to Know About Clairify</title>
+  <title>Version 3.2.0 — Everything You Need to Know About Clairify</title>
 
   
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Version 3.0.1 — Everything You Need to Know About Clairify">
+  <meta property="og:title" content="Version 3.2.0 — Everything You Need to Know About Clairify">
   
   <meta property="og:type" content="website">
 
@@ -276,7 +276,13 @@
                   
                     
                       <li class="nav-item active">
-                        <a href="./" class="nav-link current">Version 3.0.1</a>
+                        <a href="./" class="nav-link current">Version 3.2.0</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../rn-310/" class="nav-link ">Version 3.1.0</a>
                       </li>
                     
                   
@@ -324,7 +330,7 @@
           
           <li><span>Release Notes</span></li>
           
-          <li aria-current="page">Version 3.0.1</li>
+          <li aria-current="page">Version 3.2.0</li>
         </ol>
       </nav>
       
@@ -332,18 +338,23 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h3 id="new-look-same-spirit">New Look, Same Spirit</h3>
-<p>Clairify has a fresh new logo, wordmark, and color palette. Our iconic octopus is still here — now reimagined as a sleek swirl of tentacles with a more modern, professional feel.</p>
-<h3 id="faster-load-times">Faster Load Times</h3>
-<p>We've made backend optimizations that reduce CPU usage associated with inactive users, which means snappier performance for everyone.</p>
-<h3 id="privacy-policy-tracking">Privacy Policy Tracking</h3>
-<p>We now record the date and time you accept our privacy policy to support our compliance requirements.</p>
-<h3 id="subscription-status-in-your-profile">Subscription Status in Your Profile</h3>
-<p>Your current plan status is now visible in the Profile section: Trial, Active, Past Due, Cancelled, or Expired.</p>
+          <h3 id="gmail-unsubscribe">Gmail Unsubscribe</h3>
+<p>You can now unsubscribe from mailing lists directly from Clairify. When a sender supports one-click unsubscribe, we'll surface the option so you can get off their list without ever leaving the app.</p>
+<h3 id="account-visibility">Account Visibility</h3>
+<p>The profile icon in the upper right corner now reflects the active inbox. Previously it always showed the primary account — now it updates as you switch between accounts.</p>
+<h3 id="upgrade-prompt-at-inbox-limit">Upgrade Prompt at Inbox Limit</h3>
+<p>When you've reached the maximum number of secondary inboxes on your plan, the Add Email Account card now shows an upgrade prompt so you can easily expand.</p>
+<h3 id="onboarding-actions">Onboarding Actions</h3>
+<p>Onboarding cards now support all four swipe gestures, matching the behavior of the Instack.</p>
+<h3 id="subscription-expiry-experience">Subscription Expiry Experience</h3>
+<p>When your subscription expires, the app now clearly communicates which features are unavailable and prompts you to renew — rather than showing empty or broken UI.</p>
 <h3 id="bug-fixes">Bug Fixes</h3>
 <ul>
-<li><strong>Fixed:</strong> Cancelling your subscription no longer incorrectly downgrades your account to the free tier.</li>
-<li><strong>Fixed:</strong> The email lookup tool shown on first login was not reliably completing in all cases. The tool remains available but has been moved out of the primary login flow.</li>
+<li><strong>Fixed:</strong> The "Sign in successful" toast has been removed — it wasn't providing useful information and made the app feel slower than it is.</li>
+<li><strong>Fixed:</strong> The three-dot menu no longer appears on the original email view where it doesn't belong.</li>
+<li><strong>Fixed:</strong> Microsoft login now works correctly, along with a text overflow fix on the login screen.</li>
+<li><strong>Fixed:</strong> Re-entering an email after an unsupported lookup now correctly shows the action button again.</li>
+<li><strong>Fixed:</strong> The Microsoft label on the Add Account pop-up now says Outlook instead of Azure.</li>
 </ul>
         </div>
 
@@ -361,12 +372,12 @@
           
 
           
-          <a href="../rn-300/" class="page-nav-link page-nav-next">
+          <a href="../rn-310/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Version 3.0.0</span>
+            <span class="page-nav-title">Version 3.1.0</span>
           </a>
           
         </nav>
@@ -384,22 +395,27 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#new-look-same-spirit" class="toc-link">New Look, Same Spirit</a>
+            <a href="#gmail-unsubscribe" class="toc-link">Gmail Unsubscribe</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#faster-load-times" class="toc-link">Faster Load Times</a>
+            <a href="#account-visibility" class="toc-link">Account Visibility</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#privacy-policy-tracking" class="toc-link">Privacy Policy Tracking</a>
+            <a href="#upgrade-prompt-at-inbox-limit" class="toc-link">Upgrade Prompt at Inbox Limit</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#subscription-status-in-your-profile" class="toc-link">Subscription Status in Your Profile</a>
+            <a href="#onboarding-actions" class="toc-link">Onboarding Actions</a>
+            
+          </li>
+          
+          <li class="toc-item">
+            <a href="#subscription-expiry-experience" class="toc-link">Subscription Expiry Experience</a>
             
           </li>
           
@@ -531,7 +547,9 @@
             <div class="footer-nav-heading">Release Notes</div>
             <ul class="footer-nav-list">
               
-              <li><a href="./" class="footer-nav-link">Version 3.0.1</a></li>
+              <li><a href="./" class="footer-nav-link">Version 3.2.0</a></li>
+              
+              <li><a href="../rn-310/" class="footer-nav-link">Version 3.1.0</a></li>
               
               <li><a href="../rn-300/" class="footer-nav-link">Version 3.0.0</a></li>
               
