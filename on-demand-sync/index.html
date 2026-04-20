@@ -338,13 +338,25 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h1 id="on-demand-inbox-sync">On-demand Inbox Sync</h1>
-<p>There are two cases when you might experience a data gap in your Clairify experience: </p>
-<ol>
-<li>If you log out, Clairify is no longer authorized to fetch emails.</li>
-<li>If the service is down, you will similarly experience a gap. </li>
-</ol>
-<p>To ensure that you have continuity in your experience, each inbox can be manually synced.</p>
+          <h1 id="inbox-sync">Inbox Sync</h1>
+<p>Clairify keeps your inbox data up to date through three sync mechanisms.</p>
+<h2 id="what-sync-does">What sync does</h2>
+<p>A sync job fetches emails from your connected inboxes and updates the Clairify database:</p>
+<ul>
+<li>Syncs <strong>read and unread</strong> labels to match your email client</li>
+<li>Syncs <strong>deleted status</strong> — if an email is deleted in your email client, it is removed from Clairify</li>
+</ul>
+<h2 id="on-demand-sync">On-demand sync</h2>
+<p>Manually trigger a sync for any connected inbox. Fetches the last 3 days of email.</p>
+<p>Use this to restore continuity if:</p>
+<ul>
+<li>You logged out (Clairify loses authorization to fetch emails while logged out)</li>
+<li>The service experienced downtime</li>
+</ul>
+<h2 id="nightly-sync">Nightly sync</h2>
+<p>The same sync job runs automatically every night at midnight UTC, covering the last 3 days of email.</p>
+<h2 id="initial-sync">Initial sync</h2>
+<p>When you create your account or connect an additional inbox, Clairify ingests 7 days of email.</p>
         </div>
 
         <!-- Prev / Next navigation -->
@@ -384,7 +396,27 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#on-demand-inbox-sync" class="toc-link">On-demand Inbox Sync</a>
+            <a href="#inbox-sync" class="toc-link">Inbox Sync</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#what-sync-does" class="toc-link toc-link-sub">What sync does</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#on-demand-sync" class="toc-link toc-link-sub">On-demand sync</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#nightly-sync" class="toc-link toc-link-sub">Nightly sync</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#initial-sync" class="toc-link toc-link-sub">Initial sync</a>
+              </li>
+              
+            </ul>
             
           </li>
           
