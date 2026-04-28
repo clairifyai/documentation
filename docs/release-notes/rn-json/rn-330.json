@@ -1,0 +1,40 @@
+{
+  "version": "3.3.0",
+  "release_notes": [
+    {
+      "type": "feature",
+      "title": "Premium Feature Indicators",
+      "description": "Premium features like on-demand sync now display a crown icon on the Account Selection page. When users tap a locked feature, they're guided into the upgrade flow."
+    },
+    {
+      "type": "feature",
+      "title": "Account Connection Controls",
+      "description": "Account connection controls were present in the Settings Panel and on the Home page. Now they are on the Home page only. Long press an account to reveal the controls."
+    },
+    {
+      "type": "feature",
+      "title": "Trial & Subscription Clarity",
+      "description": "Users were confused about \"30 days free\" versus the \"7-day premium trial.\" The trial mechanics and messaging have been updated: All users are on the free tier by default, and can opt-in to a 7-day premium trial. After the premium trial expires, the users are downgraded back to the free tier."
+    },
+    {
+      "type": "feature",
+      "title": "Renamed \"Refresh Account\" to \"Sync Inbox\"",
+      "description": "The button formerly labeled \"Refresh Account\" is now called \"Sync Inbox\" to make the action clearer."
+    },
+    {
+      "type": "feature",
+      "title": "GDPR Data Purge",
+      "description": "After account deletion, retained email addresses are now automatically purged after 12 months to comply with Microsoft and GDPR data retention requirements."
+    },
+    {
+      "type": "feature",
+      "title": "Mailroom Filters",
+      "description": "In the Mailroom, the Magic Button now highlights the currently active filter."
+    },
+    {
+      "type": "feature",
+      "title": "Manage Subscription",
+      "description": "On the Profile page, the \"Manage Subscription\" button now has additional states for \"Upgrade to Premium\" and \"Start Free Trial.\""
+    }
+  ]
+}
