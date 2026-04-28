@@ -1,17 +1,70 @@
 ---
 name: new-release
 description: Creates release notes for a new version of Clairify
-disable-model-invocation: true
 ---
 
 The user wants to create release notes for a new version. The version number is: $ARGUMENTS
 
-Follow these steps:
+Follow these steps ONE AT A TIME. STOP and wait for the user's reply at each checkpoint before proceeding.
 
-1. Ask the user to paste in the release note content.
-2. Create a new branch named `release-notes/$ARGUMENTS`.
-3. Create a new file at `docs/release-notes/rn-$ARGUMENTS.md` (remove dots from the version number, e.g. 4.0.0 → rn-400.md) using the content provided, formatted to match the style of `docs/release-notes/rn-300.md`.
-4. Update `mkdocs-base.yml` to add the new release notes file at the top of the "Release Notes" nav section.
-5. Stage both files with `git add` so the `git-revision-date-localized` plugin can read them (it requires files to be tracked by git, otherwise the build will fail).
-6. Restart the local dev server so the nav changes are picked up (config changes are not hot-reloaded): kill any process on port 8000, then run `conda run --no-capture-output -n docs mkdocs serve` in the background. Wait for the "Serving on http://127.0.0.1:8000" line before proceeding.
-7. Tell the user the site is ready to preview and ask if they'd like to make any changes.
+**STEP 1 — Version number:**
+If `$ARGUMENTS` is empty, ask the user: "What version number is this release?" STOP and wait.
+
+**STEP 2 — Create branch:**
+Create a new branch from main:
+```bash
+git checkout main && git pull && git checkout -b release-notes/$VERSION
+```
+All subsequent work must happen on this branch — never commit release notes directly to main.
+
+**STEP 3 — List Trello boards:**
+Fetch boards from the Clairify workspace:
+```bash
+curl -s "https://api.trello.com/1/members/me/boards?fields=name,id&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+```
+Display as a numbered list. Ask: "Which board would you like to use?"
+STOP. Wait for the user to reply.
+
+**STEP 4 — List columns:**
+Fetch columns from the selected board:
+```bash
+curl -s "https://api.trello.com/1/boards/{boardId}/lists?fields=name,id&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+```
+Display as a numbered list. Ask: "Which column would you like to pull cards from?"
+STOP. Wait for the user to reply.
+
+**STEP 5 — Fetch cards and create release notes:**
+Fetch cards from the selected column:
+```bash
+curl -s "https://api.trello.com/1/lists/{listId}/cards?fields=name,desc,url,labels&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+```
+Present the cards as a numbered list showing card name, description, and labels. Then:
+
+a. Create `docs/release-notes/rn-$VERSION.md` (remove dots from version, e.g. 4.0.0 → rn-400.md) using the Trello cards as content, formatted to match the style of existing release notes in `docs/release-notes/rn-320.md`.
+b. Update `mkdocs-base.yml` to add the new version at the top of the "Release Notes" nav section.
+c. Stage both files with `git add` so the `git-revision-date-localized` plugin can read them.
+
+**STEP 6 — Local preview:**
+Restart the local dev server so nav changes are picked up (config changes are not hot-reloaded): kill any process on port 8000, then run `conda run --no-capture-output -n docs mkdocs serve` in the background. Wait for the "Serving on http://127.0.0.1:8000" line before proceeding.
+
+Tell the user the site is ready to preview and ask if they'd like to make any changes. STOP. Wait for the user to confirm they are satisfied.
+
+**STEP 7 — Generate JSON:**
+Create `docs/release-notes/rn-json/rn-$VERSION.json` (remove dots from version, e.g. 4.0.0 → rn-400.json). Create the `rn-json` directory if it doesn't exist. Use the following schema:
+```json
+{
+  "version": "x.x.x",
+  "release_notes": [
+    {
+      "type": "feature | fix",
+      "title": "Section heading",
+      "description": "Section body text"
+    }
+  ]
+}
+```
+Rules for `type`: items prefaced with "Fixed" are `"fix"`, everything else is `"feature"`.
+
+**STEP 8 — Deploy:**
+Ask the user: "Ready to deploy?" STOP. Wait for confirmation.
+If yes, invoke the `/deploy-release` skill to commit, push, create a PR, merge, and deploy.

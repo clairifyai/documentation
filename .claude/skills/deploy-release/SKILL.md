@@ -16,3 +16,4 @@ The user wants to ship the current release notes. Follow these steps:
    e. Switch to main and pull the latest changes.
    f. Deploy using `conda run -n docs mkdocs gh-deploy`.
 4. Confirm to the user that the release is live at docs.clairify.ai.
+5. Ask the user: "Would you like to clean up the release branches? Run `/cleanup-release` to delete them."
