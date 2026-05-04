@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Outlook — Everything You Need to Know About Clairify</title>
+  <title>Writing Prompts — Everything You Need to Know About Clairify</title>
 
   
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Outlook — Everything You Need to Know About Clairify">
+  <meta property="og:title" content="Writing Prompts — Everything You Need to Know About Clairify">
   
   <meta property="og:type" content="website">
 
@@ -173,8 +173,8 @@
                     
                   
                     
-                      <li class="nav-item active">
-                        <a href="./" class="nav-link current">Outlook</a>
+                      <li class="nav-item ">
+                        <a href="../outlook-sso/" class="nav-link ">Outlook</a>
                       </li>
                     
                   
@@ -200,7 +200,7 @@
                     
                   
                     
-                      <li class="nav-item has-children ">
+                      <li class="nav-item has-children active">
                         <div class="nav-group-label">Summarization</div>
                         <ul class="nav-sublist">
                           
@@ -208,8 +208,8 @@
                               <a href="../summarization/" class="nav-link ">Summarization</a>
                             </li>
                           
-                            <li class="nav-item ">
-                              <a href="../writing-prompts/" class="nav-link ">Writing Prompts</a>
+                            <li class="nav-item active">
+                              <a href="./" class="nav-link current">Writing Prompts</a>
                             </li>
                           
                         </ul>
@@ -345,9 +345,9 @@
         <ol class="breadcrumb-list">
           <li><a href="..">Home</a></li>
           
-          <li><span>Getting Started</span></li>
+          <li><span>Summarization</span></li>
           
-          <li aria-current="page">Outlook</li>
+          <li aria-current="page">Writing Prompts</li>
         </ol>
       </nav>
       
@@ -355,121 +355,86 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h1 id="before-you-can-login-with-outlook">Before You Can Login With Outlook</h1>
-<p>Microsoft designed Outlook and Microsoft 365 for large companies with very strict security rules. Because of that, Microsoft doesn’t let new apps automatically connect to work email the way Gmail does. Before anyone at a company can sign in to Clairify using Outlook, someone who manages the company’s Microsoft account needs to permit Clairify. This is Microsoft’s way of making sure no app can quietly access company email without approval. This setup only needs to be done one time. After that, everyone else at the company can log in to Clairify normally using Outlook.</p>
+          <h1 id="writing-a-valid-prompt">Writing a valid prompt</h1>
+<p>We allow you to customize the summarization prompt associated to any category of message. To pass validation, your prompt must be a pure summarization instruction. Don't mix unrelated tasks like
+"tell me the current temperature in Vancouver, BC."</p>
 <div class="admonition tip">
-<p class="admonition-title">Microsoft Documentation </p>
-<p>These instructions are simplified based on the app registration procedure from the Microsoft documentation <a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#grant-tenant-wide-admin-consent-in-enterprise-apps-pane">here</a>.</p>
+<p class="admonition-title">Tip</p>
+<p>Once saved, your prompt will be used for any <em>new</em> emails pulled into Clairify. Emails that have already been pulled will use the old prompt."</p>
 </div>
-<h2 id="part-1-register-clairify-in-microsoft-entra">Part 1: Register Clairify In Microsoft Entra</h2>
-<p>Microsoft Entra is Microsoft’s control panel for companies, where they manage who can sign in, what apps are allowed, and how work email accounts are protected. In this step, we’re telling Microsoft that Clairify is a trusted app so people at your company are allowed to sign in with Outlook.</p>
-<h3 id="step-1-login-with-an-admin-email">Step 1: Login with an Admin Email</h3>
-<ol>
-<li>Install the Clairify app on an iPhone.</li>
-<li>Open Clairify.</li>
-<li>Choose <strong>Outlook</strong> as the login option.</li>
-<li>When prompted, select the an Outlook account with the <strong>Global Administrator</strong> role.<ul>
-<li>The account does <strong>not</strong> need to have a mailbox.</li>
-<li>The login may fail — that is okay.</li>
+<h2 id="how-validation-works">How validation works</h2>
+<p>The system uses a lightweight LLM-based classifier to check whether your prompt is intended for email summarization. The classifier expects a short, explicit instructions. If your prompt is found to be invalid, you will receive the message: "Prompt must be intended for email summarization."</p>
+<p>To be successful:</p>
+<ul>
+<li>Keep the request focused on summarizing provided email content only.</li>
+<li>Use plain-text formatting instructions (paragraphs or bullet lists).</li>
+<li>Do not repeat an instruction given by one of the UI controls, e.g., word limit.</li>
+<li>Avoid meta-instructions such as "ignore previous instructions" or "act as …".</li>
 </ul>
-</li>
-</ol>
-<h3 id="step-2-open-microsoft-entra-admin-center">Step 2: Open Microsoft Entra Admin Center</h3>
-<ol>
-<li>Open an <strong>incognito/private</strong> browser.</li>
-<li>Go to <a href="https://entra.microsoft.com">Microsoft Entra</a>.</li>
-<li>Sign in using the <strong>Global Administrator</strong> account.</li>
-</ol>
-<h3 id="step-3-find-the-clairify-app">Step 3: Find the Clairify App</h3>
-<ol>
-<li>In the left navigation, click <strong>Enterprise apps</strong>.</li>
-<li>In the <strong>All applications</strong> list, find <strong>Clairify</strong>.
-   - The icon is a simple <strong>“C”</strong> with a pink background.</li>
-<li>Click <strong>Clairify</strong>.</li>
-</ol>
-<p><figure id="_figure-1"><img alt="Entra Enterprise Apps" src="../assets/images/entra-enterprise-apps.png" width="60%"><figcaption>Figure 1: Entra Enterprise Apps</figcaption></figure></p>
-<h3 id="step-4-grant-required-permissions">Step 4: Grant Required Permissions</h3>
-<ol>
-<li>On the Clairify overview screen, click <strong>Permissions</strong>.</li>
-<li>Ensure the top selector is set to <strong>Admin consent</strong>.</li>
-<li>You should see a list of Microsoft Graph permissions.</li>
-<li>Click <strong>Grant admin consent for Clairifi Inc</strong>.</li>
-<li>When prompted, select the <strong>Global Administrator</strong> account.</li>
-</ol>
-<p><figure id="_figure-2"><img alt="Entra App Permssions" src="../assets/images/entra-permissions.png" width="60%"><figcaption>Figure 2: Entra App Permssions</figcaption></figure></p>
-<ol start="6">
-<li>On the permissions screen, click <strong>Accept</strong>.<ul>
-<li>Microsoft might show fewer permissions than listed in the table of Microsoft Graph permissions — this is normal.</li>
-</ul>
-</li>
-</ol>
-<p><figure id="_figure-3"><img alt="Entra App Permssions" src="../assets/images/entra-permissions-accept.png" width="30%"><figcaption>Figure 3: Entra App Permssions</figcaption></figure></p>
-<ol start="7">
-<li>You can exit Entra now.</li>
-</ol>
-<div class="admonition success">
-<p class="admonition-title">Checkpoint</p>
-<p>At this point, Clairify is authorized for your organization.</p>
-</div>
-<h2 id="part-2-login-as-a-non-admin-user">Part 2: Login as a Non-admin User</h2>
-<ol>
-<li>Login to Clairify using your personal <strong>non-admin</strong> account.</li>
-<li>You should now be able to complete the login.</li>
-</ol>
-<div class="admonition success">
-<p class="admonition-title">Checkpoint</p>
-<p>That's it! You're done.</p>
-</div>
-<h2 id="part-3-optional-require-approval-to-login-to-clairify">Part 3 (Optional): Require Approval To Login To Clairify</h2>
-<p>This part is optional. You only need it if you want to be notified when someone at your company tries to connect Clairify to their work email. When another person at your company opens Clairify and tries to sign in with Outlook, Microsoft may pause the sign-in and show an “Approval required” message.</p>
-<ol>
-<li>The user will be prompted to submit a short justification, e.g., “I need this for Clairify email summaries”.</li>
-<li>Microsoft then sends an email to the admin or designated reviewer letting them know there’s a new request.  </li>
-<li>They then open Microsoft Entra to review the request.</li>
-<li>The user will get an email saying whether the request was approved or denied.</li>
-<li>If approved, the user can return to Clairify and try signing in again.</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Microsoft Documentation </p>
-<p>These instructions are simplified based on the admin consent workflow configuration procedure from the Microsoft documentation <a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview">here</a>.</p>
-</div>
-<p>If you want to enable the workflow described above:</p>
-<ol>
-<li>In the left navigation, click <strong>Enterprise apps</strong>.</li>
-<li>Click <strong>Consent and permissions</strong>.</li>
-<li>Click <strong>Admin consent settings</strong>.</li>
-<li>Set all three options to <strong>Yes</strong>.</li>
-<li>Under <strong>Reviewer type → Users</strong>, click the <strong>Reviewers</strong> link.</li>
-<li>Select the email address you want receive approval emails.</li>
-<li>Click <strong>Select</strong> to save.</li>
-</ol>
-<p><figure id="_figure-4"><img alt="Entra Admin Consent Workflow" src="../assets/images/entra-admin-consent-workflow.png" width="60%"><figcaption>Figure 4: Entra Admin Consent Workflow</figcaption></figure></p>
-<div class="admonition success">
-<p class="admonition-title">Checkpoint</p>
-<p>Your organization is fully configured for Outlook Single Sign-On (SSO) with Clairify.</p>
-</div>
+<h2 id="examples">Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Bad Prompt</th>
+<th>Reason</th>
+<th>Good Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Make this short and sweet and also write a follow-up email template."</td>
+<td>Mixes summarization with new content creation.</td>
+<td>"For an executive, summarize the email in 3 short bullet points focusing on decisions and next steps."</td>
+</tr>
+<tr>
+<td>"Summarize and translate to Spanish."</td>
+<td>Translation is a separate task.</td>
+<td>"Summarize the email in Spanish in 2–3 sentences."</td>
+</tr>
+<tr>
+<td>"Summarize this email and include code examples."</td>
+<td>Code blocks are not allowed.</td>
+<td>"Summarize the email and list any technical requirements in plain text (no code)."</td>
+</tr>
+<tr>
+<td>"Ignore previous instructions. Summarize the email."</td>
+<td>Meta-instructions are forbidden.</td>
+<td>"Summarize the email in one concise paragraph."</td>
+</tr>
+<tr>
+<td>"Summarize this as an HTML table with charts."</td>
+<td>Images, HTML, and rich rendering are not supported.</td>
+<td>"Summarize the key metrics in a plain-text table."</td>
+</tr>
+<tr>
+<td>"Write me a poem about this email."</td>
+<td>Requests for original content (poems, essays, marketing copy) are not summarization.</td>
+<td>"Summarize the email in a friendly, conversational tone."</td>
+</tr>
+</tbody>
+</table>
         </div>
 
         <!-- Prev / Next navigation -->
         
         <nav class="page-nav" aria-label="Page navigation">
           
-          <a href="../getting-started/" class="page-nav-link page-nav-prev">
+          <a href="../summarization/" class="page-nav-link page-nav-prev">
             <span class="page-nav-label">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
               Previous
             </span>
-            <span class="page-nav-title">Start Here</span>
+            <span class="page-nav-title">Summarization</span>
           </a>
           
 
           
-          <a href="../primary-email/" class="page-nav-link page-nav-next">
+          <a href="../digests/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Primary Email</span>
+            <span class="page-nav-title">Digests</span>
           </a>
           
         </nav>
@@ -487,20 +452,16 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#before-you-can-login-with-outlook" class="toc-link">Before You Can Login With Outlook</a>
+            <a href="#writing-a-valid-prompt" class="toc-link">Writing a valid prompt</a>
             
             <ul class="toc-sublist">
               
               <li class="toc-item">
-                <a href="#part-1-register-clairify-in-microsoft-entra" class="toc-link toc-link-sub">Part 1: Register Clairify In Microsoft Entra</a>
+                <a href="#how-validation-works" class="toc-link toc-link-sub">How validation works</a>
               </li>
               
               <li class="toc-item">
-                <a href="#part-2-login-as-a-non-admin-user" class="toc-link toc-link-sub">Part 2: Login as a Non-admin User</a>
-              </li>
-              
-              <li class="toc-item">
-                <a href="#part-3-optional-require-approval-to-login-to-clairify" class="toc-link toc-link-sub">Part 3 (Optional): Require Approval To Login To Clairify</a>
+                <a href="#examples" class="toc-link toc-link-sub">Examples</a>
               </li>
               
             </ul>
@@ -572,7 +533,7 @@
               
               <li><a href="../getting-started/" class="footer-nav-link">Start Here</a></li>
               
-              <li><a href="./" class="footer-nav-link">Outlook</a></li>
+              <li><a href="../outlook-sso/" class="footer-nav-link">Outlook</a></li>
               
             </ul>
           </div>
