@@ -7,7 +7,9 @@ nav:
   - Features:
     - Primary Email: primary-email.md
     - Email Classification: email-classification.md
-    - Summarization: summarization.md
+    - Summarization:
+      - summarization.md
+      - Writing Prompts: writing-prompts.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
     - Channels: channels.md
