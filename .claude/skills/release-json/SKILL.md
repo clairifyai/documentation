@@ -9,24 +9,45 @@ Follow these steps:
 
 1. Read the release notes file at `docs/release-notes/rn-$ARGUMENTS.md` (remove dots from the version number, e.g. 3.2.0 → rn-320.md).
 
-2. Parse each section into a JSON entry with the following schema:
+2. Parse each section into the following schema:
 
    ```json
    {
      "version": "x.x.x",
-     "release_notes": [
-       {
-         "type": "feature | fix",
-         "title": "Section heading",
-         "description": "Section body text"
-       }
-     ]
+     "title": "Short summary of the release theme",
+     "type": "release",
+     "date": "YYYY-MM-DD",
+     "description": "One-sentence overview of what this release covers.",
+     "items": {
+       "features": [
+         {
+           "name": "Feature name",
+           "details": "Feature description"
+         }
+       ],
+       "fixes": [
+         {
+           "name": "Fix name",
+           "details": "Fix description"
+         }
+       ],
+       "links": [
+         {
+           "Release Note": "https://docs.clairify.ai/release-notes/rn-XXX/"
+         }
+       ]
+     }
    }
    ```
 
-   Rules for `type`:
-   - If the entry is prefaced with "Fixed" (e.g., in a bug fixes list), set type to `"fix"`
-   - Everything else is `"feature"`
+   Rules:
+   - Items prefaced with "Fixed" go in `items.fixes`
+   - Everything else goes in `items.features`
+   - `date` is the current date
+   - `title` should be a short phrase summarizing the release theme
+   - `description` should be a one-sentence overview
+   - `links` should include the docs.clairify.ai URL for this release
+   - Omit `fixes` array if there are no fixes
 
 3. Write the JSON to `docs/release-notes/rn-json/rn-$ARGUMENTS.json` (remove dots from the version number, e.g. 3.2.0 → rn-320.json). Create the `rn-json` directory if it doesn't exist.
 

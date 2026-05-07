@@ -54,16 +54,39 @@ Create `docs/release-notes/rn-json/rn-$VERSION.json` (remove dots from version, 
 ```json
 {
   "version": "x.x.x",
-  "release_notes": [
-    {
-      "type": "feature | fix",
-      "title": "Section heading",
-      "description": "Section body text"
-    }
-  ]
+  "title": "Short summary of the release theme",
+  "type": "release",
+  "date": "YYYY-MM-DD",
+  "description": "One-sentence overview of what this release covers.",
+  "items": {
+    "features": [
+      {
+        "name": "Feature name",
+        "details": "Feature description"
+      }
+    ],
+    "fixes": [
+      {
+        "name": "Fix name",
+        "details": "Fix description"
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-XXX/"
+      }
+    ]
+  }
 }
 ```
-Rules for `type`: items prefaced with "Fixed" are `"fix"`, everything else is `"feature"`.
+Rules:
+- Items prefaced with "Fixed" go in `items.fixes`
+- Everything else goes in `items.features`
+- `date` is the current date
+- `title` should be a short phrase summarizing the release theme
+- `description` should be a one-sentence overview
+- `links` should include the docs.clairify.ai URL for this release
+- Omit `fixes` array if there are no fixes
 
 **STEP 8 — Deploy:**
 Ask the user: "Ready to deploy?" STOP. Wait for confirmation.

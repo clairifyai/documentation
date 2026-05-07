@@ -1,0 +1,36 @@
+{
+  "version": "3.3.1",
+  "title": "Gmail Filtering, PDF Attachments & Prompt Guidance",
+  "type": "release",
+  "date": "2026-05-07",
+  "description": "This release adds Gmail category filtering, email blocking rules, PDF attachment support, and inline prompt writing guidance.",
+  "items": {
+    "features": [
+      {
+        "name": "Magic Button on Original Email",
+        "details": "The magic button is now available when viewing the original email from a briefing card. Previously, you had to navigate back to take action — now you can reply, forward, or act directly from the email view."
+      },
+      {
+        "name": "Gmail Category Filtering",
+        "details": "Clairify no longer syncs emails from Gmail's Promotions, Social, Updates, and Forums categories into your Instack. These emails are now filtered out automatically, honoring the same categories Gmail already separates for you."
+      },
+      {
+        "name": "Email Blocking Rules",
+        "details": "You can now block unwanted emails from syncing into Clairify. Block by Gmail category, sender address, or subject keyword — configurable from the web admin panel."
+      },
+      {
+        "name": "PDF Attachments (Gmail)",
+        "details": "You can now access PDF attachments directly from Clairify. For emails with attachments, the PDF is viewable without leaving the app."
+      },
+      {
+        "name": "Prompt Writing Guidance",
+        "details": "The web admin prompt editor now includes inline guidance for writing valid summarization prompts. If a prompt is rejected, the error toast links directly to the prompt guidelines documentation. Tooltips on the prompt form also link to the documentation."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-331/"
+      }
+    ]
+  }
+}
