@@ -20,6 +20,7 @@ nav:
     - PII: pii-policy.md
     - OAuth: oauth-scopes.md
   - Release Notes:
+    - Version 3.3.1: release-notes/rn-331.md
     - Version 3.3.0: release-notes/rn-330.md
     - Version 3.2.0: release-notes/rn-320.md
     - Version 3.1.0: release-notes/rn-310.md
