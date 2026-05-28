@@ -18,9 +18,9 @@ git checkout main && git pull && git checkout -b release-notes/$VERSION
 All subsequent work must happen on this branch — never commit release notes directly to main.
 
 **STEP 3 — List Trello boards:**
-Fetch boards from the Clairify workspace:
+Fetch boards from the Clairify workspace (organization ID: `67c5fe987bff629de8127168`):
 ```bash
-curl -s "https://api.trello.com/1/members/me/boards?fields=name,id&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+curl -s "https://api.trello.com/1/organizations/67c5fe987bff629de8127168/boards?fields=name,id&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
 ```
 Display as a numbered list. Ask: "Which board would you like to use?"
 STOP. Wait for the user to reply.
