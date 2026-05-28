@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Version 3.3.1 — Everything You Need to Know About Clairify</title>
+  <title>Version 3.4.0 — Everything You Need to Know About Clairify</title>
 
   
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Version 3.3.1 — Everything You Need to Know About Clairify">
+  <meta property="og:title" content="Version 3.4.0 — Everything You Need to Know About Clairify">
   
   <meta property="og:type" content="website">
 
@@ -286,14 +286,14 @@
                 <ul class="nav-list">
                   
                     
-                      <li class="nav-item ">
-                        <a href="../rn-340/" class="nav-link ">Version 3.4.0</a>
+                      <li class="nav-item active">
+                        <a href="./" class="nav-link current">Version 3.4.0</a>
                       </li>
                     
                   
                     
-                      <li class="nav-item active">
-                        <a href="./" class="nav-link current">Version 3.3.1</a>
+                      <li class="nav-item ">
+                        <a href="../rn-331/" class="nav-link ">Version 3.3.1</a>
                       </li>
                     
                   
@@ -359,7 +359,7 @@
           
           <li><span>Release Notes</span></li>
           
-          <li aria-current="page">Version 3.3.1</li>
+          <li aria-current="page">Version 3.4.0</li>
         </ol>
       </nav>
       
@@ -367,38 +367,52 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h3 id="magic-button-on-original-email">Magic Button on Original Email</h3>
-<p>The magic button is now available when viewing the original email from a briefing card. Previously, you had to navigate back to take action — now you can reply, forward, or act directly from the email view.</p>
-<h3 id="gmail-category-filtering">Gmail Category Filtering</h3>
-<p>Clairify no longer syncs emails from Gmail's Promotions, Social, Updates, and Forums categories into your Instack. These emails are now filtered out automatically, honoring the same categories Gmail already separates for you.</p>
-<h3 id="email-blocking-rules">Email Blocking Rules</h3>
-<p>You can now block unwanted emails from syncing into Clairify. Block by Gmail category, sender address, or subject keyword — configurable from the web admin panel.</p>
-<h3 id="pdf-attachments-gmail">PDF Attachments (Gmail)</h3>
-<p>You can now access PDF attachments directly from Clairify. For emails with attachments, the PDF is viewable without leaving the app.</p>
-<h3 id="prompt-writing-guidance">Prompt Writing Guidance</h3>
-<p>The web admin prompt editor now includes inline guidance for writing valid summarization prompts. If a prompt is rejected, the error toast links directly to the <a href="../../writing-prompts/">prompt guidelines documentation</a>. Tooltips on the prompt form also link to the documentation.</p>
+          <h3 id="on-demand-email-audio">On-Demand Email Audio</h3>
+<p>Tap any email card to hear it read aloud. If the audio is already cached it plays immediately — otherwise it's generated on the spot. No more reading every card; just listen.</p>
+<h3 id="24-hour-email-playlist">24-Hour Email Playlist</h3>
+<p>Emails received in the last 24 hours are now available as a continuous audio playlist. Think of it as a podcast version of your inbox — listen through without touching the screen. From the web app, choose which categories — Important, Finance, Product, Sales, or your custom groups — are included in your audio playlist. Listen to what matters, skip the rest.</p>
+<h3 id="automatic-briefing-audio">Automatic Briefing Audio</h3>
+<p>Morning and evening briefings are now automatically converted to audio so they're ready when you open the app. Consume your briefings hands-free during commutes, between meetings, or while multitasking.</p>
+<h3 id="pdf-attachments-outlook">PDF Attachments (Outlook)</h3>
+<p>For Outlook inboxes, you can now open PDF attachments directly from Clairify. This was introduced for Gmail in the last release. For emails where the body is just "See attached," you no longer need to leave the app.</p>
+<h3 id="chat-interface-preview">Chat Interface (Preview)</h3>
+<p>A proof-of-concept chat interface is now available in the mobile app. Starting with a Q&amp;A agent against Clairify documentation, this is the first step toward conversational interaction with your executive information.</p>
+<h3 id="uiux-enhancements">UI/UX Enhancements</h3>
+<ul>
+<li>The Briefing channel now supports standard swiping behaviour.</li>
+<li>Briefing actions have been moved to the magic button.</li>
+<li>The Briefing list now shows only unread reports by default.</li>
+<li>Onboarding cards now support free swiping in all directions</li>
+<li>The magic button is no longer activated on onboarding cards since there are no actions available.</li>
+<li>Onboarding cards now display badge numbers for consistent UI alignment.</li>
+<li>Syncing an account now shows an in-progress loading state with informative status messages.</li>
+</ul>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>Fixed:</strong> AI engine display issues across multiple web admin pages, including missing engines like Google Gemini 2.5 Flash Lite.</li>
+</ul>
         </div>
 
         <!-- Prev / Next navigation -->
         
         <nav class="page-nav" aria-label="Page navigation">
           
-          <a href="../rn-340/" class="page-nav-link page-nav-prev">
+          <a href="../../oauth-scopes/" class="page-nav-link page-nav-prev">
             <span class="page-nav-label">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
               Previous
             </span>
-            <span class="page-nav-title">Version 3.4.0</span>
+            <span class="page-nav-title">OAuth</span>
           </a>
           
 
           
-          <a href="../rn-330/" class="page-nav-link page-nav-next">
+          <a href="../rn-331/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Version 3.3.0</span>
+            <span class="page-nav-title">Version 3.3.1</span>
           </a>
           
         </nav>
@@ -416,27 +430,37 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#magic-button-on-original-email" class="toc-link">Magic Button on Original Email</a>
+            <a href="#on-demand-email-audio" class="toc-link">On-Demand Email Audio</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#gmail-category-filtering" class="toc-link">Gmail Category Filtering</a>
+            <a href="#24-hour-email-playlist" class="toc-link">24-Hour Email Playlist</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#email-blocking-rules" class="toc-link">Email Blocking Rules</a>
+            <a href="#automatic-briefing-audio" class="toc-link">Automatic Briefing Audio</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#pdf-attachments-gmail" class="toc-link">PDF Attachments (Gmail)</a>
+            <a href="#pdf-attachments-outlook" class="toc-link">PDF Attachments (Outlook)</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#prompt-writing-guidance" class="toc-link">Prompt Writing Guidance</a>
+            <a href="#chat-interface-preview" class="toc-link">Chat Interface (Preview)</a>
+            
+          </li>
+          
+          <li class="toc-item">
+            <a href="#uiux-enhancements" class="toc-link">UI/UX Enhancements</a>
+            
+          </li>
+          
+          <li class="toc-item">
+            <a href="#bug-fixes" class="toc-link">Bug Fixes</a>
             
           </li>
           
@@ -563,9 +587,9 @@
             <div class="footer-nav-heading">Release Notes</div>
             <ul class="footer-nav-list">
               
-              <li><a href="../rn-340/" class="footer-nav-link">Version 3.4.0</a></li>
+              <li><a href="./" class="footer-nav-link">Version 3.4.0</a></li>
               
-              <li><a href="./" class="footer-nav-link">Version 3.3.1</a></li>
+              <li><a href="../rn-331/" class="footer-nav-link">Version 3.3.1</a></li>
               
               <li><a href="../rn-330/" class="footer-nav-link">Version 3.3.0</a></li>
               
