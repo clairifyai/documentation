@@ -5,3 +5,9 @@ search-service/__pycache__/
 search-service/node_modules/
 __pycache__/
 *.pyc
+
+# >>> claude-agents managed (DO NOT EDIT THIS BLOCK) >>>
+.claude/.toolkit-last-seen-sha
+.claude/.toolkit-setup-done
+.claude/.claude-agents.conf
+# <<< claude-agents managed <<<
