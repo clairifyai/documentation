@@ -1,0 +1,70 @@
+{
+  "version": "3.4.0",
+  "title": "Audio-First Inbox Experience",
+  "type": "release",
+  "date": "2026-05-28",
+  "description": "Introduces on-demand and playlist audio for emails and briefings, PDF attachments for Outlook, a preview chat interface, and UI/UX refinements.",
+  "items": {
+    "features": [
+      {
+        "name": "On-Demand Email Audio",
+        "details": "Tap any email card to hear it read aloud. If the audio is already cached it plays immediately — otherwise it's generated on the spot."
+      },
+      {
+        "name": "24-Hour Email Playlist",
+        "details": "Emails received in the last 24 hours are available as a continuous audio playlist. Choose which categories — Important, Finance, Product, Sales, or custom groups — are included."
+      },
+      {
+        "name": "Automatic Briefing Audio",
+        "details": "Morning and evening briefings are automatically converted to audio so they're ready when you open the app."
+      },
+      {
+        "name": "PDF Attachments (Outlook)",
+        "details": "For Outlook inboxes, PDF attachments can now be opened directly from Clairify. Previously available for Gmail only."
+      },
+      {
+        "name": "Chat Interface (Preview)",
+        "details": "A proof-of-concept chat interface is available in the mobile app, starting with a Q&A agent against Clairify documentation."
+      },
+      {
+        "name": "Briefing channel swiping",
+        "details": "The Briefing channel now supports standard swiping behaviour."
+      },
+      {
+        "name": "Briefing actions moved to magic button",
+        "details": "Briefing actions have been moved to the magic button."
+      },
+      {
+        "name": "Unread-only Briefing list",
+        "details": "The Briefing list now shows only unread reports by default."
+      },
+      {
+        "name": "Onboarding card swiping",
+        "details": "Onboarding cards now support free swiping in all directions."
+      },
+      {
+        "name": "Magic button disabled on onboarding cards",
+        "details": "The magic button is no longer activated on onboarding cards since there are no actions available."
+      },
+      {
+        "name": "Onboarding card badge numbers",
+        "details": "Onboarding cards now display badge numbers for consistent UI alignment."
+      },
+      {
+        "name": "Account sync loading state",
+        "details": "Syncing an account now shows an in-progress loading state with informative status messages."
+      }
+    ],
+    "fixes": [
+      {
+        "name": "AI engine display issues",
+        "details": "Fixed AI engine display issues across multiple web admin pages, including missing engines like Google Gemini 2.5 Flash Lite."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-340/"
+      }
+    ]
+  }
+}
