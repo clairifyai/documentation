@@ -3,7 +3,7 @@
   "title": "Audio-First Inbox Experience",
   "type": "release",
   "date": "2026-05-28",
-  "description": "Introduces on-demand and playlist audio for emails and briefings, PDF attachments for Outlook, a preview chat interface, and UI/UX refinements.",
+  "description": "Introduces on-demand and playlist audio for emails and briefings, PDF attachments for Outlook, and UI/UX refinements.",
   "items": {
     "features": [
       {
@@ -21,10 +21,6 @@
       {
         "name": "PDF Attachments (Outlook)",
         "details": "For Outlook inboxes, PDF attachments can now be opened directly from Clairify. Previously available for Gmail only."
-      },
-      {
-        "name": "Chat Interface (Preview)",
-        "details": "A proof-of-concept chat interface is available in the mobile app, starting with a Q&A agent against Clairify documentation."
       },
       {
         "name": "Briefing channel swiping",
