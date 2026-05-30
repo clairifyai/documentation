@@ -50,8 +50,8 @@ The release process uses five skills that chain together. Each one suggests the 
 ## Step by step
 
 1. Open Claude Code in the `documentation` directory
-2. Run `/polish-trello` to clean up any unpolished Trello cards
-3. Run `/new-release 4.1.0` (replace with your version number)
+2. Run `/new-release 4.1.0` (replace with your version number)
+3. The skill will check if all Trello cards are polished — if any are unpolished, run `/polish-trello` first, then restart `/new-release`
 4. Review the preview at http://127.0.0.1:8000 and request any changes
 5. Once satisfied, run `/release-json 4.1.0` to generate the JSON
 6. Run `/deploy-release` to ship it
