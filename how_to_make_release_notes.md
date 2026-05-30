@@ -52,7 +52,7 @@ The release process uses six skills that chain together. Each one suggests the n
 
 1. Open Claude Code in the `documentation` directory
 2. Run `/new-release 4.1.0` (replace with your version number)
-3. The skill will check if all Trello cards are polished — if any are unpolished, run `/polish-trello` first, then restart `/new-release`
+3. The skill will check if all Trello cards are polished — if any are unpolished, run `/polish-trello` to clean them up, then run `/new-release` again
 4. Review the preview at http://127.0.0.1:8000 and request any changes
 5. Once satisfied, run `/release-json 4.1.0` to generate the JSON
 6. Run `/release-email 4.1.0` to draft the announcement email with the JSON attached — review it in Gmail and send
