@@ -1,0 +1,56 @@
+{
+  "version": "3.5.0",
+  "title": "Claire Gets Gmail",
+  "type": "release",
+  "date": "2026-07-05",
+  "description": "Adds Gmail chat integration for Claire, mobile compose, in-app screenshot bug reporting, TTS usage on mobile, and a batch of onboarding and prompt-authoring polish.",
+  "items": {
+    "features": [
+      {
+        "name": "Chat with Your Gmail",
+        "details": "Clairify's chat interface (\"Claire\") now speaks Gmail. Ask Claire to find, filter, or summarize messages in your inbox using natural language — no need to leave the app for a Gmail search. Powered by our new Gmail MCP integration in the Claire chat pipeline."
+      },
+      {
+        "name": "Auto-Reply Drafts",
+        "details": "Introduced in 3.4.0: Clairify can now draft a reply to any email for you. Pick a tone — formal, casual, and so on — and Clairify generates a draft you can review, edit, and send."
+      },
+      {
+        "name": "Compose New Emails from Mobile",
+        "details": "Alongside Reply and Reply All, the mobile app now includes a Compose action so you can start a new email without leaving the app. Enter the recipient manually, draft the body, and use AI Rewrite to polish before sending. You can always revert to your original draft."
+      },
+      {
+        "name": "Report Bugs from a Screenshot",
+        "details": "Take a screenshot and share it to Clairify by shaking the app, or find the bug report form in the settings menu. We'll bundle your report with your device type, iOS version, and Clairify build and file it to our defect board automatically."
+      },
+      {
+        "name": "Prompt validator explains rejections",
+        "details": "When the summarization-prompt validator rejects a prompt, it now tells you which validation rule was broken so you can fix it."
+      },
+      {
+        "name": "Re-write with AI produces valid prompts",
+        "details": "The \"Re-write with AI\" action now produces prompts that pass validation."
+      },
+      {
+        "name": "Prompt validator accepts reasonable summarization instructions",
+        "details": "The validator no longer rejects reasonable summarization instructions like \"skip bullets\" or fallback text."
+      },
+      {
+        "name": "Branded Login Domain",
+        "details": "The mobile SSO flow now shows auth.clairify.ai instead of a random Supabase subdomain."
+      },
+      {
+        "name": "App Update Nudge",
+        "details": "The app now knows about the latest release. When a newer version is available you'll see an informational prompt; when a specific version requires a mandatory update, we'll gate access until you upgrade so you're always running a supported build."
+      },
+      {
+        "name": "Text-to-Speech Usage on Mobile",
+        "details": "The mobile app now shows your text-to-speech (TTS) usage in audio minutes — both what you've used this period and your plan allowance — alongside existing token metrics."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-350/"
+      }
+    ]
+  }
+}
