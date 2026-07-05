@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Version 2.0.0 — Everything You Need to Know About Clairify</title>
+  <title>Version 3.5.0 — Everything You Need to Know About Clairify</title>
 
   
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Version 2.0.0 — Everything You Need to Know About Clairify">
+  <meta property="og:title" content="Version 3.5.0 — Everything You Need to Know About Clairify">
   
   <meta property="og:type" content="website">
 
@@ -286,8 +286,8 @@
                 <ul class="nav-list">
                   
                     
-                      <li class="nav-item ">
-                        <a href="../rn-350/" class="nav-link ">Version 3.5.0</a>
+                      <li class="nav-item active">
+                        <a href="./" class="nav-link current">Version 3.5.0</a>
                       </li>
                     
                   
@@ -328,8 +328,8 @@
                     
                   
                     
-                      <li class="nav-item active">
-                        <a href="./" class="nav-link current">Version 2.0.0</a>
+                      <li class="nav-item ">
+                        <a href="../rn-200/" class="nav-link ">Version 2.0.0</a>
                       </li>
                     
                   
@@ -365,7 +365,7 @@
           
           <li><span>Release Notes</span></li>
           
-          <li aria-current="page">Version 2.0.0</li>
+          <li aria-current="page">Version 3.5.0</li>
         </ol>
       </nav>
       
@@ -373,94 +373,49 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h3 id="primary-email-integration">Primary Email Integration</h3>
-<p>When you connect one primary email account (Gmail or Outlook) via Single Sign-On (SSO) your account will automatically be created. This address becomes the primary identity for billing and account notifications.</p>
-<p><a href="../../primary-email/">Read more</a></p>
-<h3 id="secondary-email-integration">Secondary Email Integration</h3>
-<p>Allow users to add additional Gmail or Outlook accounts without SSO. Extends the Clairify experience across multiple inboxes — personal, work, or other — with full parity to the primary account’s features.</p>
-<h3 id="real-time-email-sync">Real-Time Email Sync</h3>
-<p>Utilizes Gmail Pub/Sub and the Microsoft Outlook equivalent to receive near-instant inbox state updates. Includes:</p>
+          <h3 id="chat-with-your-gmail">Chat with Your Gmail</h3>
+<p>Clairify's chat interface ("Claire") now speaks Gmail. Ask Claire to find, filter, or summarize messages in your inbox using natural language — no need to leave the app for a Gmail search. Powered by our new Gmail MCP integration in the Claire chat pipeline.</p>
+<h3 id="auto-reply-drafts">Auto-Reply Drafts</h3>
+<p>Introduced in 3.4.0: Clairify can now draft a reply to any email for you. Pick a tone — formal, casual, and so on — and Clairify generates a draft you can review, edit, and send.</p>
+<h3 id="compose-new-emails-from-mobile">Compose New Emails from Mobile</h3>
+<p>Alongside Reply and Reply All, the mobile app now includes a Compose action so you can start a new email without leaving the app. Enter the recipient manually, draft the body, and use AI Rewrite to polish before sending. You can always revert to your original draft.</p>
+<h3 id="report-bugs-from-a-screenshot">Report Bugs from a Screenshot</h3>
+<p>Spotted something off? Take a screenshot and share it to Clairify by shaking the app, or find the bug report form in the settings menu. We'll bundle your report with your device type, iOS version, and Clairify build and file it to our defect board automatically.</p>
+<h3 id="better-prompt-authoring">Better Prompt Authoring</h3>
+<p>A batch of improvements to summarization-prompt authoring in the web admin panel:</p>
 <ul>
-<li><strong>Force Sync</strong> – Manual trigger to reconcile inbox differences from the last 7 days, ensuring accuracy if changes were made outside Clairify.</li>
-<li><strong>Weekly Sync</strong> – Automatic CRON-based sync every 7 days.</li>
-<li><strong>Auto Unsubscribe</strong> – Automatically detaches inactive or expired inboxes to conserve system resources and prevent retry loops.</li>
+<li>Rejected prompts now tell you which validation rule was broken, so you can fix them.</li>
+<li>"Re-write with AI" now produces prompts that pass validation.</li>
+<li>The validator no longer rejects reasonable summarization instructions like "skip bullets" or fallback text.</li>
 </ul>
-<h3 id="summarization">Summarization</h3>
-<p>AI-powered email summarization designed to reduce reading time while maintaining essential context. Supports quick comprehension and efficient decision-making.</p>
-<p><a href="../../summarization/">Read more</a></p>
-<h3 id="original-content-access">Original Content Access</h3>
-<p>One-tap access to the complete original email content from any summary, allowing users to verify context and maintain trust in the summarization process.</p>
-<h3 id="swiping-adjudication">Swiping Adjudication</h3>
-<p>Gesture-based email triage using the Eisenhower matrix:</p>
-<ul>
-<li><strong>Mark as Read</strong> – Swipe right to mark as read.</li>
-<li><strong>Mark for Deletion</strong> – Swipe left to indicate removal.</li>
-<li><strong>Discard</strong> – Permanently remove or archive unnecessary emails.</li>
-<li><strong>Skip Cards</strong> – Bypass a card for later review.</li>
-</ul>
-<h3 id="email-labeling">Email Labeling</h3>
-<p>Synchronizes in-app categorization with native Gmail/Outlook labels. Actions in Clairify apply directly to the inbox, ensuring organizational consistency. Examples include:</p>
-<ul>
-<li><strong>Right-swipe</strong> → <code>ClairifyRead</code> label, remove unread label.</li>
-<li><strong>Left-swipe</strong> → <code>ClairifyTrash</code> label, add Trash label.</li>
-<li><strong>Important click</strong> → <code>ClairifyImportant</code> label.</li>
-<li><strong>Archive click</strong> → <code>ClairifyArchive</code> label.</li>
-</ul>
-<h3 id="multiple-system-prompts">Multiple System Prompts</h3>
-<p>Customizable system prompts per email class for optimized summarization styles. Enables different formats (bullets, narrative, outline, polished) to suit varied content types.</p>
-<h3 id="message-classification">Message Classification</h3>
-<p>Automatic categorization of emails into predefined classes (e.g., Digests, Transactions, Promotions, Correspondence, Newsletters, Social). Classification improves summarization accuracy and user organization.</p>
-<p><a href="../../email-classification/">Read more</a></p>
-<h3 id="custom-system-prompts-classes">Custom System Prompts &amp; Classes</h3>
-<p>Empowers users to create custom email classes paired with unique system prompts. Includes full CRUD operations via the web app for specialized formatting, briefing styles, or dedicated launchpad channels.</p>
-<h3 id="email-groups">Email Groups</h3>
-<p>Rule-based categorization using keywords in Subject or From fields. Users can define groups like “Finance Alerts” for targeted organization and filtering.</p>
-<h3 id="channels">Channels</h3>
-<p>Curated content streams combining one or more email groups:</p>
-<ul>
-<li><strong>User Channels</strong> – Personal or small-team sharing.</li>
-<li><strong>Vendor Channels</strong> – Business-grade distribution with branding and audience management.</li>
-</ul>
-<p><a href="../../channels/">Read more</a></p>
-<h3 id="launchpad">Launchpad</h3>
-<p>Topic-based view of emails that reorganizes content dynamically by user interest and context, beyond fixed classification rules.</p>
-<h3 id="briefings">Briefings</h3>
-<p>Twice-daily summaries (8am &amp; 8pm UTC) of unread messages in a given class. Supports:</p>
-<ul>
-<li>Custom briefing prompts.</li>
-<li>Assigning prompts to specific classes.</li>
-<li>Managing schedules through settings.</li>
-</ul>
-<h3 id="settings-management">Settings Management</h3>
-<p>Dedicated web app for managing briefing schedules, preferences, personalization, and other configuration options.</p>
-<h3 id="account-deletion">Account Deletion</h3>
-<p>One-click permanent account deletion, removing all associated user data and logging the user out.</p>
-<h3 id="log-out">Log Out</h3>
-<p>Secure logout process that unsubscribes from push notifications, revokes authentication tokens, and ensures that messages received during downtime are retrieved upon next login.</p>
-<h3 id="token-usage-metadata-display">Token Usage Metadata Display</h3>
-<p>In-app visibility into token consumption for transparency and performance tracking.</p>
+<h3 id="branded-login-domain">Branded Login Domain</h3>
+<p>The mobile SSO flow now shows <code>auth.clairify.ai</code> instead of a random Supabase subdomain.</p>
+<h3 id="app-update-nudge">App Update Nudge</h3>
+<p>The app now knows about the latest release. When a newer version is available you'll see an informational prompt; when a specific version requires a mandatory update, we'll gate access until you upgrade so you're always running a supported build.</p>
+<h3 id="text-to-speech-usage-on-mobile">Text-to-Speech Usage on Mobile</h3>
+<p>The mobile app now shows your text-to-speech (TTS) usage in audio minutes — both what you've used this period and your plan allowance — alongside existing token metrics.</p>
         </div>
 
         <!-- Prev / Next navigation -->
         
         <nav class="page-nav" aria-label="Page navigation">
           
-          <a href="../rn-300/" class="page-nav-link page-nav-prev">
+          <a href="../../oauth-scopes/" class="page-nav-link page-nav-prev">
             <span class="page-nav-label">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
               Previous
             </span>
-            <span class="page-nav-title">Version 3.0.0</span>
+            <span class="page-nav-title">OAuth</span>
           </a>
           
 
           
-          <a href="../../troubleshooting/" class="page-nav-link page-nav-next">
+          <a href="../rn-340/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Troubleshooting</span>
+            <span class="page-nav-title">Version 3.4.0</span>
           </a>
           
         </nav>
@@ -478,92 +433,42 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#primary-email-integration" class="toc-link">Primary Email Integration</a>
+            <a href="#chat-with-your-gmail" class="toc-link">Chat with Your Gmail</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#secondary-email-integration" class="toc-link">Secondary Email Integration</a>
+            <a href="#auto-reply-drafts" class="toc-link">Auto-Reply Drafts</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#real-time-email-sync" class="toc-link">Real-Time Email Sync</a>
+            <a href="#compose-new-emails-from-mobile" class="toc-link">Compose New Emails from Mobile</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#summarization" class="toc-link">Summarization</a>
+            <a href="#report-bugs-from-a-screenshot" class="toc-link">Report Bugs from a Screenshot</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#original-content-access" class="toc-link">Original Content Access</a>
+            <a href="#better-prompt-authoring" class="toc-link">Better Prompt Authoring</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#swiping-adjudication" class="toc-link">Swiping Adjudication</a>
+            <a href="#branded-login-domain" class="toc-link">Branded Login Domain</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#email-labeling" class="toc-link">Email Labeling</a>
+            <a href="#app-update-nudge" class="toc-link">App Update Nudge</a>
             
           </li>
           
           <li class="toc-item">
-            <a href="#multiple-system-prompts" class="toc-link">Multiple System Prompts</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#message-classification" class="toc-link">Message Classification</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#custom-system-prompts-classes" class="toc-link">Custom System Prompts &amp; Classes</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#email-groups" class="toc-link">Email Groups</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#channels" class="toc-link">Channels</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#launchpad" class="toc-link">Launchpad</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#briefings" class="toc-link">Briefings</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#settings-management" class="toc-link">Settings Management</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#account-deletion" class="toc-link">Account Deletion</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#log-out" class="toc-link">Log Out</a>
-            
-          </li>
-          
-          <li class="toc-item">
-            <a href="#token-usage-metadata-display" class="toc-link">Token Usage Metadata Display</a>
+            <a href="#text-to-speech-usage-on-mobile" class="toc-link">Text-to-Speech Usage on Mobile</a>
             
           </li>
           
@@ -690,7 +595,7 @@
             <div class="footer-nav-heading">Release Notes</div>
             <ul class="footer-nav-list">
               
-              <li><a href="../rn-350/" class="footer-nav-link">Version 3.5.0</a></li>
+              <li><a href="./" class="footer-nav-link">Version 3.5.0</a></li>
               
               <li><a href="../rn-340/" class="footer-nav-link">Version 3.4.0</a></li>
               
@@ -704,7 +609,7 @@
               
               <li><a href="../rn-300/" class="footer-nav-link">Version 3.0.0</a></li>
               
-              <li><a href="./" class="footer-nav-link">Version 2.0.0</a></li>
+              <li><a href="../rn-200/" class="footer-nav-link">Version 2.0.0</a></li>
               
             </ul>
           </div>
