@@ -19,7 +19,8 @@ nav:
   - Security:
     - Security: security.md
     - PII: pii-policy.md
-    - OAuth: oauth-scopes.md
+    - OAuth (Gmail): oauth-scopes.md
+    - OAuth (Outlook): oauth-scopes-outlook.md
   - Release Notes:
     - Version 3:
       - Version 3.5.0: release-notes/rn-350.md
