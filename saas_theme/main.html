@@ -27,8 +27,11 @@
                 <ul class="nav-list">
                   {% for child in nav_item.children %}
                     {% if child.children %}
-                      <li class="nav-item has-children {% if child.active %}active{% endif %}">
-                        <div class="nav-group-label">{{ child.title }}</div>
+                      <li class="nav-item has-children {% if child.active %}active open{% endif %}">
+                        <button type="button" class="nav-group-label" aria-expanded="{{ 'true' if child.active else 'false' }}">
+                          <span>{{ child.title }}</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
                         <ul class="nav-sublist">
                           {% for subchild in child.children %}
                             <li class="nav-item {% if subchild.active %}active{% endif %}">

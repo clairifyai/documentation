@@ -177,6 +177,16 @@
       });
     }
 
+    /* ── 6b. Collapsible sidebar nav groups ─────────────────── */
+    document.querySelectorAll('.nav-group-label').forEach(function (label) {
+      label.addEventListener('click', function () {
+        const group = label.closest('.nav-item.has-children');
+        if (!group) return;
+        const isOpen = group.classList.toggle('open');
+        label.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+
     /* ── 7. TOC active link on scroll ───────────────────────── */
     const tocLinks = document.querySelectorAll('.toc-link');
     if (tocLinks.length > 0) {
