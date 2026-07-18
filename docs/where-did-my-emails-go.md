@@ -4,7 +4,7 @@
 
     We never delete your email, so if you're missing messages, you probably just don't know where to look.
 
-When you swipe in Clairify, your messages are **labeled and organized** — never deleted. Even if somehow we did delete it, it would still be in your deleted folder, because we certainly don't double delete.
+When you swipe in Clairify, your messages are **labeled and organized** — never deleted. Even if somehow we did delete it, it would still be in your deleted folder — we don't (and can't) permanently delete. Erasing mail for good requires a broader Google permission that Clairify never requests.
 
 If a message looks like it "disappeared," this page shows you exactly where to look.
 
