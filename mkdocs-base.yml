@@ -3,6 +3,7 @@ nav:
   - Home: index.md
   - Getting Started:
     - Start Here: getting-started.md
+    - Where Did My Emails Go?: where-did-my-emails-go.md
     - Outlook: outlook-sso.md
   - Features:
     - Primary Email: primary-email.md
