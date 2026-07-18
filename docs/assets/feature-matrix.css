@@ -19,7 +19,51 @@
     font-variant-numeric: tabular-nums;
 }
 
-/* Optional: button group polish */
+/* View toggle: segmented control so it reads as clickable */
+.md-button-group {
+    display: inline-flex;
+    margin: 0 0 1.5rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+}
+
+.md-button-group .md-button {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: none;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.md-button-group .md-button + .md-button {
+    border-left: 1.5px solid var(--color-border);
+}
+
+/* Hover only on the inactive segment */
+.md-button-group .md-button:not(.md-button--primary):hover {
+    color: var(--color-text);
+    background: rgba(99, 102, 241, 0.06);
+}
+
+/* Active segment */
+.md-button-group .md-button--primary,
 .md-button-group .md-button[aria-pressed="true"] {
+    color: #fff;
+    background: var(--gradient-primary);
     cursor: default;
+}
+
+/* Keyboard focus affordance */
+.md-button-group .md-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
