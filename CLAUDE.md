@@ -47,6 +47,8 @@ site/              # Generated output — do not edit, not committed
 
 ## Content Conventions
 
+**Before writing or editing any docs content, read [`STYLE_GUIDE.md`](STYLE_GUIDE.md)** — it is the source of truth for voice, capitalization, callouts, and icon usage. Key rule: after a colon or a keyword-then-dash (a definition/gloss), capitalize the first word that follows.
+
 - **Admonitions**: Use `!!! note`, `!!! tip`, `!!! warning` etc. (via `admonition` extension)
 - **Collapsible sections**: Use `??? note` (via `pymdownx.details`)
 - **Abbreviations**: Defined in snippets and auto-applied via `abbr` extension
