@@ -307,8 +307,17 @@ ul, ol { list-style: none; }
 }
 .nav-logo:hover { color: var(--color-text); }
 
-.logo-mark { flex-shrink: 0; }
+.logo-mark { flex-shrink: 0; display: inline-flex; align-items: center; }
 .logo-text { color: var(--color-text); }
+
+/* Brand symbol: teal in light mode, eggshell in dark mode */
+.logo-symbol { display: block; }
+.logo-symbol--dark { display: none; }
+[data-theme="dark"] .logo-symbol--light { display: none; }
+[data-theme="dark"] .logo-symbol--dark { display: block; }
+
+/* Footer horizontal lockup (symbol + wordmark) */
+.footer-logo-img { height: 90px; width: auto; }
 
 /* Nav links */
 .nav-links {
