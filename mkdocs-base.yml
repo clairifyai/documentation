@@ -21,14 +21,16 @@ nav:
     - PII: pii-policy.md
     - OAuth: oauth-scopes.md
   - Release Notes:
-    - Version 3.5.0: release-notes/rn-350.md
-    - Version 3.4.0: release-notes/rn-340.md
-    - Version 3.3.1: release-notes/rn-331.md
-    - Version 3.3.0: release-notes/rn-330.md
-    - Version 3.2.0: release-notes/rn-320.md
-    - Version 3.1.0: release-notes/rn-310.md
-    - Version 3.0.0: release-notes/rn-300.md
-    - Version 2.0.0: release-notes/rn-200.md
+    - Version 3:
+      - Version 3.5.0: release-notes/rn-350.md
+      - Version 3.4.0: release-notes/rn-340.md
+      - Version 3.3.1: release-notes/rn-331.md
+      - Version 3.3.0: release-notes/rn-330.md
+      - Version 3.2.0: release-notes/rn-320.md
+      - Version 3.1.0: release-notes/rn-310.md
+      - Version 3.0.0: release-notes/rn-300.md
+    - Version 2:
+      - Version 2.0.0: release-notes/rn-200.md
   - Troubleshooting: troubleshooting.md
 extra:
   # Footer links — paste real URLs here; "#" renders a visible placeholder.
