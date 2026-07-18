@@ -1693,6 +1693,39 @@ ul, ol { list-style: none; }
 .md-content .tip     { background: rgba(16,185,129,0.08); border-color: var(--color-success); }
 .md-content .danger  { background: rgba(239,68,68,0.08);  border-color: var(--color-error);   }
 
+/* Callout header: bold, tinted to match the banner, with an emoji cue */
+.md-content .admonition-title {
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+.md-content .admonition-title::before { margin-right: 0.45em; }
+
+.md-content .note    .admonition-title { color: var(--color-info);    }
+.md-content .warning .admonition-title { color: var(--color-warning); }
+.md-content .tip     .admonition-title { color: var(--color-success); }
+.md-content .danger  .admonition-title { color: var(--color-error);   }
+.md-content .question .admonition-title { color: var(--color-info);   }
+.md-content .bug     .admonition-title { color: var(--color-error);   }
+
+.md-content .note     .admonition-title::before { content: "ℹ️"; }
+.md-content .warning  .admonition-title::before { content: "⚠️"; }
+.md-content .tip      .admonition-title::before { content: "💡"; }
+.md-content .danger   .admonition-title::before { content: "🚨"; }
+.md-content .question .admonition-title::before { content: "❓"; }
+.md-content .bug      .admonition-title::before { content: "🐛"; }
+
+/* Inline Material icons should read like an emoji, not a block image */
+.md-content .twemoji {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: text-bottom;
+}
+.md-content .twemoji svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}
+
 /* ── 16. Error Page ───────────────────────────────────────── */
 .error-layout {
   display: flex;
