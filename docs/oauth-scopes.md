@@ -2,13 +2,14 @@
 
 !!! tip inline end
 
-    Clairify **cannot** send email, create drafts, change Gmail settings, or permanently delete messages.
+    Clairify **cannot** create drafts, change Gmail settings, or permanently delete messages.
 
 We request a small set of Google OAuth scopes to:
 
 1. Sign you in and create your Clairify account,
-1. Read your messages to summarize them, and
-1. Apply lightweight user-initiated changes to your inbox
+1. Read your messages to summarize them,
+1. Apply lightweight user-initiated changes to your inbox, and
+1. Send messages you compose — Replies, reply all, forwards, and new emails
 
 <br>
 
@@ -25,14 +26,15 @@ Table: Complete List of Requested Gmail Scopes {#gmail-scopes}
 | **Restricted** |  |  |  |
 | Read mail for summarization | `gmail.modify` | Read messages and attachments. | Generate summaries for new messages and newsletters. |
 | Apply user-initiated mailbox changes | `gmail.modify` | Add/remove labels on messages/threads; toggle `UNREAD`; archive (remove `INBOX`); move to Trash. | Swipe right to mark as read; tap Archive to file; apply the corresponding label, e.g., `ClairifyRead`. |
+| Send mail on your action | `gmail.modify` | Send messages you compose — New emails, replies, reply all, and forwards. Sending is always initiated by you. | Reply, reply all, or forward a message from a card; compose a new email within Clairify. |
 | Read mail | `gmail.readonly` | View email messages and certain settings without modifying mailbox state. | Redundant when `gmail.modify` is granted. |
 | Read message metadata only | `gmail.metadata` | View message metadata (labels, headers), but not the email body or attachments. | Faster inbox syncing. |
 
 ## Permission Philosophy
 
 - **Least privilege** — We request only the scopes needed for the features above. [](#gmail-scopes) is the single source of truth for scope purposes and examples.
-- **User-initiated changes only** — Any mailbox modifications happen in response to your actions in the app, e.g., mark as read, archive, labeling.
-- **Content boundaries** — Only email messages and their attachments are accessed, and for no other purpose than to generate summaries.
+- **User-initiated changes only** — Any mailbox modification or outbound message happens in response to your actions in the app, e.g., mark as read, archive, labeling, or sending a reply you composed. Clairify never sends on its own.
+- **Content boundaries** — Only email messages and their attachments are accessed, and for no purpose other than to generate summaries and to send the messages you compose.
 
 ## OAuth Consent Flow
 
