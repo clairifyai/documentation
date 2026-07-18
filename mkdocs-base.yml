@@ -30,6 +30,25 @@ nav:
     - Version 3.0.0: release-notes/rn-300.md
     - Version 2.0.0: release-notes/rn-200.md
   - Troubleshooting: troubleshooting.md
+extra:
+  # Footer links — paste real URLs here; "#" renders a visible placeholder.
+  # This is the single source of truth for the footer; the template reads from it.
+  footer:
+    brand: Clairify
+    tagline: The only app designed specifically for executive leadership.
+    support_email: ""          # e.g. support@clairify.ai  (blank → placeholder)
+    links:
+      demo: "#"
+      app_store: "#"           # iOS
+      google_play: "#"         # Android
+      blog: "#"
+      roadmap: "#"
+      product_sheet: "#"
+      trust_center: "#"
+      privacy_policy: "#"
+      terms_of_service: "#"
+      cookie_policy: "#"
+      linkedin: "#"
 extra_css:
   - assets/feature-matrix.css
 extra_javascript:
