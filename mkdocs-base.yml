@@ -36,6 +36,7 @@ extra_javascript:
   - assets/feature-matrix.js
   - assets/feat-tip.js
 plugins:
+  - search
   - exclude:
       glob:
         - slack.md               # Exclude WIP

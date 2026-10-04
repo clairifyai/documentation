@@ -3,3 +3,4 @@ INHERIT: mkdocs-base.yml
 theme:
   name: null
   custom_dir: saas_theme/
+  search_index_only: true
