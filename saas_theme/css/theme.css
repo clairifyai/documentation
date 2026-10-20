@@ -147,6 +147,34 @@ a:hover { color: var(--color-primary-dark); }
 
 img, svg { display: block; max-width: 100%; }
 
+/* Inline emoji/icon shortcodes (pymdownx.emoji) render either as a bare
+   <img class="twemoji"> directly, or an <svg> nested inside a wrapping
+   <span class="twemoji"> — override the block/max-width rule above, AND
+   .md-content img's block-image styling (margin/border-radius/box-shadow),
+   for both shapes so they stay icon-sized and inline with surrounding text.
+   Selectors are prefixed with .md-content so specificity (not source order)
+   guarantees this wins over the generic .md-content img/p rules below. */
+.twemoji { display: inline-flex; vertical-align: -0.125em; }
+.md-content .twemoji svg,
+.md-content .twemoji img,
+.md-content img.twemoji {
+  display: inline;
+  width: 1.2em;
+  height: 1.2em;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Admonition title icons read small at the default 1.2em — bump 1.5x.
+   Vertical-align math on a raw inline icon is fragile, so center it against
+   the title text with flex instead of hand-tuning an offset. */
+.md-content .admonition-title { display: flex; align-items: center; gap: 0.35em; margin: 0 0 0.5em; }
+.md-content .admonition-title .twemoji svg,
+.md-content .admonition-title .twemoji img,
+.md-content .admonition-title img.twemoji { width: 1.8em; height: 1.8em; }
+
 button {
   font-family: inherit;
   cursor: pointer;
