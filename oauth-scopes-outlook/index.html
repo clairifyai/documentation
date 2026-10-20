@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>OAuth (Outlook) — Everything You Need to Know About Clairify</title>
+
+  
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OAuth (Outlook) — Everything You Need to Know About Clairify">
+  
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/syntax.css">
+
+  <!-- Annotation system CSS -->
+  <link rel="stylesheet" href="../css/annotations.css">
+
+  <!-- AI Search CSS -->
+  <link rel="stylesheet" href="../css/search.css">
+
+  <!-- Extra CSS from mkdocs.yml -->
+  <link rel="stylesheet" href="../assets/feature-matrix.css">
+  <link rel="stylesheet" href="../assets/video-embed.css">
+
+  
+</head>
+<body class="page docs-page">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Top Navigation -->
+  <header class="site-header" id="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href=".." class="nav-logo" aria-label="Everything You Need to Know About Clairify home">
+        <span class="logo-mark">
+          <img src="../assets/images/clairify-symbol-teal.svg" alt="Everything You Need to Know About Clairify" width="28" height="28" class="logo-symbol logo-symbol--light">
+          <img src="../assets/images/clairify-symbol-eggshell.svg" alt="" aria-hidden="true" width="28" height="28" class="logo-symbol logo-symbol--dark">
+        </span>
+        <span class="logo-text">Everything You Need to Know About Clairify</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="https://clairify.ai" class="nav-link" target="_blank" rel="noopener">Home</a></li>
+        <li><a href="https://clairify.ai/about" class="nav-link" target="_blank" rel="noopener">About</a></li>
+        <li><a href="https://clairify.ai/clairify-security" class="nav-link" target="_blank" rel="noopener">Security</a></li>
+        <li><a href="https://clairify.ai/pricing" class="nav-link" target="_blank" rel="noopener">Pricing</a></li>
+        <li><a href="https://clairify.ai/blog" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+
+      <!-- Right side actions -->
+      <div class="nav-actions">
+        <!-- AI Search button -->
+        <button class="nav-btn-ghost" id="search-btn" aria-label="Search docs (⌘K)" title="Search docs (⌘K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        
+
+        <a href="#" class="nav-btn-primary">
+          Log in
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+        <a href="https://clairify.ai" class="mobile-nav-link" target="_blank" rel="noopener">Home</a>
+        <a href="https://clairify.ai/about" class="mobile-nav-link" target="_blank" rel="noopener">About</a>
+        <a href="https://clairify.ai/clairify-security" class="mobile-nav-link" target="_blank" rel="noopener">Security</a>
+        <a href="https://clairify.ai/pricing" class="mobile-nav-link" target="_blank" rel="noopener">Pricing</a>
+        <a href="https://clairify.ai/blog" class="mobile-nav-link" target="_blank" rel="noopener">Blog</a>
+      <div class="mobile-nav-actions">
+        <a href=".." class="nav-btn-primary full-width">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <div class="layout-wrapper">
+    
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation navigation">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">Documentation</span>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation tree -->
+      <nav class="sidebar-nav" aria-label="Site navigation">
+        
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href=".." class="nav-link ">Home</a>
+                </li>
+              </ul>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../getting-started/" class="nav-link ">Start Here</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../where-did-my-emails-go/" class="nav-link ">Where Did My Emails Go?</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../outlook-sso/" class="nav-link ">Outlook</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Features</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../primary-email/" class="nav-link ">Primary Email</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../email-classification/" class="nav-link ">Email Classification</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Summarization</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../summarization/" class="nav-link ">Summarization</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../writing-prompts/" class="nav-link ">Writing Prompts</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../digests/" class="nav-link ">Digests</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../on-demand-sync/" class="nav-link ">On-Demand Sync</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../channels/" class="nav-link ">Channels</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Pricing</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../feature-matrix/" class="nav-link ">Feature Matrix</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Security</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../security/" class="nav-link ">Security</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../pii-policy/" class="nav-link ">PII</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../oauth-scopes/" class="nav-link ">OAuth (Gmail)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item active">
+                        <a href="./" class="nav-link current">OAuth (Outlook)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../ai-safety/" class="nav-link ">AI Safety</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../tool-credential-architecture/" class="nav-link ">Tool & Credential Architecture</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Release Notes</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Version 3</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-360/" class="nav-link ">Version 3.6.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-350/" class="nav-link ">Version 3.5.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-340/" class="nav-link ">Version 3.4.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-331/" class="nav-link ">Version 3.3.1</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-330/" class="nav-link ">Version 3.3.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-320/" class="nav-link ">Version 3.2.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-310/" class="nav-link ">Version 3.1.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-300/" class="nav-link ">Version 3.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Version 2</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-200/" class="nav-link ">Version 2.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href="../troubleshooting/" class="nav-link ">Troubleshooting</a>
+                </li>
+              </ul>
+            
+          
+        
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <main class="docs-main" id="main-content">
+    <div class="docs-content">
+
+      <!-- Breadcrumbs -->
+      
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="..">Home</a></li>
+          
+          <li><span>Security</span></li>
+          
+          <li aria-current="page">OAuth (Outlook)</li>
+        </ol>
+      </nav>
+      
+
+      <!-- Article -->
+      <article class="docs-article">
+        <div class="article-body md-content">
+          <h1 id="oauth-scopes-outlook">OAuth Scopes - Outlook</h1>
+<div class="admonition tip inline end">
+<p class="admonition-title">Tip</p>
+<p>While, Clairify requests Microsoft's <code>Mail.ReadWrite</code> permission, which does allow us to permanently delete messages, we still never delete your emails. Instead discarded messages simply are moved to a <strong><code>ClairifyTrash</code></strong> folder.</p>
+</div>
+<p>We request a small set of Microsoft Graph permissions to:</p>
+<ol>
+<li>Sign you in and create your Clairify account,</li>
+<li>Read your messages to summarize them,</li>
+<li>Apply lightweight user-initiated changes to your mailbox, and</li>
+<li>Send messages you compose — Replies, reply all, forwards, and new emails</li>
+</ol>
+<p>Outlook and Microsoft 365 require an administrator to approve Clairify for an organization before anyone can sign in. See <a href="../outlook-sso/">Before You Can Login With Outlook</a> for that one-time setup.</p>
+<p><br></p>
+<table id="graph-scopes">
+<caption style="caption-side:top">Table 1: Complete List of Requested Microsoft Graph Permissions </caption><thead>
+<tr>
+<th>Purpose</th>
+<th>Scope</th>
+<th>What it allows</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sign-in &amp; session</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sign-in &amp; account association</td>
+<td><nobr><code>openid</code><br><code>email</code><br><code>profile</code><br><code>User.Read</code></nobr></td>
+<td>Verify identity, link the correct Microsoft account, and load basic profile details (name, avatar, email).</td>
+<td>Sign into the app, show your name/avatar, tie your account to the right mailbox.</td>
+</tr>
+<tr>
+<td>Keep you signed in</td>
+<td><code>offline_access</code></td>
+<td>Maintain access with refresh tokens so you don't re-authenticate constantly.</td>
+<td>Shown as "Maintain access to data you have given it access to" on the consent screen.</td>
+</tr>
+<tr>
+<td><strong>Mail</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Read mail for summarization</td>
+<td><code>Mail.ReadWrite</code></td>
+<td>Create, read, update, and delete messages in your mailbox.</td>
+<td>Generate summaries for new messages and newsletters.</td>
+</tr>
+<tr>
+<td>Apply user-initiated mailbox changes</td>
+<td><code>Mail.ReadWrite</code></td>
+<td>Toggle read/unread; create folders; move messages between folders; apply categories.</td>
+<td>Swipe right to mark as read; discard to move a message into the <code>ClairifyTrash</code> folder.</td>
+</tr>
+<tr>
+<td>Send mail on your action</td>
+<td><code>Mail.Send</code></td>
+<td>Send messages you compose — New emails, replies, reply all, and forwards. Sending is always initiated by you.</td>
+<td>Reply, reply all, or forward a message from a card; compose a new email within Clairify.</td>
+</tr>
+<tr>
+<td>Read mail</td>
+<td><code>Mail.Read</code></td>
+<td>View messages without modifying mailbox state.</td>
+<td>Redundant when <code>Mail.ReadWrite</code> is granted.</td>
+</tr>
+<tr>
+<td><strong>Mailbox settings</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Read &amp; write mailbox settings</td>
+<td><code>MailboxSettings.ReadWrite</code></td>
+<td>Read and write your mailbox settings — Time zone, categories, and related configuration.</td>
+<td>Read the mailbox configuration Clairify relies on to organize and display your mail.</td>
+</tr>
+<tr>
+<td>Read mailbox settings</td>
+<td><code>MailboxSettings.Read</code></td>
+<td>Read mailbox configuration such as time zone and categories.</td>
+<td>Redundant when <code>MailboxSettings.ReadWrite</code> is granted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="permission-philosophy">Permission Philosophy</h2>
+<ul>
+<li><strong>Least privilege</strong> — We request only the permissions needed for the features above. <a href="#graph-scopes">Table 1</a> is the single source of truth for scope purposes and examples.</li>
+<li><strong>User-initiated changes only</strong> — Any mailbox modification or outbound message happens in response to your actions in the app, e.g., mark as read, categorize, move a message to the <code>ClairifyTrash</code> folder, or send a reply you composed. Clairify never sends on its own.</li>
+<li><strong>Content boundaries</strong> — Only email messages and their attachments are accessed, and for no purpose other than to generate summaries and to send the messages you compose.</li>
+</ul>
+<h2 id="admin-consent-flow">Admin Consent Flow</h2>
+<p>Because Microsoft treats mailbox access as an organization-level decision, a <strong>Global Administrator</strong> grants consent once on behalf of the company:</p>
+<ol>
+<li>An admin registers and approves Clairify in <a href="https://entra.microsoft.com">Microsoft Entra</a>.</li>
+<li>The admin reviews the permissions listed in <a href="#graph-scopes">Table 1</a> and clicks <strong>Accept</strong>.</li>
+<li>After that, non-admin users at the organization can sign in with Outlook normally.</li>
+</ol>
+<p>The consent screen an administrator sees maps directly to the permissions in <a href="#graph-scopes">Table 1</a>:</p>
+<p><figure id="_figure-1"><img alt="Microsoft consent screen listing the permissions Clairify requests" src="../assets/images/entra-permissions-consent.png" width="55%"><figcaption>Figure 1: Microsoft consent screen listing the permissions Clairify requests</figcaption></figure></p>
+<p>Full step-by-step instructions are in <a href="../outlook-sso/">Before You Can Login With Outlook</a>.</p>
+<h2 id="token-lifecycle-revocation">Token Lifecycle &amp; Revocation</h2>
+<p>Access tokens are short-lived; refresh tokens (<code>offline_access</code>) keep sessions active until access is revoked or you sign out. Either option immediately terminates our access to your mailbox and its change notifications.</p>
+<p>To revoke access:</p>
+<ul>
+<li><strong>Individual</strong>: <a href="https://myaccount.microsoft.com">My Account</a> &gt; Apps &amp; devices, or <a href="https://myapps.microsoft.com">My Apps</a>, or</li>
+<li><strong>Global Administrator</strong>: <a href="https://entra.microsoft.com">Microsoft Entra</a> &gt; Enterprise applications &gt; <strong>Clairify</strong> &gt; remove the app or revoke consent.</li>
+</ul>
+<h2 id="security-access-transparency">Security &amp; Access Transparency</h2>
+<ul>
+<li><strong>Credentials &amp; secrets</strong> - OAuth tokens are encrypted at rest.</li>
+<li><strong>Access controls</strong> - We enforce role-based, least-privilege access to production systems and customer data (emails, summaries, categories/metadata), cryptographic secrets/tokens, and operational tooling (databases, storage, logs, admin consoles).</li>
+<li><strong>Accountability</strong> - All privileged access—including use of administrative tooling for technical support and debugging—is logged and auditable.</li>
+</ul>
+<h2 id="scope-change-policy">Scope Change Policy</h2>
+<p>Any addition or elevation of permissions requires renewed admin consent. When Clairify adds a permission, an administrator must approve it before it can be used in production.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/graph/permissions-reference">Microsoft Graph permissions reference</a></li>
+<li><a href="https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview">Microsoft Graph mail API</a></li>
+<li><a href="https://learn.microsoft.com/en-us/graph/api/resources/outlookcategory">Outlook categories</a></li>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent">Grant tenant-wide admin consent</a></li>
+</ul>
+        </div>
+
+        <!-- Prev / Next navigation -->
+        
+        <nav class="page-nav" aria-label="Page navigation">
+          
+          <a href="../oauth-scopes/" class="page-nav-link page-nav-prev">
+            <span class="page-nav-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              Previous
+            </span>
+            <span class="page-nav-title">OAuth (Gmail)</span>
+          </a>
+          
+
+          
+          <a href="../ai-safety/" class="page-nav-link page-nav-next">
+            <span class="page-nav-label">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span class="page-nav-title">AI Safety</span>
+          </a>
+          
+        </nav>
+        
+      </article>
+    </div>
+  </main>
+
+  <!-- Table of Contents -->
+  
+  <aside class="docs-toc" aria-label="Table of contents">
+    <div class="toc-inner">
+      <div class="toc-label">On this page</div>
+      <nav class="toc-nav">
+        <ul class="toc-list">
+          
+          <li class="toc-item">
+            <a href="#oauth-scopes-outlook" class="toc-link">OAuth Scopes - Outlook</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#permission-philosophy" class="toc-link toc-link-sub">Permission Philosophy</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#admin-consent-flow" class="toc-link toc-link-sub">Admin Consent Flow</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#token-lifecycle-revocation" class="toc-link toc-link-sub">Token Lifecycle &amp; Revocation</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#security-access-transparency" class="toc-link toc-link-sub">Security &amp; Access Transparency</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#scope-change-policy" class="toc-link toc-link-sub">Scope Change Policy</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#additional-resources" class="toc-link toc-link-sub">Additional Resources</a>
+              </li>
+              
+            </ul>
+            
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  
+
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Footer top: brand + link columns -->
+    <div class="footer-top">
+
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a href=".." class="footer-logo" aria-label="Clairify home">
+          <img src="../assets/images/clairify-logo-horizontal-darkgrey.svg" alt="Clairify" class="footer-logo-img logo-symbol--light">
+          <img src="../assets/images/clairify-logo-horizontal-offwhite.svg" alt="" aria-hidden="true" class="footer-logo-img logo-symbol--dark">
+        </a>
+        
+        <p class="footer-tagline">The only app designed specifically for executive leadership.</p>
+        
+
+        <!-- Social links -->
+        <div class="footer-social">
+          <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <div class="footer-nav-grid">
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Get Clairify</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Demo</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">Google Play</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Resources</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Blog</a></li>
+            <li><a href="#" class="footer-nav-link">Roadmap</a></li>
+            <li><a href="#" class="footer-nav-link">Product Sheet</a></li>
+            <li><a href="../release-notes/rn-360/" class="footer-nav-link">Release Notes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Trust &amp; Legal</div>
+          <ul class="footer-nav-list">
+            <li><a href="https://trust.clairify.ai" class="footer-nav-link">Trust Center</a></li>
+            <li><a href="https://clairify.ai/privacy" class="footer-nav-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-nav-link">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Support</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Email us</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer bottom: copyright -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 Clairify. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- Theme JS -->
+  <script src="../js/theme.js"></script>
+
+  <!-- Extra JS from mkdocs.yml -->
+    <script src="../assets/feature-matrix.js"></script>
+    <script src="../assets/feat-tip.js"></script>
+
+  
+
+  <!-- AI Search -->
+  <script src="../js/search.js"></script>
+
+  <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
+  
+  
+  <script src="../js/annotations.js"></script>
+  
+  
+</body>
+</html>

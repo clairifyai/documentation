@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Tool & Credential Architecture — Everything You Need to Know About Clairify</title>
+
+  
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tool & Credential Architecture — Everything You Need to Know About Clairify">
+  
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/syntax.css">
+
+  <!-- Annotation system CSS -->
+  <link rel="stylesheet" href="../css/annotations.css">
+
+  <!-- AI Search CSS -->
+  <link rel="stylesheet" href="../css/search.css">
+
+  <!-- Extra CSS from mkdocs.yml -->
+  <link rel="stylesheet" href="../assets/feature-matrix.css">
+  <link rel="stylesheet" href="../assets/video-embed.css">
+
+  
+</head>
+<body class="page docs-page">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Top Navigation -->
+  <header class="site-header" id="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href=".." class="nav-logo" aria-label="Everything You Need to Know About Clairify home">
+        <span class="logo-mark">
+          <img src="../assets/images/clairify-symbol-teal.svg" alt="Everything You Need to Know About Clairify" width="28" height="28" class="logo-symbol logo-symbol--light">
+          <img src="../assets/images/clairify-symbol-eggshell.svg" alt="" aria-hidden="true" width="28" height="28" class="logo-symbol logo-symbol--dark">
+        </span>
+        <span class="logo-text">Everything You Need to Know About Clairify</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="https://clairify.ai" class="nav-link" target="_blank" rel="noopener">Home</a></li>
+        <li><a href="https://clairify.ai/about" class="nav-link" target="_blank" rel="noopener">About</a></li>
+        <li><a href="https://clairify.ai/clairify-security" class="nav-link" target="_blank" rel="noopener">Security</a></li>
+        <li><a href="https://clairify.ai/pricing" class="nav-link" target="_blank" rel="noopener">Pricing</a></li>
+        <li><a href="https://clairify.ai/blog" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+
+      <!-- Right side actions -->
+      <div class="nav-actions">
+        <!-- AI Search button -->
+        <button class="nav-btn-ghost" id="search-btn" aria-label="Search docs (⌘K)" title="Search docs (⌘K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        
+
+        <a href="#" class="nav-btn-primary">
+          Log in
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+        <a href="https://clairify.ai" class="mobile-nav-link" target="_blank" rel="noopener">Home</a>
+        <a href="https://clairify.ai/about" class="mobile-nav-link" target="_blank" rel="noopener">About</a>
+        <a href="https://clairify.ai/clairify-security" class="mobile-nav-link" target="_blank" rel="noopener">Security</a>
+        <a href="https://clairify.ai/pricing" class="mobile-nav-link" target="_blank" rel="noopener">Pricing</a>
+        <a href="https://clairify.ai/blog" class="mobile-nav-link" target="_blank" rel="noopener">Blog</a>
+      <div class="mobile-nav-actions">
+        <a href=".." class="nav-btn-primary full-width">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <div class="layout-wrapper">
+    
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation navigation">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">Documentation</span>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation tree -->
+      <nav class="sidebar-nav" aria-label="Site navigation">
+        
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href=".." class="nav-link ">Home</a>
+                </li>
+              </ul>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../getting-started/" class="nav-link ">Start Here</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../where-did-my-emails-go/" class="nav-link ">Where Did My Emails Go?</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../outlook-sso/" class="nav-link ">Outlook</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Features</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../primary-email/" class="nav-link ">Primary Email</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../email-classification/" class="nav-link ">Email Classification</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Summarization</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../summarization/" class="nav-link ">Summarization</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../writing-prompts/" class="nav-link ">Writing Prompts</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../digests/" class="nav-link ">Digests</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../on-demand-sync/" class="nav-link ">On-Demand Sync</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../channels/" class="nav-link ">Channels</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Pricing</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../feature-matrix/" class="nav-link ">Feature Matrix</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Security</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../security/" class="nav-link ">Security</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../pii-policy/" class="nav-link ">PII</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../oauth-scopes/" class="nav-link ">OAuth (Gmail)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../oauth-scopes-outlook/" class="nav-link ">OAuth (Outlook)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../ai-safety/" class="nav-link ">AI Safety</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item active">
+                        <a href="./" class="nav-link current">Tool & Credential Architecture</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Release Notes</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Version 3</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-360/" class="nav-link ">Version 3.6.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-350/" class="nav-link ">Version 3.5.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-340/" class="nav-link ">Version 3.4.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-331/" class="nav-link ">Version 3.3.1</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-330/" class="nav-link ">Version 3.3.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-320/" class="nav-link ">Version 3.2.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-310/" class="nav-link ">Version 3.1.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-300/" class="nav-link ">Version 3.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Version 2</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../release-notes/rn-200/" class="nav-link ">Version 2.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href="../troubleshooting/" class="nav-link ">Troubleshooting</a>
+                </li>
+              </ul>
+            
+          
+        
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <main class="docs-main" id="main-content">
+    <div class="docs-content">
+
+      <!-- Breadcrumbs -->
+      
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="..">Home</a></li>
+          
+          <li><span>Security</span></li>
+          
+          <li aria-current="page">Tool & Credential Architecture</li>
+        </ol>
+      </nav>
+      
+
+      <!-- Article -->
+      <article class="docs-article">
+        <div class="article-body md-content">
+          <h1 id="tool-access-skill-gating">Tool access &amp; skill gating</h1>
+<p>This doc explains exactly when a tool gets offered to Claire on a given chat turn —
+in particular, what it means to gate a tool behind a skill (<code>skill_code</code>), when a
+skill counts as "active" for a turn, and what happens when a skill is referenced but
+the calling user doesn't have it installed. It's written for whoever assigns tools
+and skills to an instance (admins) and whoever authors them for this catalog
+(see <a href="adding-tools.md"><code>adding-tools.md</code></a> and <a href="writing-skills.md"><code>writing-skills.md</code></a>
+for authoring). The mechanics here are the Hub's actual runtime behavior — sourced
+from claire-hub's
+<a href="https://github.com/clairifyai/claire-hub/blob/main/docs/admin-defined-tools.md"><code>admin-defined-tools.md</code></a>
+and
+<a href="https://github.com/clairifyai/claire-hub/blob/main/docs/installed-skills.md"><code>installed-skills.md</code></a>,
+which remain the authoritative references if you need more detail than this page
+gives.</p>
+<h2 id="the-short-version">The short version</h2>
+<p>A <strong>custom tool</strong> is offered to the model on a turn only when <strong>all four</strong> of these
+hold:</p>
+<ol>
+<li><code>EXTERNAL_TOOLS_ENABLED=true</code> on the Hub (an instance-wide switch; off by
+   default — CRUD and listing work regardless, this only gates execution).</li>
+<li>The tool's assignment status is <code>active</code> (the install round-trip to that instance
+   succeeded).</li>
+<li>The assignment's <code>is_enabled</code> is <code>true</code>.</li>
+<li>Its <code>skill_code</code> is <strong>blank</strong>, or the skill it names is <strong>active for this turn</strong>.</li>
+</ol>
+<p>A <strong>skill</strong> is "active for this turn" when the Hub's selection logic includes it in
+the set of skills it applies to that turn — see <a href="#how-a-skill-becomes-active-for-a-turn">How a skill becomes "active" for a
+turn</a> below. That set can only ever contain
+skills the calling user has installed — nothing else. <strong>Builtin</strong> tools (web search,
+calculator, etc.) are governed only by their own <code>is_enabled</code> and their own
+<code>skill_code</code>; they ignore <code>EXTERNAL_TOOLS_ENABLED</code> entirely.</p>
+<h2 id="what-skill_code-actually-gates">What <code>skill_code</code> actually gates</h2>
+<p><code>skill_code</code> lives on the <strong>tool assignment</strong> (<code>ClaireInstanceTool.skill_code</code>), not
+in the tool's own manifest — the same manifest can be assigned to one instance
+wide-open (<code>skill_code: ""</code>) and to another gated behind a skill. Leaving it blank
+means "offered to everyone on the instance by default," subject to the other three
+gates above. Setting it to a skill's <code>code</code> narrows that down to exactly the users
+who have that skill installed <em>and</em> on the turns where it's selected.</p>
+<p>This is the main lever for controlling who can reach a sensitive or shared-identity
+tool: install the skill only for the people who should have it, then gate the tool
+behind that skill's code. See the Security sections in
+<a href="../slack/README.md"><code>slack/README.md</code></a> for a concrete example — the shared Slack
+tools are meant to be assigned with a <code>skill_code</code> set precisely so that gating
+narrows exposure down to the people who have the corresponding skill installed,
+instead of being offered to every user on the instance.</p>
+<h2 id="how-a-skill-becomes-active-for-a-turn">How a skill becomes "active" for a turn</h2>
+<p>Selection (<code>select_skill_codes(installed, question, explicit_skill, mode)</code>) only
+ever chooses from the calling user's <strong>installed</strong> skills — a skill that isn't
+installed for that user can never be selected, full stop. Given that, which skills
+get selected depends on how the turn was started:</p>
+<table>
+<thead>
+<tr>
+<th>Caller</th>
+<th>Mode</th>
+<th>What gets selected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API call with an explicit <code>skill</code> parameter</td>
+<td>—</td>
+<td>Exactly that one skill.</td>
+</tr>
+<tr>
+<td>Ordinary chat, no explicit <code>skill</code> parameter</td>
+<td><code>auto</code></td>
+<td>Every skill named as <code>/code</code> in the message; <strong>if none are named, every skill the user has installed</strong> — the model is left to decide which one's guidance (and any tool it gates) is actually relevant.</td>
+</tr>
+<tr>
+<td>Scheduled cron run</td>
+<td><code>explicit</code></td>
+<td>Only the skills named as <code>/code</code> in the cron prompt — there is <strong>no</strong> "select everything installed" fallback for cron.</td>
+</tr>
+<tr>
+<td>—</td>
+<td><code>off</code></td>
+<td>No skills at all.</td>
+</tr>
+</tbody>
+</table>
+<p>The important consequence: <strong>in ordinary chat, you don't have to type <code>/skill-code</code>
+for a skill (or a tool it gates) to be available.</strong> If the user doesn't name any
+skill explicitly, every skill they have installed is selected automatically, and a
+tool gated to any one of those skills is offered on that turn. Requiring an explicit
+<code>/code</code> mention is a cron-only behavior.</p>
+<p><code>/code</code> matching is exact and looks for a leading slash that isn't part of a URL or
+path (<code>(?&amp;lt;![:/\w])/([A-Za-z0-9_-]{2,})</code>). A named selection is capped at 5 skills per
+turn; the "select everything installed" fallback is capped at 100.</p>
+<h2 id="what-happens-if-a-skill-is-referenced-but-the-user-doesnt-have-it">What happens if a skill is referenced but the user doesn't have it</h2>
+<p>"Doesn't have it" means it isn't in that user's installed set — skills are
+<strong>per-user</strong>, not per-instance; one user having a skill installed never grants it to
+anyone else on the same instance. What happens next depends on how it was
+referenced:</p>
+<ul>
+<li><strong>Explicit API request</strong> (<code>skill</code> parameter set to a code the user hasn't
+  installed): the request fails outright with <strong>HTTP 404</strong>.</li>
+<li><strong>Named with <code>/code</code> in an ordinary chat message</strong>: no error is raised anywhere.
+  The match against installed skills simply fails, so that name is <strong>logged and
+  silently ignored</strong> — from the user's point of view it's as if they never typed it.
+  If no <em>other</em> skill was named either, the turn falls through to the "select
+  everything installed" default instead.</li>
+<li><strong>Named with <code>/code</code> in a cron prompt</strong>: same silent-ignore behavior, but there is
+  no fallback for cron — the run just proceeds without that skill (and without any
+  tool gated behind it), with nothing but a log line to show it was skipped.</li>
+</ul>
+<p>In every case, a tool gated to that skill's <code>skill_code</code> stays hidden: it can only
+ever be exposed by a skill the calling user actually has installed, never by one
+they merely typed the name of.</p>
+<h2 id="practical-guidance">Practical guidance</h2>
+<ul>
+<li><strong>If a tool must only reach specific people</strong>, gate it with <code>skill_code</code> and
+  control access purely through who has that skill <em>installed</em> — don't rely on the
+  model refusing to call it, and don't assume a user typing <code>/some-other-skill</code>'s
+  code will ever reach it.</li>
+<li><strong>If you want a skill-gated tool to actually get used</strong>, remember it can be
+  selected two ways: an explicit <code>/code</code> mention, or silently via the "select
+  everything installed" fallback when the user names nothing. Write the skill's
+  invocation paragraph (see <a href="writing-skills.md"><code>writing-skills.md</code></a>) so the model
+  can tell from context alone when it applies — don't assume the user will always
+  type the slash command.</li>
+<li>
+<p><strong>Don't treat an unrecognized <code>/code</code> as an error condition for the user</strong> — it
+  fails silently by design. If you need to confirm a skill is actually installed
+  and reachable, check the Hub directly rather than inferring it from chat
+  behavior:</p>
+<p>curl -s -H "X-Hub-Secret: $HUB_SECRET" \
+    "$HUB/api/v1/users/<user_id>/skills" | jq '.[].code'
+- <strong>For a tool that never seems to get called even though its assignment shows
+  <code>active</code></strong>, walk the four gates in <a href="#the-short-version">The short version</a> in
+  order — in practice the most common misses are <code>EXTERNAL_TOOLS_ENABLED</code> being off
+  on the Hub, <code>is_enabled</code> false on the assignment, or the gating skill simply not
+  being installed for the user who's testing it.</user_id></p>
+</li>
+</ul>
+<hr>
+<h1 id="how-claire-uses-tools-and-how-it-uses-your-credentials-without-ever-seeing-them">How Claire uses tools, and how it uses your credentials without ever seeing them</h1>
+<p><strong>Audience:</strong> product, and anyone who needs to explain Claire's tool-calling and its
+security story without reading code.
+<strong>In one line:</strong> Claire is an AI assistant that can call tools during a
+conversation; the tools that touch the internet or a private account run <em>outside</em>
+the AI, and a user's real passwords and API keys are handed to those tools directly
+— the AI model itself never sees them.</p>
+<hr>
+<h2 id="1-the-mental-model">1. The mental model</h2>
+<p>Think of Claire as having three separate layers:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it is</th>
+<th>What it can see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The AI model</strong></td>
+<td>The language model that reads the question and writes the answer. Can be a local model or a cloud model (OpenAI, Google, etc.).</td>
+<td>The user's question, the conversation so far, the list of tools available <em>and what each one is for</em>, and the <strong>results</strong> tools return.</td>
+</tr>
+<tr>
+<td><strong>The orchestrator</strong></td>
+<td>Claire's own software that runs each conversation turn. It decides which tools to offer, runs them when the model asks, and passes results back.</td>
+<td>Everything — but it is our trusted code, not a third party.</td>
+</tr>
+<tr>
+<td><strong>The tools</strong></td>
+<td>Small, isolated helper programs that actually do things: search the web, query a knowledge base, call a CRM, charge a card.</td>
+<td>Only the specific inputs for one task, plus any credential the orchestrator injects for that one call.</td>
+</tr>
+</tbody>
+</table>
+<p>The key idea: <strong>the AI model is treated as untrusted.</strong> Anything the model can see
+could end up with a cloud AI provider, in a log, or be extracted by a cleverly
+worded message ("prompt injection"). So secrets are kept in the orchestrator and
+tool layers, never in the model layer.</p>
+<hr>
+<h2 id="2-how-a-conversation-turn-works">2. How a conversation turn works</h2>
+<p>Every time a user sends a message:</p>
+<ol>
+<li><strong>Claire assembles the turn.</strong> It looks up which knowledge base, which skills,
+   and which tools apply to this user and this instance, and builds a fresh working
+   context. Nothing is carried over invisibly — each turn is rebuilt from scratch.</li>
+<li><strong>Claire picks a model.</strong> It tries the configured cloud models in priority
+   order; if those are unavailable it falls back to the local model. This is
+   automatic and invisible to the user.</li>
+<li><strong>The model works the problem.</strong> It may answer directly, or it may decide it
+   needs a tool. If so, it says "call tool X with these inputs." Claire runs the
+   tool, gives the model the result, and the model continues. This repeats until
+   the model has a final answer.</li>
+<li><strong>Claire shapes the answer.</strong> It formats the response, attaches citations to any
+   source documents that were used, and returns it.</li>
+<li><strong>Claire logs the turn</strong> — counts and timings only, never the message text.</li>
+</ol>
+<p>Claire keeps no long-term memory of its own; conversation history is stored by the
+main product, not the AI engine.</p>
+<hr>
+<h2 id="3-the-kinds-of-tools">3. The kinds of tools</h2>
+<p>Claire can offer four kinds of tools in a turn. The model calls all of them the
+same way; they differ in <em>where they run</em> and <em>how much we trust them</em>.</p>
+<p><figure id="_figure-1"><img alt="Pathways to Tool Utilization" src="../assets/images/tools-pathways.svg" width="60%"><figcaption>Figure 1: Pathways to Tool Utilization</figcaption></figure></p>
+<ul>
+<li><strong>Knowledge-base tools</strong> run inside Claire and only ever touch <em>one</em> user's
+  isolated data store. One tenant can never reach another tenant's data — they are
+  physically separate stores.</li>
+<li><strong>Built-in tools</strong> ship with Claire, are first-party code, and are safe by
+  default. An admin can switch any of them off for an instance.</li>
+<li><strong>Admin-defined tools</strong> are configured by an org admin: "Claire, you can call our
+  order system at this address." They are described by a simple configuration file,
+  not custom code (with an advanced option for teams that want to bring their own
+  integration). These are <strong>off by default</strong> and must be explicitly enabled.</li>
+<li><strong>User connectors</strong> are things an individual user has linked to their own account.</li>
+</ul>
+<h3 id="when-is-a-tool-actually-offered">When is a tool actually offered?</h3>
+<p>A tool shows up in a turn only when it is enabled for the instance, switched on,
+and — if it is tied to a specific skill — that skill is active for the turn. Turning
+a tool on or off takes effect on the very next message.</p>
+<hr>
+<h2 id="4-two-safety-guarantees-at-the-boundary">4. Two safety guarantees at the boundary</h2>
+<p>Everything that could be risky — calling the internet, touching a private account —
+happens in an <strong>isolated helper process</strong>, not inside Claire's core. Two rules hold
+at that boundary:</p>
+<h3 id="guarantee-1-the-ai-can-never-act-as-another-user">Guarantee 1: the AI can never act as another user</h3>
+<p>Every tool call is stamped with the <strong>verified identity of the person who is
+chatting</strong>, taken from their authenticated session. If the AI model tries to specify
+whose data to act on, that value is thrown away and replaced with the real one.
+There is no way for the model to make a tool act as someone else.</p>
+<h3 id="guarantee-2-the-ai-never-sees-credentials">Guarantee 2: the AI never sees credentials</h3>
+<p>This is the important one for the product story.</p>
+<hr>
+<h2 id="5-how-claire-uses-a-credential-without-the-model-seeing-it">5. How Claire uses a credential without the model seeing it</h2>
+<h3 id="the-problem">The problem</h3>
+<p>Some tools need to authenticate — an API key for a CRM, an access token for
+Google, a billing key for Stripe. The naive design would be to let the AI "look up"
+the key and put it in the request. That is exactly what we do <strong>not</strong> do, because
+the moment a key is visible to the model it can leak to the cloud provider, into
+logs, or via prompt injection.</p>
+<h3 id="the-design">The design</h3>
+<p>There is <strong>no "get my API key" tool</strong> and no place in any prompt where a credential
+appears. Instead:</p>
+<p><figure id="_figure-2"><img alt="Secure Credential Handling in Tool Calls" src="../assets/images/credential-handling.svg" width="80%"><figcaption>Figure 2: Secure Credential Handling in Tool Calls</figcaption></figure></p>
+<ol>
+<li><strong>The user connects the account once</strong>, in their settings. The credential is
+   encrypted immediately and only ever decrypted inside Claire's own engine — every
+   system that relays it in between handles it as sealed, unreadable data.</li>
+<li><strong>When a message arrives</strong>, before the AI model runs, Claire checks which tools
+   this turn might use and which credentials they need. It decrypts <em>only those</em>,
+   <em>only for the user who is chatting</em>, and only if the credential is still active
+   and not expired.</li>
+<li><strong>Claire starts the tool's isolated process and passes the credential to it as a
+   private process setting</strong> — the same way an operating system hands a program its
+   configuration. This is not part of the conversation and is not visible to the AI
+   model.</li>
+<li><strong>The AI model asks to call the tool</strong>, supplying only the business inputs
+   (amount, order number, message text). It does not — cannot — supply the
+   credential.</li>
+<li><strong>The tool process slots the credential into the outgoing request</strong> and calls
+   the third party. The request authenticates as the user.</li>
+<li><strong>Only the result comes back to the model</strong> — "charge succeeded," "here are the
+   3 matching invoices" — never the credential.</li>
+</ol>
+<h3 id="if-the-credential-is-missing-or-expired">If the credential is missing or expired</h3>
+<p>The tool call fails cleanly with a message like <em>"this tool needs your Stripe
+credential; connect the account in your settings."</em> The model relays that to the
+user. No request is attempted.</p>
+<h3 id="who-can-see-the-credential-in-plain-form">Who can see the credential in plain form?</h3>
+<table>
+<thead>
+<tr>
+<th>Party</th>
+<th>Sees it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The AI model / cloud AI provider</td>
+<td><strong>No</strong> — never in the prompt, the tool list, the tool inputs, or the results</td>
+</tr>
+<tr>
+<td>Claire's application logs</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>The systems that relay it from settings to the instance</td>
+<td><strong>No</strong> — they only ever hold the encrypted form</td>
+</tr>
+<tr>
+<td>A different customer's Claire, or a different user on the same instance</td>
+<td><strong>No</strong> — decryption is scoped to one user, one instance</td>
+</tr>
+<tr>
+<td>The third-party service being called</td>
+<td><strong>Yes</strong> — that is the entire point; the request is meant to authenticate as the user</td>
+</tr>
+<tr>
+<td>Stored on disk</td>
+<td>Only encrypted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="isolation-between-users">Isolation between users</h3>
+<p>A tool that uses a credential runs in a <strong>separate process per user</strong>, carrying only
+that user's keys. Tools that need no credential share one common process. Rotating
+or removing a credential immediately retires the processes that held it, so the next
+message picks up the change.</p>
+<hr>
+<h2 id="6-the-one-paragraph-version-for-a-deck">6. The one-paragraph version for a deck</h2>
+<blockquote>
+<p>Claire can call tools mid-conversation — searching a user's documents, looking
+something up on the web, or reaching into a connected business system. The tools
+that touch the outside world run in isolated sandboxes, never inside the AI. Two
+hard guarantees hold: the AI can never make a tool act as a different user, and
+the AI never sees a credential. When a user connects an account, the key is
+encrypted and only ever unlocked inside Claire's own engine; at call time it is
+handed straight to the sandboxed tool as a private setting and slotted into the
+outbound request there. The AI model only ever sees the business inputs it chose
+and the result that comes back — an API key never appears in a prompt, a log, or
+a model's context, which also means it can't be extracted by prompt injection.</p>
+</blockquote>
+        </div>
+
+        <!-- Prev / Next navigation -->
+        
+        <nav class="page-nav" aria-label="Page navigation">
+          
+          <a href="../ai-safety/" class="page-nav-link page-nav-prev">
+            <span class="page-nav-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              Previous
+            </span>
+            <span class="page-nav-title">AI Safety</span>
+          </a>
+          
+
+          
+          <a href="../release-notes/rn-360/" class="page-nav-link page-nav-next">
+            <span class="page-nav-label">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span class="page-nav-title">Version 3.6.0</span>
+          </a>
+          
+        </nav>
+        
+      </article>
+    </div>
+  </main>
+
+  <!-- Table of Contents -->
+  
+  <aside class="docs-toc" aria-label="Table of contents">
+    <div class="toc-inner">
+      <div class="toc-label">On this page</div>
+      <nav class="toc-nav">
+        <ul class="toc-list">
+          
+          <li class="toc-item">
+            <a href="#tool-access-skill-gating" class="toc-link">Tool access &amp; skill gating</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#the-short-version" class="toc-link toc-link-sub">The short version</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#what-skill_code-actually-gates" class="toc-link toc-link-sub">What skill_code actually gates</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#how-a-skill-becomes-active-for-a-turn" class="toc-link toc-link-sub">How a skill becomes "active" for a turn</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#what-happens-if-a-skill-is-referenced-but-the-user-doesnt-have-it" class="toc-link toc-link-sub">What happens if a skill is referenced but the user doesn't have it</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#practical-guidance" class="toc-link toc-link-sub">Practical guidance</a>
+              </li>
+              
+            </ul>
+            
+          </li>
+          
+          <li class="toc-item">
+            <a href="#how-claire-uses-tools-and-how-it-uses-your-credentials-without-ever-seeing-them" class="toc-link">How Claire uses tools, and how it uses your credentials without ever seeing them</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#1-the-mental-model" class="toc-link toc-link-sub">1. The mental model</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#2-how-a-conversation-turn-works" class="toc-link toc-link-sub">2. How a conversation turn works</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#3-the-kinds-of-tools" class="toc-link toc-link-sub">3. The kinds of tools</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#4-two-safety-guarantees-at-the-boundary" class="toc-link toc-link-sub">4. Two safety guarantees at the boundary</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#5-how-claire-uses-a-credential-without-the-model-seeing-it" class="toc-link toc-link-sub">5. How Claire uses a credential without the model seeing it</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#6-the-one-paragraph-version-for-a-deck" class="toc-link toc-link-sub">6. The one-paragraph version for a deck</a>
+              </li>
+              
+            </ul>
+            
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  
+
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Footer top: brand + link columns -->
+    <div class="footer-top">
+
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a href=".." class="footer-logo" aria-label="Clairify home">
+          <img src="../assets/images/clairify-logo-horizontal-darkgrey.svg" alt="Clairify" class="footer-logo-img logo-symbol--light">
+          <img src="../assets/images/clairify-logo-horizontal-offwhite.svg" alt="" aria-hidden="true" class="footer-logo-img logo-symbol--dark">
+        </a>
+        
+        <p class="footer-tagline">The only app designed specifically for executive leadership.</p>
+        
+
+        <!-- Social links -->
+        <div class="footer-social">
+          <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <div class="footer-nav-grid">
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Get Clairify</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Demo</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">Google Play</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Resources</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Blog</a></li>
+            <li><a href="#" class="footer-nav-link">Roadmap</a></li>
+            <li><a href="#" class="footer-nav-link">Product Sheet</a></li>
+            <li><a href="../release-notes/rn-360/" class="footer-nav-link">Release Notes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Trust &amp; Legal</div>
+          <ul class="footer-nav-list">
+            <li><a href="https://trust.clairify.ai" class="footer-nav-link">Trust Center</a></li>
+            <li><a href="https://clairify.ai/privacy" class="footer-nav-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-nav-link">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Support</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Email us</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer bottom: copyright -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 Clairify. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- Theme JS -->
+  <script src="../js/theme.js"></script>
+
+  <!-- Extra JS from mkdocs.yml -->
+    <script src="../assets/feature-matrix.js"></script>
+    <script src="../assets/feat-tip.js"></script>
+
+  
+
+  <!-- AI Search -->
+  <script src="../js/search.js"></script>
+
+  <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
+  
+  
+  <script src="../js/annotations.js"></script>
+  
+  
+</body>
+</html>

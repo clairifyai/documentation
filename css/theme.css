@@ -147,6 +147,34 @@ a:hover { color: var(--color-primary-dark); }
 
 img, svg { display: block; max-width: 100%; }
 
+/* Inline emoji/icon shortcodes (pymdownx.emoji) render either as a bare
+   <img class="twemoji"> directly, or an <svg> nested inside a wrapping
+   <span class="twemoji"> — override the block/max-width rule above, AND
+   .md-content img's block-image styling (margin/border-radius/box-shadow),
+   for both shapes so they stay icon-sized and inline with surrounding text.
+   Selectors are prefixed with .md-content so specificity (not source order)
+   guarantees this wins over the generic .md-content img/p rules below. */
+.twemoji { display: inline-flex; vertical-align: -0.125em; }
+.md-content .twemoji svg,
+.md-content .twemoji img,
+.md-content img.twemoji {
+  display: inline;
+  width: 1.2em;
+  height: 1.2em;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Admonition title icons read small at the default 1.2em — bump 1.5x.
+   Vertical-align math on a raw inline icon is fragile, so center it against
+   the title text with flex instead of hand-tuning an offset. */
+.md-content .admonition-title { display: flex; align-items: center; gap: 0.35em; margin: 0 0 0.5em; }
+.md-content .admonition-title .twemoji svg,
+.md-content .admonition-title .twemoji img,
+.md-content .admonition-title img.twemoji { width: 1.8em; height: 1.8em; }
+
 button {
   font-family: inherit;
   cursor: pointer;
@@ -307,8 +335,17 @@ ul, ol { list-style: none; }
 }
 .nav-logo:hover { color: var(--color-text); }
 
-.logo-mark { flex-shrink: 0; }
+.logo-mark { flex-shrink: 0; display: inline-flex; align-items: center; }
 .logo-text { color: var(--color-text); }
+
+/* Brand symbol: teal in light mode, eggshell in dark mode */
+.logo-symbol { display: block; }
+.logo-symbol--dark { display: none; }
+[data-theme="dark"] .logo-symbol--light { display: none; }
+[data-theme="dark"] .logo-symbol--dark { display: block; }
+
+/* Footer horizontal lockup (symbol + wordmark) */
+.footer-logo-img { height: 90px; width: auto; }
 
 /* Nav links */
 .nav-links {
@@ -1421,11 +1458,29 @@ ul, ol { list-style: none; }
 }
 
 .nav-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--space-2);
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-text-muted);
   padding: var(--space-2) var(--space-3);
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
 }
+.nav-group-label:hover { color: var(--color-text); }
+.nav-group-chevron { flex-shrink: 0; transition: transform var(--transition-fast); }
+
+/* Collapsible groups: collapsed by default, open when .open is set */
+.nav-item.has-children > .nav-sublist { display: none; }
+.nav-item.has-children.open > .nav-sublist { display: block; }
+.nav-item.has-children.open > .nav-group-label .nav-group-chevron { transform: rotate(90deg); }
+
 .nav-sublist { padding-left: var(--space-4); }
 
 /* Main docs area */
@@ -1639,10 +1694,17 @@ ul, ol { list-style: none; }
   border-radius: 0;
 }
 
-.md-content table {
-  width: 100%;
-  border-collapse: collapse;
+/* Wide tables scroll within their own container instead of bleeding into the TOC */
+.md-content .table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
   margin: 1.5em 0;
+}
+.md-content table {
+  width: auto;
+  min-width: 100%;
+  border-collapse: collapse;
+  margin: 0;
   font-size: 0.9375rem;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1692,6 +1754,39 @@ ul, ol { list-style: none; }
 .md-content .warning { background: rgba(245,158,11,0.08); border-color: var(--color-warning); }
 .md-content .tip     { background: rgba(16,185,129,0.08); border-color: var(--color-success); }
 .md-content .danger  { background: rgba(239,68,68,0.08);  border-color: var(--color-error);   }
+
+/* Callout header: bold, tinted to match the banner, with an emoji cue */
+.md-content .admonition-title {
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+.md-content .admonition-title::before { margin-right: 0.45em; }
+
+.md-content .note    .admonition-title { color: var(--color-info);    }
+.md-content .warning .admonition-title { color: var(--color-warning); }
+.md-content .tip     .admonition-title { color: var(--color-success); }
+.md-content .danger  .admonition-title { color: var(--color-error);   }
+.md-content .question .admonition-title { color: var(--color-info);   }
+.md-content .bug     .admonition-title { color: var(--color-error);   }
+
+.md-content .note     .admonition-title::before { content: "ℹ️"; }
+.md-content .warning  .admonition-title::before { content: "⚠️"; }
+.md-content .tip      .admonition-title::before { content: "💡"; }
+.md-content .danger   .admonition-title::before { content: "🚨"; }
+.md-content .question .admonition-title::before { content: "❓"; }
+.md-content .bug      .admonition-title::before { content: "🐛"; }
+
+/* Inline Material icons should read like an emoji, not a block image */
+.md-content .twemoji {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: text-bottom;
+}
+.md-content .twemoji svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}
 
 /* ── 16. Error Page ───────────────────────────────────────── */
 .error-layout {
