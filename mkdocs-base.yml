@@ -3,6 +3,7 @@ nav:
   - Home: index.md
   - Getting Started:
     - Start Here: getting-started.md
+    - Where Did My Emails Go?: where-did-my-emails-go.md
     - Outlook: outlook-sso.md
   - Features:
     - Primary Email: primary-email.md
@@ -18,18 +19,40 @@ nav:
   - Security:
     - Security: security.md
     - PII: pii-policy.md
-    - OAuth: oauth-scopes.md
+    - OAuth (Gmail): oauth-scopes.md
+    - OAuth (Outlook): oauth-scopes-outlook.md
   - Release Notes:
-    - Version 3.6.0: release-notes/rn-360.md
-    - Version 3.5.0: release-notes/rn-350.md
-    - Version 3.4.0: release-notes/rn-340.md
-    - Version 3.3.1: release-notes/rn-331.md
-    - Version 3.3.0: release-notes/rn-330.md
-    - Version 3.2.0: release-notes/rn-320.md
-    - Version 3.1.0: release-notes/rn-310.md
-    - Version 3.0.0: release-notes/rn-300.md
-    - Version 2.0.0: release-notes/rn-200.md
+    - Version 3:
+      - Version 3.6.0: release-notes/rn-360.md
+      - Version 3.5.0: release-notes/rn-350.md
+      - Version 3.4.0: release-notes/rn-340.md
+      - Version 3.3.1: release-notes/rn-331.md
+      - Version 3.3.0: release-notes/rn-330.md
+      - Version 3.2.0: release-notes/rn-320.md
+      - Version 3.1.0: release-notes/rn-310.md
+      - Version 3.0.0: release-notes/rn-300.md
+    - Version 2:
+      - Version 2.0.0: release-notes/rn-200.md
   - Troubleshooting: troubleshooting.md
+extra:
+  # Footer links — paste real URLs here; "#" renders a visible placeholder.
+  # This is the single source of truth for the footer; the template reads from it.
+  footer:
+    brand: Clairify
+    tagline: The only app designed specifically for executive leadership.
+    support_email: ""          # e.g. support@clairify.ai  (blank → placeholder)
+    links:
+      demo: "#"
+      app_store: "#"           # iOS
+      google_play: "#"         # Android
+      blog: "#"
+      roadmap: "#"
+      product_sheet: "#"
+      trust_center: "https://trust.clairify.ai"
+      privacy_policy: "https://clairify.ai/privacy"
+      terms_of_service: "#"
+      cookie_policy: "#"
+      linkedin: "#"
 extra_css:
   - assets/feature-matrix.css
 extra_javascript:
