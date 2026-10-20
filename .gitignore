@@ -6,6 +6,9 @@ search-service/node_modules/
 __pycache__/
 *.pyc
 
+scripts/client_secret*.json
+scripts/token.json
+
 # >>> claude-agents managed (DO NOT EDIT THIS BLOCK) >>>
 .claude/.toolkit-last-seen-sha
 .claude/.toolkit-setup-done
