@@ -1666,10 +1666,17 @@ ul, ol { list-style: none; }
   border-radius: 0;
 }
 
-.md-content table {
-  width: 100%;
-  border-collapse: collapse;
+/* Wide tables scroll within their own container instead of bleeding into the TOC */
+.md-content .table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
   margin: 1.5em 0;
+}
+.md-content table {
+  width: auto;
+  min-width: 100%;
+  border-collapse: collapse;
+  margin: 0;
   font-size: 0.9375rem;
   border-radius: var(--radius-lg);
   overflow: hidden;
