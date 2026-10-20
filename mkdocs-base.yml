@@ -21,6 +21,8 @@ nav:
     - PII: pii-policy.md
     - OAuth (Gmail): oauth-scopes.md
     - OAuth (Outlook): oauth-scopes-outlook.md
+    - AI Safety: ai-safety.md
+    - Tool & Credential Architecture: tool-credential-architecture.md
   - Release Notes:
     - Version 3:
       - Version 3.6.0: release-notes/rn-360.md
@@ -55,6 +57,7 @@ extra:
       linkedin: "#"
 extra_css:
   - assets/feature-matrix.css
+  - assets/video-embed.css
 extra_javascript:
   - assets/feature-matrix.js
   - assets/feat-tip.js
@@ -66,6 +69,8 @@ plugins:
   - caption:
       table:
         position: top
+      figure:
+        ignore_classes: [twemoji, no-caption]
   - git-revision-date-localized:
       timezone: America/Vancouver
   - git-latest-changes:
