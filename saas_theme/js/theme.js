@@ -187,6 +187,15 @@
       });
     });
 
+    /* ── 6c. Wrap wide tables so they scroll instead of bleeding ── */
+    document.querySelectorAll('.md-content table').forEach(function (table) {
+      if (table.parentElement && table.parentElement.classList.contains('table-wrap')) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'table-wrap';
+      table.parentNode.insertBefore(wrap, table);
+      wrap.appendChild(table);
+    });
+
     /* ── 7. TOC active link on scroll ───────────────────────── */
     const tocLinks = document.querySelectorAll('.toc-link');
     if (tocLinks.length > 0) {
