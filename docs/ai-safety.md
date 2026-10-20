@@ -20,7 +20,7 @@ Every action Claire takes falls into one of three places: your own documents and
 
 Your documents and email stay yours. During normal operation, no other Clairify customer, no other person at your company, and no one on the Clairify team, sees your data via Claire.
 
-!!! tip ":bulb: **Zero-operator access**"
+!!! tip "Zero-operator access"
 
     This is what's known as **zero-operator access**: no human at Clairify can see your data. Claire may still send your content to the sub-processors it relies on to function, like the underlying AI model provider (OpenAI, Google, etc.), the same way any AI assistant does — but no person ever looks at it along the way.
 
