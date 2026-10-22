@@ -21,7 +21,9 @@ nav:
     - PII: pii-policy.md
     - OAuth (Gmail): oauth-scopes.md
     - OAuth (Outlook): oauth-scopes-outlook.md
-    - AI Safety: ai-safety.md
+    - AI Safety:
+      - ai-safety.md
+      - Prompt Injection: prompt-injection.md
     - Tool & Credential Architecture: tool-credential-architecture.md
   - Release Notes:
     - Version 3:
