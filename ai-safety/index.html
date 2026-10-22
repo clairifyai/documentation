@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>AI Safety — Everything You Need to Know About Clairify</title>
+  <title>Can You Trust Claire With Your Accounts? — Everything You Need to Know About Clairify</title>
 
   
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="AI Safety — Everything You Need to Know About Clairify">
+  <meta property="og:title" content="Can You Trust Claire With Your Accounts? — Everything You Need to Know About Clairify">
   
   <meta property="og:type" content="website">
 
@@ -284,8 +284,22 @@
                     
                   
                     
-                      <li class="nav-item active">
-                        <a href="./" class="nav-link current">AI Safety</a>
+                      <li class="nav-item has-children active open">
+                        <button type="button" class="nav-group-label" aria-expanded="true">
+                          <span>AI Safety</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item active">
+                              <a href="./" class="nav-link current">Can You Trust Claire With Your Accounts?</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../prompt-injection/" class="nav-link ">Prompt Injection</a>
+                            </li>
+                          
+                        </ul>
                       </li>
                     
                   
@@ -394,9 +408,9 @@
         <ol class="breadcrumb-list">
           <li><a href="..">Home</a></li>
           
-          <li><span>Security</span></li>
+          <li><span>AI Safety</span></li>
           
-          <li aria-current="page">AI Safety</li>
+          <li aria-current="page">Can You Trust Claire With Your Accounts?</li>
         </ol>
       </nav>
       
@@ -444,6 +458,8 @@ inbox, calendar, and connections to your business-critical SaaS.</p>
 <p>Nothing is attempted. Claire simply lets you know the connection needs to be made (or remade) in your settings, the same way it would tell you it can't do something it doesn't have permission for.</p>
 <h3 id="could-a-malicious-email-trick-it-into-leaking-a-key">Could a malicious email trick it into leaking a key?</h3>
 <p>No — because the key is never somewhere Claire can read it, there's nothing for a trick instruction to grab. A cleverly worded message buried in an email can't make Claire hand over something it never had access to in the first place.</p>
+<h3 id="how-does-claire-defend-against-prompt-injection">How does Claire defend against prompt injection?</h3>
+<p>Everything Claire is about to send to its AI model is first screened for hidden instructions by a purpose-built classifier. See <a href="../prompt-injection/">How Claire Protects Against Prompt Injection</a> for how it works and where it sits in the pipeline.</p>
 <h3 id="is-my-connection-separate-from-everyone-elses">Is my connection separate from everyone else's?</h3>
 <p>Yes. Each person's connected accounts are kept completely separate, both from other people at your company and from every other Clairify customer. And once a key is stored, even we can't read it back out in plain form — it can only be unlocked for that one moment of use, by you.</p>
         </div>
@@ -462,12 +478,12 @@ inbox, calendar, and connections to your business-critical SaaS.</p>
           
 
           
-          <a href="../tool-credential-architecture/" class="page-nav-link page-nav-next">
+          <a href="../prompt-injection/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Tool & Credential Architecture</span>
+            <span class="page-nav-title">Prompt Injection</span>
           </a>
           
         </nav>
