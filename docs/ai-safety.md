@@ -61,7 +61,7 @@ No — because the key is never somewhere Claire can read it, there's nothing fo
 
 ### How does Claire defend against prompt injection?
 
-Everything Claire is about to send to its AI model is first screened for hidden instructions by a purpose-built classifier. See [How Claire Defends Against Prompt Injection](prompt-injection.md) for how it works and where it sits in the pipeline.
+Everything Claire is about to send to its AI model is first screened for hidden instructions by a purpose-built classifier. See [How Claire Protects Against Prompt Injection](prompt-injection.md) for how it works and where it sits in the pipeline.
 
 ### Is my connection separate from everyone else's?
 
