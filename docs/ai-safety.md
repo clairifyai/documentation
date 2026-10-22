@@ -59,6 +59,10 @@ Nothing is attempted. Claire simply lets you know the connection needs to be mad
 
 No — because the key is never somewhere Claire can read it, there's nothing for a trick instruction to grab. A cleverly worded message buried in an email can't make Claire hand over something it never had access to in the first place.
 
+### How does Claire defend against prompt injection?
+
+Everything Claire is about to send to its AI model is first screened for hidden instructions by a purpose-built classifier. See [How Claire Protects Against Prompt Injection](prompt-injection.md) for how it works and where it sits in the pipeline.
+
 ### Is my connection separate from everyone else's?
 
 Yes. Each person's connected accounts are kept completely separate, both from other people at your company and from every other Clairify customer. And once a key is stored, even we can't read it back out in plain form — it can only be unlocked for that one moment of use, by you.
