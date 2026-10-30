@@ -1,0 +1,124 @@
+{
+  "version": "3.7.0",
+  "title": "Claire Everywhere: Mobile Chat, Tools, AI Engines & Zero Trust Security",
+  "type": "release",
+  "date": "2026-10-26",
+  "description": "Brings Claire to the mobile app with chat, connected accounts, skills, tools, files, and automations; lets organizations use Clairify's built-in AI engine or bring their own; strengthens Claire's zero trust security and AI safety; and adds email signatures, 30-day inbox history, and bug fixes.",
+  "items": {
+    "features": [
+      {
+        "name": "Claire Chat on Mobile",
+        "details": "Claire Chat is now available in the Clairify mobile app. Users can start a conversation with any of their assistants, return to earlier sessions from the topic list, and follow Claire's responses as they stream in real time."
+      },
+      {
+        "name": "Skills and connectors",
+        "details": "Select a skill from the \"+\" menu or by typing \"/\", and see at a glance which connected services Claire can use in the current conversation."
+      },
+      {
+        "name": "Sources",
+        "details": "When Claire answers using your email or documents, the sources indicator shows exactly which items it relied on, and any cited email can be opened directly from the response."
+      },
+      {
+        "name": "Approvals",
+        "details": "Before Claire takes an action that requires your consent, such as creating a calendar event, it presents the full details for review. You can allow the action once, allow it for the remainder of the conversation, decline it, or decline it with a note."
+      },
+      {
+        "name": "Automations",
+        "details": "A new Automations tab lists each assistant's scheduled tasks, along with their schedules, run history, and the results of every run."
+      },
+      {
+        "name": "Connect Slack and Share Accounts with Claire",
+        "details": "Users can now connect their Slack account from the mobile app through a secure sign-in flow that runs on Slack's own consent screen. A new Integrations area on the dashboard lets users share their connected email, calendar, and Slack accounts with Claire so it can work on their behalf. Access can be re-synced or revoked at any time."
+      },
+      {
+        "name": "Claire Skills in the Admin Console",
+        "details": "Managed service providers can now create, edit, and delete their own custom skills directly in the admin console, without involving the Clairify team. A new catalog lists every skill available to you, with filters for type, organization, and status. Each skill supports multiple versions, and only published versions can be deployed. Published versions can be assigned to a single Claire instance or to many instances at once, completing the full create, version, assign, and deploy workflow within the admin console. Skill deployment status messages have been rewritten in plain language."
+      },
+      {
+        "name": "Claire Tools",
+        "details": "Administrators can now give Claire the ability to take real actions and work with live data, managed from a central Tools catalog in the admin console and without any changes to Claire itself. Enable built-in tools, such as web search, only on the instances that require them. Connect Claire to your own business systems, for example an internal order lookup, as either system-wide tools or custom tools scoped to a single organization. Connect an MCP server, and Claire can use the tools it provides. Every tool version is published from a fixed manifest with a checksum, so administrators always know exactly what is running on each instance. Restrict a tool so that Claire offers it only when a specific skill is in use. Tools run separately from Claire and can reach only approved hosts. They reference credentials by name and never contain the credentials themselves."
+      },
+      {
+        "name": "Choose Claire's AI Engine",
+        "details": "Each Claire instance can now run on the AI model that best fits your organization's requirements. All engine and add-on keys are encrypted and held only in Claire's memory. They are never written to the instance's files or install package, and any new, withdrawn, or blocked key takes effect on the running instance immediately. Get started immediately, with nothing to configure and no keys to manage. Use your organization's own OpenAI, Anthropic, or Google Gemini key, or a model you host yourself, such as a local Llama model running on your own hardware. Designate a primary model and an optional fallback, so chat and scheduled jobs continue to run if a provider experiences an outage. Record each model's token pricing and review usage and cost by provider in the admin console. Run paid add-ons, such as web search, on Clairify's key or on your organization's own key."
+      },
+      {
+        "name": "Claire Security, Zero Trust & AI Safety",
+        "details": "Claire is held to the same standard as any member of your team, and it operates only within the access you grant. Every request Claire makes is tied to your verified identity. Claire can never act as another user or reach beyond the data and systems you can access yourself. Claire receives only the scopes and permissions it needs. Your administrator, or you for your own accounts, decides which applications Claire may use, and changes take effect with your next message. Connected credentials are encrypted as soon as they are saved and unlocked only at the moment of use. They are passed directly to the component that makes the request, so the AI model never reads them and a malicious message has nothing to extract. Each person's connected accounts are kept separate from every other user in their organization and from every other Clairify customer. No one at Clairify can view your data through Claire. Incoming emails are scanned for hidden instructions aimed at AI systems before any model processes them, and high-risk messages are blocked from being summarized or acted on by Claire. Claire requests your approval before taking higher-risk actions, and you can allow the action, decline it, or decline it with a note. All of Claire's connections to Clairify's servers require encryption, and Claire Edge verifies the server's identity on every connection to protect against interception. Saved API keys and secrets display only their first and last few characters."
+      },
+      {
+        "name": "Claire Files",
+        "details": "Administrators can now upload plain-text files to Claire instances from the admin console and track delivery to each instance. Existing files can be sent to additional instances or removed from one or many instances at once. File uploads are available on Claire Workspace instances to every device administrator of that instance, and each file is validated by its actual content type rather than its file extension alone."
+      },
+      {
+        "name": "Choose What Claire Receives",
+        "details": "A new Claire Settings option lets users choose which email categories are forwarded to Claire, consistent with the existing text-to-speech category filter. All categories are forwarded by default."
+      },
+      {
+        "name": "Health dashboard",
+        "details": "A dashboard in the admin console displays each Claire instance's health and configuration, so potential issues can be identified and resolved before they affect users."
+      },
+      {
+        "name": "Faster management screens",
+        "details": "The Claire management tabs (Members, Tools, Skills, Automations, Files, and AI Engine Config) now load with a single request and support search and paging across all of an organization's Claire instances. Members can also be added or removed individually."
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Per-User Feature Overrides",
+        "details": "Administrators can now tailor an individual user's feature access and limits without changing that user's plan, for example by allowing more secondary email accounts than the plan normally includes."
+      },
+      {
+        "name": "More descriptive notifications",
+        "details": "Notifications now identify the email or content that each completed task relates to, rather than displaying a generic completion message."
+      },
+      {
+        "name": "Sync Account",
+        "details": "Sync Account is now visible to all users and clearly marked as a premium feature, with an option to upgrade for access."
+      },
+      {
+        "name": "Clearer swipe actions",
+        "details": "Swipe labels now indicate where each email will go, making it clear why skipped cards return to the queue."
+      },
+      {
+        "name": "Read status sync",
+        "details": "Emails read in Gmail or Outlook now sync to the Mailroom as read, and more frequently than once per night."
+      },
+      {
+        "name": "Platform upgrade",
+        "details": "The app has been upgraded to the latest mobile framework for improved compatibility with current iOS and Android versions."
+      },
+      {
+        "name": "Professional Invitation Emails",
+        "details": "Clairify invitation emails are now delivered as formatted HTML rather than plain text."
+      },
+      {
+        "name": "Email Signatures",
+        "details": "Emails sent through Clairify now include your signature automatically. Clairify retrieves your signature directly from Gmail and detects it from your sent mail in Outlook, so outgoing messages match those you send from your regular email client. Each connected account maintains its own signature. Users can view the signature for each account in the mobile app and are prompted to detect one when an account has none. Signatures can be created, edited, or cleared in the admin console, and each one can be set to stay synchronized with Gmail or Outlook."
+      },
+      {
+        "name": "30-Day Inbox History",
+        "details": "Users on paid plans can now sync the last 30 days of their email, giving Claire their recent history from day one rather than only the past week. The sync is offered during onboarding and remains available at any time from a permanent button in the app, and Claire indicates when it is still catching up on your history."
+      }
+    ],
+    "fixes": [
+      {
+        "name": "Deleting an already-deleted email",
+        "details": "Swiping left on an email that has already been deleted no longer displays an error. The email can now be deleted from Clairify after a confirmation."
+      },
+      {
+        "name": "Draft replies regenerating",
+        "details": "Draft replies are no longer regenerated each time the reply form is reopened. Your draft, including any edits, is now restored."
+      },
+      {
+        "name": "Onboarding channel badge count",
+        "details": "The Onboarding channel badge now reflects the actual number of remaining cards instead of always showing 5."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-370/"
+      }
+    ]
+  }
+}
