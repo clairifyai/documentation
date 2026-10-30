@@ -21,7 +21,7 @@ Clairify ingests data from 3rd-party system for the purpose of eventually becomi
 There are several ways that data could be smuggling malicious instructions. This is not an exhaustive list.
 
 * **Plain text** - Someone might not see a prompt like "Ignore all previous instructions", or they might ignore it. Alternatively, instructions could be written in a 'low resource' language, meaning the tools we use to protect don't support these languages.
-* **Invisible text** - There are range of unicode characters that are not visible which can be used to carry instructions. Plain text can be too small or colored white to be illegible. 
+* **Invisible text** - There are range of unicode characters that are not visible which can be used to carry instructions. Plain text can be too small or colored white to be legible. 
 * **Encoding** - For example, emojis can be used to encode instructions. The attack could be single or two-stage, meaning decode instructions are sent at the same time or separately.   
 
 ### Direct and Indirect Injection
