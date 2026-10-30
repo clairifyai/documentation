@@ -25,6 +25,7 @@ nav:
     - AI Safety:
       - ai-safety.md
       - Prompt Injection: prompt-injection.md
+      - Sensitive Information Disclosure: sensitive-information-disclosure.md
     - Tool & Credential Architecture: tool-credential-architecture.md
   - Release Notes:
     - Version 3:
