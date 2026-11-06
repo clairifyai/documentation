@@ -18,6 +18,7 @@ nav:
     - feature-matrix.md
   - Security:
     - Security: security.md
+    - Zero-Operator Access: zero-operator-access.md
     - PII: pii-policy.md
     - OAuth (Gmail): oauth-scopes.md
     - OAuth (Outlook): oauth-scopes-outlook.md
