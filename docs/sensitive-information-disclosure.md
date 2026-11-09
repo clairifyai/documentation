@@ -19,17 +19,30 @@ When the model is given a question or a goal, it will draw on anything in its co
 
 Here's how it works:
 
-Claire a 1 to 1 relationship with each user despite its multi-tenant architecture. This means that sensitive information cannot leak from one session user to another at inference time. 
+Claire has a 1 to 1 relationship with each user despite its multi-tenant architecture. This means that sensitive information cannot leak from one user to another via the answers that the LLM returns.
 
 There are two types of context that can be retrived during question answering: text from emails and text from uploaded documents. Emails are stored in a per-user relational database - meaning each user has their own database; files are uploaded to a folder dedicated and keyed to the user. 
 
-For context retrieval (RAG), emails and files are chunked, vectorized, and stored in a per-user vector database. When a user asks a question, context retrieval is performed using a tool call. Tools are determinisitic code, and the tool called is keyed to the current user. Meaning, the answer can only be generated from context belonging to the user. 
+For context retrieval (RAG), emails and files are chunked, vectorized, and stored in a per-user vector database. When a user asks a question, context retrieval is performed using a tool call. Tools are determinisitic code, and the tool called is keyed to the current user. Meaning, the answer can only be generated from context belonging to the user.
 
+!!! tip "What about secrets?"
+    Credentials and keys are never included in context because tool calling happens outside the model.
 
+## Logging
 
+The concern around logging is exposing sensitive information to us, Clairify. To a lesser extent to your MSP. During chat specifically, we create a log per turn. A _turn_ is one round-trip to the LLM (your question and the model's answer). Claire does not log full chat message text or full model output text.
 
+The following are examples of what Claire does log:
 
-* **Credentials never enter the context** — Keys and passwords are injected at the moment of use, outside the model, so there is nothing for Claire to disclose. See [Claire never sees your passwords or keys](ai-safety.md#claire-never-sees-your-passwords-or-keys).
-* **No human at Clairify sees your data** — See [zero-operator access](ai-safety.md#what-can-claire-actually-reach).
+* User, session, and message IDs.
+* The model/provider and the [model route](model-routing.md).
+* The skills used and the tools called during the turn.
+* Token counts, request counts, and tool-call counts.
+* Timing data such as queue wait, latency, and time-to-first-byte.
+* Citations, whether the turn fell back, and the final status.
+* Error and error-code data, plus [security-scanner verdicts](prompt-injection.md#direct-and-indirect-injection).
+* Estimated cost for the turn.
+* Timestamp of the turn.
 
-<!-- TODO: PII detection and redaction (see pii-policy.md, currently marked "Coming Soon"), what is sent to the model provider, and any output filtering. -->
+!!! tip "What about secrets?"
+    Credentials and keys are never logged and do not need to be logged because a failed tool call will return an error code associated to authorization, which is all we need to know to troubleshoot.
