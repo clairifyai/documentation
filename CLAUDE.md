@@ -60,6 +60,10 @@ Make **separate commits per file change** — commit history serves as public re
 
 Deployment is manual: run `mkdocs gh-deploy` from the main branch after changes are ready.
 
+## Skills
+
+All Clairify skills live in the [clairifyai/skills](https://github.com/clairifyai/skills) repo and are installed globally with Homecrew. Don't add skills to this repo's `.claude/skills/`.
+
 
 <!-- >>> claude-agents toolkit (DO NOT EDIT THIS BLOCK) >>> -->
 <!-- version: 1.0.38 -->
