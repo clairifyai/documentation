@@ -11,12 +11,12 @@ cd documentation
 
 ### 2. Install Homecrew and the skills
 
-[Homecrew](https://crew.logic.inc) is a package manager that installs Claude Code skills from a shared repo.
+[Homecrew](https://crew.logic.inc) is a package manager that installs Claude Code skills from a shared repo. The release skills live in the private [clairifyai/skills](https://github.com/clairifyai/skills) repo, so you need access to the `clairifyai` GitHub org. They are not in this repo.
 
 ```bash
 curl -fsSL https://crew.logic.inc/install.sh | sh
 crew tap @clairifyai/skills
-crew install new-release deploy-release polish-trello release-json release-email cleanup-release
+crew install polish-trello new-release release-json release-email deploy-release cleanup-release mkdocs-callout-css
 crew autoupdate enable
 ```
 
@@ -36,7 +36,7 @@ Get your API key and token at [trello.com/power-ups/admin](https://trello.com/po
 The release process uses six skills that chain together. Each one suggests the next step when it finishes.
 
 ```
-/new-release → /release-json → /release-email → /deploy-release → /cleanup-release
+/polish-trello → /new-release → /release-json → /release-email → /deploy-release → /cleanup-release
 ```
 
 | Skill | What it does |

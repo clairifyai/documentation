@@ -20,6 +20,25 @@ mkdocs serve
 
 MkDocs watches `docs/` and `mkdocs.yml` for changes and live-reloads automatically. Note that **theme files in `saas_theme/` are not watched** — if you edit the theme, restart the server manually to see changes.
 
+## Claude Code skills (release notes)
+
+This repo has no Claude Code skills of its own. The skills for docs work, including the whole release notes workflow, live in the private [clairifyai/skills](https://github.com/clairifyai/skills) repo and are installed globally with [Homecrew](https://crew.logic.inc). You need access to the `clairifyai` GitHub org to install them.
+
+Install them once:
+
+```
+curl -fsSL https://crew.logic.inc/install.sh | sh
+crew tap @clairifyai/skills
+crew install polish-trello new-release release-json release-email deploy-release cleanup-release mkdocs-callout-css
+crew autoupdate enable
+```
+
+Autoupdate checks for new versions every 4 hours. The release skills also need `TRELLO_API_KEY` and `TRELLO_TOKEN` set in your shell.
+
+For the step-by-step release process, see [How to Make Release Notes](how_to_make_release_notes.md).
+
+To change a skill, edit it in `clairifyai/skills`, not here. Skills added to this repo's `.claude/skills/` aren't shared with the team.
+
 ## Themes
 
 Two themes are available, each backed by its own config file. The SaaS theme is the production theme used on the live site; Material is kept around as a fallback and for comparison.
