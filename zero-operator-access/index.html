@@ -305,6 +305,10 @@
                               <a href="../prompt-injection/" class="nav-link ">Prompt Injection</a>
                             </li>
                           
+                            <li class="nav-item ">
+                              <a href="../sensitive-information-disclosure/" class="nav-link ">Sensitive Information Disclosure</a>
+                            </li>
+                          
                         </ul>
                       </li>
                     
@@ -312,6 +316,12 @@
                     
                       <li class="nav-item ">
                         <a href="../tool-credential-architecture/" class="nav-link ">Tool & Credential Architecture</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../model-routing/" class="nav-link ">Model Routing</a>
                       </li>
                     
                   
@@ -429,8 +439,8 @@
       <article class="docs-article">
         <div class="article-body md-content">
           <h1 id="zero-operator-access">Zero-Operator Access</h1>
-<p>From an architecture perspective, our AI assistant and the mobile app are two separate apps with two different cybersecurity hardening profiles. To distinguish between the two we call the former Claire, and the latter Clairify The App (CTA). This page describes how Claire is zero-operator access (ZOA).</p>
-<p>ZOA means that no one at Clairify and no one at your MSP can access your data. Only you can access it, and only via the mobile app. <em>Data</em> means everything inside Claire, but namely Q&amp;A sessions, the files you upload, the emails forwarded from CTA.</p>
+<p>From an architecture perspective, our AI assistant and the mobile app are two separate apps with two different cybersecurity hardening profiles. To distinguish between the two, we call the former Claire, and the latter Clairify The App (CTA). This page describes how Claire is zero-operator access (ZOA).</p>
+<p><em>ZOA</em> means that no one at Clairify, and no one at your MSP, can access your data. Only you can access it, and only via the mobile app. <em>Data</em> means everything inside Claire, but namely Q&amp;A sessions, the files you upload, the emails forwarded from CTA.</p>
 <p>When your MSP provisions an instance of Claire to your organization, under the hood we deploy a container service. That container is isolated on the network from any other application other than
 CTA. The container can't accept a login; it only listens on its own API, and the only application that can communicate over that API is one that is authenticated to be the CTA using asymmetric key encryption.</p>
 <div class="admonition tip">

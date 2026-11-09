@@ -305,6 +305,10 @@
                               <a href="./" class="nav-link current">Prompt Injection</a>
                             </li>
                           
+                            <li class="nav-item ">
+                              <a href="../sensitive-information-disclosure/" class="nav-link ">Sensitive Information Disclosure</a>
+                            </li>
+                          
                         </ul>
                       </li>
                     
@@ -312,6 +316,12 @@
                     
                       <li class="nav-item ">
                         <a href="../tool-credential-architecture/" class="nav-link ">Tool & Credential Architecture</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../model-routing/" class="nav-link ">Model Routing</a>
                       </li>
                     
                   
@@ -443,7 +453,7 @@
 <p>There are several ways that data could be smuggling malicious instructions. This is not an exhaustive list.</p>
 <ul>
 <li><strong>Plain text</strong> - Someone might not see a prompt like "Ignore all previous instructions", or they might ignore it. Alternatively, instructions could be written in a 'low resource' language, meaning the tools we use to protect don't support these languages.</li>
-<li><strong>Invisible text</strong> - There are range of unicode characters that are not visible which can be used to carry instructions. Plain text can be too small or colored white to be illegible. </li>
+<li><strong>Invisible text</strong> - There are range of unicode characters that are not visible which can be used to carry instructions. Plain text can be too small or colored white to be legible. </li>
 <li><strong>Encoding</strong> - For example, emojis can be used to encode instructions. The attack could be single or two-stage, meaning decode instructions are sent at the same time or separately.   </li>
 </ul>
 <h3 id="direct-and-indirect-injection">Direct and Indirect Injection</h3>
@@ -476,12 +486,12 @@
           
 
           
-          <a href="../tool-credential-architecture/" class="page-nav-link page-nav-next">
+          <a href="../sensitive-information-disclosure/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Tool & Credential Architecture</span>
+            <span class="page-nav-title">Sensitive Information Disclosure</span>
           </a>
           
         </nav>
