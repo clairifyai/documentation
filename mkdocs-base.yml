@@ -27,6 +27,7 @@ nav:
       - Prompt Injection: prompt-injection.md
       - Sensitive Information Disclosure: sensitive-information-disclosure.md
     - Tool & Credential Architecture: tool-credential-architecture.md
+    - Model Routing: model-routing.md
   - Release Notes:
     - Version 3:
       - Version 3.7.0: release-notes/rn-370.md
