@@ -1,0 +1,46 @@
+/* Medium-style byline injected under the page title by hooks/byline.py */
+
+.md-content .byline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: -0.25rem 0 2rem;
+}
+
+/* Two classes so the theme's .md-content img (margin, radius, shadow) doesn't win */
+.md-content .byline-avatar {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  border-radius: var(--radius-full);
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.md-content .byline-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.md-content .byline-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.md-content .byline-author {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.md-content .byline-meta {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
