@@ -2,9 +2,7 @@
 
 To create a custom summarization prompt:
 
-1. Start on the **Home** page.
-2. Scroll down to the **Summarization Prompts** tile.
-3. Click **Configure**.
+1. On the **Home** page, scroll down to the **Summarization Prompts** tile and click **Configure**.
 
 <video controls muted loop playsinline width="75%" poster="../assets/images/goto-summarization-poster.png">
   <source src="../assets/videos/goto-summarization.mp4" type="video/mp4">
