@@ -213,6 +213,10 @@
                               <a href="./" class="nav-link current">Writing Prompts</a>
                             </li>
                           
+                            <li class="nav-item ">
+                              <a href="../custom-category/" class="nav-link ">Custom Category</a>
+                            </li>
+                          
                         </ul>
                       </li>
                     
@@ -438,14 +442,32 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <h1 id="writing-a-valid-prompt">Writing a valid prompt</h1>
+          <h1 id="creating-a-custom-summarization-prompt">Creating a Custom Summarization Prompt</h1>
+<p>To create a custom summarization prompt:</p>
+<ol>
+<li>Start on the <strong>Home</strong> page.</li>
+<li>Scroll down to the <strong>Summarization Prompts</strong> tile.</li>
+<li>Click <strong>Configure</strong>.</li>
+</ol>
+<video controls muted loop playsinline width="75%" poster="../assets/images/goto-summarization-poster.png">
+  <source src="../assets/videos/goto-summarization.mp4" type="video/mp4">
+</source></video>
+
+<ol start="2">
+<li>Click the <strong>Create Prompt</strong> tab.</li>
+</ol>
+<p><img alt="Create Prompts tab with Design a prompt selected" class="no-caption" src="../assets/images/toggle-create-prompt.png" width="75%"></p>
+<ol start="3">
+<li>Use any of the three workflows to create your prompt.</li>
+</ol>
+<h2 id="writing-a-valid-prompt">Writing a valid prompt</h2>
 <p>We allow you to customize the summarization prompt associated to any category of message. To pass validation, your prompt must be a pure summarization instruction. Don't mix unrelated tasks like
 "tell me the current temperature in Vancouver, BC."</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Once saved, your prompt will be used for any <em>new</em> emails pulled into Clairify. Emails that have already been pulled will use the old prompt."</p>
 </div>
-<h2 id="how-validation-works">How validation works</h2>
+<h3 id="how-validation-works">How validation works</h3>
 <p>The system uses a lightweight LLM-based classifier to check whether your prompt is intended for email summarization. The classifier expects a short, explicit instructions. If your prompt is found to be invalid, you will receive the message: "Prompt must be intended for email summarization."</p>
 <p>To be successful:</p>
 <ul>
@@ -454,7 +476,7 @@
 <li>Do not repeat an instruction given by one of the UI controls, e.g., word limit.</li>
 <li>Avoid meta-instructions such as "ignore previous instructions" or "act as …".</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h3 id="examples">Examples</h3>
 <table>
 <thead>
 <tr>
@@ -512,12 +534,12 @@
           
 
           
-          <a href="../digests/" class="page-nav-link page-nav-next">
+          <a href="../custom-category/" class="page-nav-link page-nav-next">
             <span class="page-nav-label">
               Next
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </span>
-            <span class="page-nav-title">Digests</span>
+            <span class="page-nav-title">Custom Category</span>
           </a>
           
         </nav>
@@ -535,16 +557,12 @@
         <ul class="toc-list">
           
           <li class="toc-item">
-            <a href="#writing-a-valid-prompt" class="toc-link">Writing a valid prompt</a>
+            <a href="#creating-a-custom-summarization-prompt" class="toc-link">Creating a Custom Summarization Prompt</a>
             
             <ul class="toc-sublist">
               
               <li class="toc-item">
-                <a href="#how-validation-works" class="toc-link toc-link-sub">How validation works</a>
-              </li>
-              
-              <li class="toc-item">
-                <a href="#examples" class="toc-link toc-link-sub">Examples</a>
+                <a href="#writing-a-valid-prompt" class="toc-link toc-link-sub">Writing a valid prompt</a>
               </li>
               
             </ul>
