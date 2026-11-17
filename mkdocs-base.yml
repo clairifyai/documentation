@@ -66,9 +66,12 @@ extra:
 extra_css:
   - assets/feature-matrix.css
   - assets/video-embed.css
+  - assets/byline.css
 extra_javascript:
   - assets/feature-matrix.js
   - assets/feat-tip.js
+hooks:
+  - hooks/byline.py                   # Byline under the title for pages with byline: true
 plugins:
   - search
   - exclude:
