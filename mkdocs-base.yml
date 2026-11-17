@@ -12,6 +12,7 @@ nav:
       - summarization.md
       - Writing Prompts: writing-prompts.md
       - Custom Category: custom-category.md
+      - Email Mapping: email-mapping.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
     - Channels: channels.md
