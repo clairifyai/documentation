@@ -1,0 +1,54 @@
+{
+  "version": "3.7.1",
+  "title": "Claire Connects: Business App Connectors, Personalization & Member Offboarding",
+  "type": "release",
+  "date": "2026-11-13",
+  "description": "Lets Claire connect to your organization's own business apps, follow each user's personal preferences, and chat directly from an email card; adds a complete member offboarding process; and lets admins manage summarization prompts for their team, along with re-summarization, time zone, and email cleanup improvements.",
+  "items": {
+    "features": [
+      {
+        "name": "Connect Claire to Your Business Apps",
+        "details": "Claire can now work with your organization's own business systems, such as an ERP, CRM, or ticketing system, through connector skills that link to an app's REST API or remote MCP server. Administrators can build, test, and manage connectors in the admin console, with ready-made GitHub and Jira connectors in the catalog. Users confirm the exact sites each key may be sent to, can connect keys from the mobile app, and review every change before Claire makes it."
+      },
+      {
+        "name": "Personalize Claire",
+        "details": "Each user can now tell Claire how to talk to them and what it should know about them: the name it calls you, your role, a short description, tone, response length, and up to 16 standing instructions. Personalization is available in the admin console and the mobile app, every preference is checked for safety before use, and organization admins can turn it on or off and set defaults for each Claire instance."
+      },
+      {
+        "name": "Chat with Claire from an Email Card",
+        "details": "Premium users can now start a Claire chat directly from an email card in the Instack, with that email as the conversation's context. Each chat opens as a new session on your default Claire instance, and when you leave, Claire asks whether to keep or delete it."
+      },
+      {
+        "name": "Member Offboarding",
+        "details": "Organizations now have a complete process for removing a member's access to Claire and deleting their Claire data. Access is cut off within minutes of removal, data is kept for a configurable retention period (30 days by default) before it is permanently deleted, and members who rejoin during that period keep their data. Administrators can view archived members, purge data early, and set retention in System Settings, and every purge is recorded in the audit log."
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Manage Prompts and Categories for Your Team",
+        "details": "Organization admins can now create summarization prompts and email categories on behalf of users in their organization, and apply one prompt to up to 100 members at once. Each member receives a copy that stays in sync with the original unless they edit it, and members can see which mappings an administrator set for them."
+      },
+      {
+        "name": "Re-summarize an Email",
+        "details": "Users can now request a fresh summary for any email card from the card's actions menu in the mobile app. The new summary appears on the card as soon as it's ready. This feature depends on your plan."
+      },
+      {
+        "name": "Time Zone Check",
+        "details": "The mobile app now prompts you when your phone's time zone doesn't match the time zone in your profile. You can update your profile with one tap, dismiss the prompt for the day, or snooze it for 7 days."
+      },
+      {
+        "name": "Email Cleanup at Your Local Midnight",
+        "details": "Expired emails are now deleted at midnight in each user's own time zone instead of at a single time for everyone."
+      },
+      {
+        "name": "Faster Admin Changes",
+        "details": "Changes administrators make to features, permissions, and settings now take effect across Clairify within a minute."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-371/"
+      }
+    ]
+  }
+}

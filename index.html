@@ -36,6 +36,7 @@
   <!-- Extra CSS from mkdocs.yml -->
   <link rel="stylesheet" href="assets/feature-matrix.css">
   <link rel="stylesheet" href="assets/video-embed.css">
+  <link rel="stylesheet" href="assets/byline.css">
 
   
 </head>
@@ -351,6 +352,10 @@
                         <ul class="nav-sublist">
                           
                             <li class="nav-item ">
+                              <a href="release-notes/rn-371/" class="nav-link ">Version 3.7.1</a>
+                            </li>
+                          
+                            <li class="nav-item ">
                               <a href="release-notes/rn-370/" class="nav-link ">Version 3.7.0</a>
                             </li>
                           
@@ -459,6 +464,36 @@
 </thead>
 <tbody>
 <tr>
+<td>mkdocs-base.yml</td>
+<td>November 17, 2026, 02:50 PM PST</td>
+<td>Mehul Patel</td>
+<td>Merge pull request #23 from clairifyai/release-notes/3.7.1</td>
+</tr>
+<tr>
+<td>.mailmap</td>
+<td>November 17, 2026, 12:17 PM PST</td>
+<td>Mehul Patel</td>
+<td>Show every commit author under one consistent name</td>
+</tr>
+<tr>
+<td><a href="assets/byline.css">docs/assets/byline.css</a></td>
+<td>November 17, 2026, 12:17 PM PST</td>
+<td>Mehul Patel</td>
+<td>Style the author byline: round photo, name, read time and date</td>
+</tr>
+<tr>
+<td><a href="assets/images/authors/mehul-patel.jpg">docs/assets/images/authors/mehul-patel.jpg</a></td>
+<td>November 17, 2026, 12:17 PM PST</td>
+<td>Mehul Patel</td>
+<td>Add Mehul Patel's author photo for page bylines</td>
+</tr>
+<tr>
+<td>hooks/byline.py</td>
+<td>November 17, 2026, 12:17 PM PST</td>
+<td>Mehul Patel</td>
+<td>Add an optional Medium-style byline with author, read time and publish date, turned on per page with byline: true</td>
+</tr>
+<tr>
 <td><a href="assets/images/email-mapping-poster.png">docs/assets/images/email-mapping-poster.png</a></td>
 <td>November 16, 2026, 08:58 PM PST</td>
 <td>Mehul Patel</td>
@@ -477,12 +512,6 @@
 <td>Add a page explaining how to pair summarization prompts with email categories</td>
 </tr>
 <tr>
-<td>mkdocs-base.yml</td>
-<td>November 16, 2026, 08:58 PM PST</td>
-<td>Mehul Patel</td>
-<td>Add Email Mapping to the navigation under Summarization</td>
-</tr>
-<tr>
 <td><a href="writing-prompts/">docs/writing-prompts.md</a></td>
 <td>November 16, 2026, 08:58 PM PST</td>
 <td>Mehul Patel</td>
@@ -493,30 +522,6 @@
 <td>November 16, 2026, 08:16 PM PST</td>
 <td>Mehul Patel</td>
 <td>Add a preview image for the create category video</td>
-</tr>
-<tr>
-<td><a href="assets/images/goto-summarization-poster.png">docs/assets/images/goto-summarization-poster.png</a></td>
-<td>November 16, 2026, 08:16 PM PST</td>
-<td>Mehul Patel</td>
-<td>Add a preview image for the Summarization Prompts video</td>
-</tr>
-<tr>
-<td><a href="assets/images/toggle-create-prompt.png">docs/assets/images/toggle-create-prompt.png</a></td>
-<td>November 16, 2026, 08:16 PM PST</td>
-<td>Mehul Patel</td>
-<td>Add a screenshot of the Create Prompts tab and its three ways to build a prompt</td>
-</tr>
-<tr>
-<td><a href="assets/videos/create-category.mp4">docs/assets/videos/create-category.mp4</a></td>
-<td>November 16, 2026, 08:16 PM PST</td>
-<td>Mehul Patel</td>
-<td>Add a short video showing how to create a new email category</td>
-</tr>
-<tr>
-<td><a href="assets/videos/goto-summarization.mp4">docs/assets/videos/goto-summarization.mp4</a></td>
-<td>November 16, 2026, 08:16 PM PST</td>
-<td>Mehul Patel</td>
-<td>Add a short video showing how to get from the Home page to Summarization Prompts</td>
 </tr>
 </tbody>
 </table>
@@ -650,7 +655,7 @@
             <li><a href="#" class="footer-nav-link">Blog</a></li>
             <li><a href="#" class="footer-nav-link">Roadmap</a></li>
             <li><a href="#" class="footer-nav-link">Product Sheet</a></li>
-            <li><a href="release-notes/rn-370/" class="footer-nav-link">Release Notes</a></li>
+            <li><a href="release-notes/rn-371/" class="footer-nav-link">Release Notes</a></li>
           </ul>
         </div>
 

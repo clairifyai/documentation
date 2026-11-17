@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Version 3.7.1 — Everything You Need to Know About Clairify</title>
+
+  
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Version 3.7.1 — Everything You Need to Know About Clairify">
+  
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+
+  <!-- Annotation system CSS -->
+  <link rel="stylesheet" href="../../css/annotations.css">
+
+  <!-- AI Search CSS -->
+  <link rel="stylesheet" href="../../css/search.css">
+
+  <!-- Extra CSS from mkdocs.yml -->
+  <link rel="stylesheet" href="../../assets/feature-matrix.css">
+  <link rel="stylesheet" href="../../assets/video-embed.css">
+  <link rel="stylesheet" href="../../assets/byline.css">
+
+  
+</head>
+<body class="page docs-page">
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Top Navigation -->
+  <header class="site-header" id="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="../.." class="nav-logo" aria-label="Everything You Need to Know About Clairify home">
+        <span class="logo-mark">
+          <img src="../../assets/images/clairify-symbol-teal.svg" alt="Everything You Need to Know About Clairify" width="28" height="28" class="logo-symbol logo-symbol--light">
+          <img src="../../assets/images/clairify-symbol-eggshell.svg" alt="" aria-hidden="true" width="28" height="28" class="logo-symbol logo-symbol--dark">
+        </span>
+        <span class="logo-text">Everything You Need to Know About Clairify</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="https://clairify.ai" class="nav-link" target="_blank" rel="noopener">Home</a></li>
+        <li><a href="https://clairify.ai/about" class="nav-link" target="_blank" rel="noopener">About</a></li>
+        <li><a href="https://clairify.ai/clairify-security" class="nav-link" target="_blank" rel="noopener">Security</a></li>
+        <li><a href="https://clairify.ai/pricing" class="nav-link" target="_blank" rel="noopener">Pricing</a></li>
+        <li><a href="https://clairify.ai/blog" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+
+      <!-- Right side actions -->
+      <div class="nav-actions">
+        <!-- AI Search button -->
+        <button class="nav-btn-ghost" id="search-btn" aria-label="Search docs (⌘K)" title="Search docs (⌘K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        
+
+        <a href="#" class="nav-btn-primary">
+          Log in
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+        <a href="https://clairify.ai" class="mobile-nav-link" target="_blank" rel="noopener">Home</a>
+        <a href="https://clairify.ai/about" class="mobile-nav-link" target="_blank" rel="noopener">About</a>
+        <a href="https://clairify.ai/clairify-security" class="mobile-nav-link" target="_blank" rel="noopener">Security</a>
+        <a href="https://clairify.ai/pricing" class="mobile-nav-link" target="_blank" rel="noopener">Pricing</a>
+        <a href="https://clairify.ai/blog" class="mobile-nav-link" target="_blank" rel="noopener">Blog</a>
+      <div class="mobile-nav-actions">
+        <a href="../.." class="nav-btn-primary full-width">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <div class="layout-wrapper">
+    
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation navigation">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">Documentation</span>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation tree -->
+      <nav class="sidebar-nav" aria-label="Site navigation">
+        
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href="../.." class="nav-link ">Home</a>
+                </li>
+              </ul>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../getting-started/" class="nav-link ">Start Here</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../where-did-my-emails-go/" class="nav-link ">Where Did My Emails Go?</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../outlook-sso/" class="nav-link ">Outlook</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Features</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../primary-email/" class="nav-link ">Primary Email</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../email-classification/" class="nav-link ">Email Classification</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Summarization</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../../summarization/" class="nav-link ">Summarization</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../../writing-prompts/" class="nav-link ">Writing Prompts</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../../custom-category/" class="nav-link ">Custom Category</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../../email-mapping/" class="nav-link ">Email Mapping</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../digests/" class="nav-link ">Digests</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../on-demand-sync/" class="nav-link ">On-Demand Sync</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../channels/" class="nav-link ">Channels</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Pricing</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../feature-matrix/" class="nav-link ">Feature Matrix</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Security</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../security/" class="nav-link ">Security</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../zero-operator-access/" class="nav-link ">Zero-Operator Access</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../pii-policy/" class="nav-link ">PII</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../oauth-scopes/" class="nav-link ">OAuth (Gmail)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../oauth-scopes-outlook/" class="nav-link ">OAuth (Outlook)</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>AI Safety</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../../ai-safety/" class="nav-link ">Can You Trust Claire With Your Accounts?</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../../prompt-injection/" class="nav-link ">Prompt Injection</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../../sensitive-information-disclosure/" class="nav-link ">Sensitive Information Disclosure</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../tool-credential-architecture/" class="nav-link ">Tool & Credential Architecture</a>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item ">
+                        <a href="../../model-routing/" class="nav-link ">Model Routing</a>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <div class="nav-section">
+                <div class="nav-section-title">Release Notes</div>
+                <ul class="nav-list">
+                  
+                    
+                      <li class="nav-item has-children active open">
+                        <button type="button" class="nav-group-label" aria-expanded="true">
+                          <span>Version 3</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item active">
+                              <a href="./" class="nav-link current">Version 3.7.1</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-370/" class="nav-link ">Version 3.7.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-360/" class="nav-link ">Version 3.6.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-350/" class="nav-link ">Version 3.5.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-340/" class="nav-link ">Version 3.4.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-331/" class="nav-link ">Version 3.3.1</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-330/" class="nav-link ">Version 3.3.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-320/" class="nav-link ">Version 3.2.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-310/" class="nav-link ">Version 3.1.0</a>
+                            </li>
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-300/" class="nav-link ">Version 3.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                    
+                      <li class="nav-item has-children ">
+                        <button type="button" class="nav-group-label" aria-expanded="false">
+                          <span>Version 2</span>
+                          <svg class="nav-group-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <ul class="nav-sublist">
+                          
+                            <li class="nav-item ">
+                              <a href="../rn-200/" class="nav-link ">Version 2.0.0</a>
+                            </li>
+                          
+                        </ul>
+                      </li>
+                    
+                  
+                </ul>
+              </div>
+            
+          
+            
+              <ul class="nav-list">
+                <li class="nav-item ">
+                  <a href="../../troubleshooting/" class="nav-link ">Troubleshooting</a>
+                </li>
+              </ul>
+            
+          
+        
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main content area -->
+  <main class="docs-main" id="main-content">
+    <div class="docs-content">
+
+      <!-- Breadcrumbs -->
+      
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="../..">Home</a></li>
+          
+          <li><span>Version 3</span></li>
+          
+          <li aria-current="page">Version 3.7.1</li>
+        </ol>
+      </nav>
+      
+
+      <!-- Article -->
+      <article class="docs-article">
+        <div class="article-body md-content">
+          <h2 id="claire">Claire</h2>
+<p>Clairify 3.7.1 builds on the Claire launch in 3.7.0. Claire can now connect to your organization's own business apps, follow each user's personal preferences, and start a conversation directly from an email. Administrators also gain a complete, auditable process for offboarding members and their Claire data.</p>
+<h3 id="connect-claire-to-your-business-apps">Connect Claire to Your Business Apps</h3>
+<p>Claire can now work with your organization's own business systems, such as an ERP, CRM, or ticketing system, through connector skills. A connector links Claire to an app's REST API or to its remote MCP server, and Claire always asks before it changes anything.</p>
+<ul>
+<li><strong>Connector builder:</strong> Administrators can build a connector in the admin console, import an OpenAPI document as a starting point, run a test call, and discover and approve the tools an MCP server offers, one tool at a time.</li>
+<li><strong>Ready-made connectors:</strong> GitHub and Jira connectors are available in the catalog, along with help pages on connecting them.</li>
+<li><strong>You control where keys go:</strong> When a user shares a key with Claire, they confirm the exact sites it may be sent to, and Claire never sends it anywhere else. Administrators manage instance-wide keys and decide whether custom connectors are allowed.</li>
+<li><strong>Connect from mobile:</strong> Users can connect, replace, and stop sharing connector keys from each assistant's permissions screen in the mobile app.</li>
+<li><strong>Review before Claire acts:</strong> Before Claire changes data in a connected app, the confirmation card shows the app, the exact action, and every value it will send. If the request includes text from another source, such as an email, the card names that source. Deletes and other irreversible actions are clearly marked and always require approval.</li>
+<li><strong>Safe by design:</strong> Connector calls run separately for each user, can reach only approved public addresses, and redact keys from every result. Scheduled tasks can read from connected apps but never change anything in them.</li>
+</ul>
+<h3 id="personalize-claire">Personalize Claire</h3>
+<p>Each user can now tell Claire how to talk to them and what it should know about them.</p>
+<ul>
+<li><strong>About you:</strong> Set the name Claire calls you, your role, and a short description of yourself.</li>
+<li><strong>How Claire responds:</strong> Choose Claire's tone and response length, or keep your organization's default.</li>
+<li><strong>Instructions:</strong> Add up to 16 standing instructions for Claire to follow, and switch, reorder, or remove them at any time.</li>
+<li><strong>Available everywhere:</strong> Personalization is available from the new Personalization page in the admin console and from each Claire card in the mobile app. Users with more than one Claire instance can copy their settings from one instance to another.</li>
+<li><strong>Checked for safety:</strong> Claire checks every preference before using it, so a saved preference cannot be used to inject instructions or get around your organization's policies. Any item Claire can't accept is highlighted with the reason.</li>
+<li><strong>Organization controls:</strong> Organization admins can turn personalization on or off for each Claire instance and set default tone and length. When an administrator changes a user's settings, the user sees that an administrator made the change.</li>
+</ul>
+<p>Claire applies accepted preferences in every chat and every scheduled task.</p>
+<h3 id="chat-with-claire-from-an-email-card">Chat with Claire from an Email Card</h3>
+<p>Premium users can now start a Claire chat directly from an email card in the Instack, with that email as the conversation's context. You can ask Claire anything about the email without leaving your inbox. Each chat from a card opens as a new session on your default Claire instance, and when you leave, Claire asks whether to keep or delete it.</p>
+<h3 id="member-offboarding">Member Offboarding</h3>
+<p>Organizations now have a complete process for removing a member's access to Claire and deleting their Claire data.</p>
+<ul>
+<li><strong>Immediate access removal:</strong> When a member is removed from a Claire instance, whether through an organization change or account deletion, their access is cut off within minutes. This includes their connected credentials, tools, and running services.</li>
+<li><strong>Retention period:</strong> A removed member's data is kept for a retention period (30 days by default) before it is permanently deleted. Deleted accounts are purged immediately. Members who rejoin during the retention period keep all of their data.</li>
+<li><strong>Archived members view:</strong> Administrators can see removed members and their scheduled deletion date in a new Archived tab, and can purge a member's data early.</li>
+<li><strong>Retention settings:</strong> Administrators can set the retention period, from 1 to 3,650 days, and turn automatic purging on or off in System Settings.</li>
+<li><strong>Clear warnings:</strong> The admin console warns before removing members or moving an instance to another organization.</li>
+<li><strong>Protection against reuse:</strong> A new account created with a deleted account's email address cannot see or inherit any of the old account's data.</li>
+</ul>
+<p>Every purge is recorded in the audit log.</p>
+<h2 id="enhancements">Enhancements</h2>
+<h3 id="manage-prompts-and-categories-for-your-team">Manage Prompts and Categories for Your Team</h3>
+<p>Organization admins can now set up summarization for the people they manage.</p>
+<ul>
+<li><strong>Create for others:</strong> Create summarization prompts and email categories on behalf of other users in your organization and assign them to those users.</li>
+<li><strong>Apply to many members at once:</strong> Apply one prompt to the categories of up to 100 members in a single step, and see the result for each member.</li>
+<li><strong>Synced copies:</strong> Each member receives their own copy of the prompt, which stays in sync when you edit the original. If a member edits their copy, it stops syncing so their changes are kept, and you can choose to re-sync it later.</li>
+<li><strong>Visibility:</strong> Members can see which prompt mappings an administrator set for them, and administrators can see how many synced copies each prompt has.</li>
+</ul>
+<h3 id="re-summarize-an-email">Re-summarize an Email</h3>
+<p>Users can now request a fresh summary for any email card from the card's actions menu in the mobile app. The new summary appears on the card as soon as it's ready. This feature depends on your plan.</p>
+<h3 id="time-zone-check">Time Zone Check</h3>
+<p>The mobile app now prompts you when your phone's time zone doesn't match the time zone in your profile. A mismatch affects when briefings arrive and when expired emails are deleted. You can update your profile with one tap, dismiss the prompt for the day, or snooze it for 7 days.</p>
+<h3 id="email-cleanup-at-your-local-midnight">Email Cleanup at Your Local Midnight</h3>
+<p>Expired emails are now deleted at midnight in each user's own time zone instead of at a single time for everyone, so emails expire on a predictable day boundary.</p>
+<h3 id="faster-admin-changes">Faster Admin Changes</h3>
+<p>Changes administrators make to features, permissions, and settings now take effect across Clairify within a minute.</p>
+        </div>
+
+        <!-- Prev / Next navigation -->
+        
+        <nav class="page-nav" aria-label="Page navigation">
+          
+          <a href="../../model-routing/" class="page-nav-link page-nav-prev">
+            <span class="page-nav-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              Previous
+            </span>
+            <span class="page-nav-title">Model Routing</span>
+          </a>
+          
+
+          
+          <a href="../rn-370/" class="page-nav-link page-nav-next">
+            <span class="page-nav-label">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span class="page-nav-title">Version 3.7.0</span>
+          </a>
+          
+        </nav>
+        
+      </article>
+    </div>
+  </main>
+
+  <!-- Table of Contents -->
+  
+  <aside class="docs-toc" aria-label="Table of contents">
+    <div class="toc-inner">
+      <div class="toc-label">On this page</div>
+      <nav class="toc-nav">
+        <ul class="toc-list">
+          
+          <li class="toc-item">
+            <a href="#claire" class="toc-link">Claire</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#connect-claire-to-your-business-apps" class="toc-link toc-link-sub">Connect Claire to Your Business Apps</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#personalize-claire" class="toc-link toc-link-sub">Personalize Claire</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#chat-with-claire-from-an-email-card" class="toc-link toc-link-sub">Chat with Claire from an Email Card</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#member-offboarding" class="toc-link toc-link-sub">Member Offboarding</a>
+              </li>
+              
+            </ul>
+            
+          </li>
+          
+          <li class="toc-item">
+            <a href="#enhancements" class="toc-link">Enhancements</a>
+            
+            <ul class="toc-sublist">
+              
+              <li class="toc-item">
+                <a href="#manage-prompts-and-categories-for-your-team" class="toc-link toc-link-sub">Manage Prompts and Categories for Your Team</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#re-summarize-an-email" class="toc-link toc-link-sub">Re-summarize an Email</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#time-zone-check" class="toc-link toc-link-sub">Time Zone Check</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#email-cleanup-at-your-local-midnight" class="toc-link toc-link-sub">Email Cleanup at Your Local Midnight</a>
+              </li>
+              
+              <li class="toc-item">
+                <a href="#faster-admin-changes" class="toc-link toc-link-sub">Faster Admin Changes</a>
+              </li>
+              
+            </ul>
+            
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  
+
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Footer top: brand + link columns -->
+    <div class="footer-top">
+
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a href="../.." class="footer-logo" aria-label="Clairify home">
+          <img src="../../assets/images/clairify-logo-horizontal-darkgrey.svg" alt="Clairify" class="footer-logo-img logo-symbol--light">
+          <img src="../../assets/images/clairify-logo-horizontal-offwhite.svg" alt="" aria-hidden="true" class="footer-logo-img logo-symbol--dark">
+        </a>
+        
+        <p class="footer-tagline">The only app designed specifically for executive leadership.</p>
+        
+
+        <!-- Social links -->
+        <div class="footer-social">
+          <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <div class="footer-nav-grid">
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Get Clairify</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Demo</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="#" class="footer-nav-link" target="_blank" rel="noopener">Google Play</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Resources</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Blog</a></li>
+            <li><a href="#" class="footer-nav-link">Roadmap</a></li>
+            <li><a href="#" class="footer-nav-link">Product Sheet</a></li>
+            <li><a href="./" class="footer-nav-link">Release Notes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Trust &amp; Legal</div>
+          <ul class="footer-nav-list">
+            <li><a href="https://trust.clairify.ai" class="footer-nav-link">Trust Center</a></li>
+            <li><a href="https://clairify.ai/privacy" class="footer-nav-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-nav-link">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <div class="footer-nav-heading">Support</div>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Email us</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer bottom: copyright -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 Clairify. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- Theme JS -->
+  <script src="../../js/theme.js"></script>
+
+  <!-- Extra JS from mkdocs.yml -->
+    <script src="../../assets/feature-matrix.js"></script>
+    <script src="../../assets/feat-tip.js"></script>
+
+  
+
+  <!-- AI Search -->
+  <script src="../../js/search.js"></script>
+
+  <!-- Annotation system (on all doc pages; home.html overrides this block to suppress it) -->
+  
+  
+  <script src="../../js/annotations.js"></script>
+  
+  
+</body>
+</html>
