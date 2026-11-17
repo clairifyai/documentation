@@ -1,4 +1,20 @@
-# Writing a valid prompt
+# Creating a Custom Summarization Prompt
+
+To create a custom summarization prompt:
+
+1. On the **Home** page, scroll down to the **Summarization Prompts** tile and click **Configure**.
+
+<video controls muted loop playsinline width="75%" poster="../assets/images/goto-summarization-poster.png">
+  <source src="../assets/videos/goto-summarization.mp4" type="video/mp4">
+</video>
+
+2. Click the **Create Prompt** tab.
+
+![Create Prompts tab with Design a prompt selected](assets/images/toggle-create-prompt.png){width="75%" class="no-caption"}
+
+3. Use any of the three workflows to create your prompt.
+
+## Writing a valid prompt
 
 We allow you to customize the summarization prompt associated to any category of message. To pass validation, your prompt must be a pure summarization instruction. Don't mix unrelated tasks like
 "tell me the current temperature in Vancouver, BC."
@@ -6,7 +22,7 @@ We allow you to customize the summarization prompt associated to any category of
 !!! tip
     Once saved, your prompt will be used for any *new* emails pulled into Clairify. Emails that have already been pulled will use the old prompt."
 
-## How validation works
+### How validation works
 
 The system uses a lightweight LLM-based classifier to check whether your prompt is intended for email summarization. The classifier expects a short, explicit instructions. If your prompt is found to be invalid, you will receive the message: "Prompt must be intended for email summarization."
 
@@ -17,7 +33,7 @@ To be successful:
 - Do not repeat an instruction given by one of the UI controls, e.g., word limit.
 - Avoid meta-instructions such as "ignore previous instructions" or "act as …".
 
-## Examples
+### Examples
 
 | Bad Prompt | Reason | Good Prompt |
 |---|---|---|

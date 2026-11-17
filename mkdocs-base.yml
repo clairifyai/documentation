@@ -11,6 +11,8 @@ nav:
     - Summarization:
       - summarization.md
       - Writing Prompts: writing-prompts.md
+      - Custom Category: custom-category.md
+      - Email Mapping: email-mapping.md
     - Digests: digests.md
     - On-Demand Sync: on-demand-sync.md
     - Channels: channels.md
@@ -65,9 +67,12 @@ extra:
 extra_css:
   - assets/feature-matrix.css
   - assets/video-embed.css
+  - assets/byline.css
 extra_javascript:
   - assets/feature-matrix.js
   - assets/feat-tip.js
+hooks:
+  - hooks/byline.py                   # Byline under the title for pages with byline: true
 plugins:
   - search
   - exclude:
