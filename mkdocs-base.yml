@@ -28,6 +28,7 @@ nav:
       - ai-safety.md
       - Prompt Injection: prompt-injection.md
       - Sensitive Information Disclosure: sensitive-information-disclosure.md
+      - Excessive Agency: excessive-agency.md
     - Tool & Credential Architecture: tool-credential-architecture.md
     - Model Routing: model-routing.md
   - Release Notes:
@@ -84,6 +85,8 @@ plugins:
         position: top
       figure:
         ignore_classes: [twemoji, no-caption]
+  - glightbox:
+      manual: true                     # Only lightbox images with the on-glb class
   - git-revision-date-localized:
       timezone: America/Vancouver
   - git-latest-changes:
