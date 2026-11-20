@@ -1,0 +1,68 @@
+{
+  "version": "3.7.2",
+  "title": "Tool Transparency, Faster Member Setup & Pinned Channels",
+  "type": "release",
+  "date": "2026-11-20",
+  "description": "Shows administrators which outside services each tool connects to and which actions need approval, asks before Claire acts in Slack, speeds up member setup and catalog rollout, and adds pinned channels, older-email processing, personal data masking, and several fixes.",
+  "items": {
+    "features": [
+      {
+        "name": "See What Each Tool Does",
+        "details": "MSPs and organization admins can now see, for every tool their organization can use, which outside services it connects to and whether it waits for a person's approval before it runs, along with the action's risk level. Tools that connect to no outside service or run without approval are clearly marked, and tools with several actions show which actions need approval."
+      },
+      {
+        "name": "Approval Before Claire Acts in Slack",
+        "details": "Claire now asks for approval before it posts a message, replies to a thread, or adds a reaction in Slack, using the same approval card, risk levels, and \"allow for this chat\" option as Claire's other tools. Approval rules are now checked consistently for every tool in the catalog."
+      },
+      {
+        "name": "Set Up Members and Roll Out Tools Faster",
+        "details": "When you add a member to a Claire instance, a guided setup lets you start from scratch or copy another member's setup, pick tools and skills, review every change, and retry anything that fails. The Members table shows who still needs setup, and admins can roll out a tool, skill, or scheduled job to many instances in one flow."
+      }
+    ],
+    "enhancements": [
+      {
+        "name": "Pinned Channels",
+        "details": "The mobile Channels screen now shows only your pinned channels. Pin, unpin, and reorder channels from All channels, and your pins stay the same across restarts and devices. New users start with Instack, Mailroom, Claire, and Integrations pinned, administrators can change these defaults in System Settings, and the Assistant channel is now called Claire."
+      },
+      {
+        "name": "Process Older Emails",
+        "details": "After you clear your stack, tap Process 10 older emails to pull the next batch of older Inbox emails into your stack, read or unread, summarized and sorted like any new email. This works for primary and secondary accounts and depends on your plan."
+      },
+      {
+        "name": "Personal Data Masked Before Summarization",
+        "details": "Personal details in your emails, such as names, email addresses, phone numbers, account numbers, and street addresses, are now masked before the email is sent to the AI model for summarization, then restored in your summary."
+      },
+      {
+        "name": "Sign In from clairify.ai",
+        "details": "You can now get to the Clairify app from clairify.ai at app.clairify.ai, and admin.clairify.ai takes you to the same sign-in. The pricing page is now part of the app and shows your current plan when you're signed in."
+      }
+    ],
+    "fixes": [
+      {
+        "name": "Right swipe on read emails",
+        "details": "Swiping right on an email you've already read now works instead of showing an error."
+      },
+      {
+        "name": "API key masking",
+        "details": "Saved API keys and secrets are now masked to a short, consistent length, display on one line, and never reveal most of a short key."
+      },
+      {
+        "name": "Bug report confirmation email",
+        "details": "The confirmation email sent after reporting a bug by shaking your phone no longer includes internal diagnostic logs."
+      },
+      {
+        "name": "Personalization setting when turned off",
+        "details": "In the mobile app, the \"Use personalization\" setting can no longer be changed when your organization has turned personalization off."
+      },
+      {
+        "name": "Skill visibility changes",
+        "details": "Two admins changing who can see a skill at the same time no longer remove that skill from a member's assistant."
+      }
+    ],
+    "links": [
+      {
+        "Release Note": "https://docs.clairify.ai/release-notes/rn-372/"
+      }
+    ]
+  }
+}
