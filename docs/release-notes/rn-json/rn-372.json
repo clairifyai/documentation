@@ -31,10 +31,6 @@
       {
         "name": "Personal Data Masked Before Summarization",
         "details": "Personal details in your emails, such as names, email addresses, phone numbers, account numbers, and street addresses, are now masked before the email is sent to the AI model for summarization, then restored in your summary."
-      },
-      {
-        "name": "Sign In from clairify.ai",
-        "details": "You can now get to the Clairify app from clairify.ai at app.clairify.ai, and admin.clairify.ai takes you to the same sign-in. The pricing page is now part of the app and shows your current plan when you're signed in."
       }
     ],
     "fixes": [
