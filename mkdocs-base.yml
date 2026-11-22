@@ -22,6 +22,7 @@ nav:
     - Security: security.md
     - Zero-Operator Access: zero-operator-access.md
     - PII: pii-policy.md
+    - Member Offboarding: offboarding.md
     - OAuth (Gmail): oauth-scopes.md
     - OAuth (Outlook): oauth-scopes-outlook.md
     - AI Safety:
