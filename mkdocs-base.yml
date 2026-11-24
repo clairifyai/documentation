@@ -34,6 +34,7 @@ nav:
     - Model Routing: model-routing.md
   - Release Notes:
     - Version 3:
+      - Version 3.7.2: release-notes/rn-372.md
       - Version 3.7.1: release-notes/rn-371.md
       - Version 3.7.0: release-notes/rn-370.md
       - Version 3.6.0: release-notes/rn-360.md
