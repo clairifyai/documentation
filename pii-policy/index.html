@@ -468,56 +468,83 @@
       <!-- Article -->
       <article class="docs-article">
         <div class="article-body md-content">
-          <div class="admonition warning">
-<p class="admonition-title">Comming Soon</p>
-<p>This page is under construction, and the feature is still in development.</p>
-</div>
-<h1 id="how-we-handle-pii">How We Handle PII</h1>
-<p>Sometimes, even though we know we shouldn't, we share sensitive data via email or instant message. 
-From a policy perspective, we don't want to be able see your sensitive data, and we want minimize the leakage of PII in the event of a security incident. This means we need to employ one or more de-identification techniques, e.g., masking, redaction and abstraction. But, we need to do so in a way that maintains speed, clarity, and usability of the app. To ensure the protection of PII while supporting functional requirements such as summarization and recall, we apply a sensitivity-based, context-aware approach to PII.</p>
-<h2 id="pii-collection">PII Collection</h2>
-<p>PII is any information that could identify an individual—like names, phone numbers, or email addresses.
-We don’t actively request PII although we do handle business card information (e.g., name, title, work email) that we obtain via SSO. Therefore the primary target of this policy is to protect against PII that is incidentally captured in the process of handling your communciations.</p>
-<h2 id="classification-and-protection">Classification and Protection</h2>
-<p>Following established guidelines such as NIST SP 800‑122, we classify PII based on the potential impact to individuals or the organization if that data were improperly accessed or disclosed. We then apply protection measures proportionate to the associated risk. To implement this, we use a combination of modern machine learning and large language models (LLMs) to identify and evaluate sensitive content. This approach ensures that context is taken into account before any de-identification techniques such as redaction, masking, or abstraction are applied.  </p>
+          <h1 id="how-we-handle-pii">How We Handle PII</h1>
+<p>We don't know what's in your email and we don't want to. But we want to be cautions when sending emails to a model provider for summarization because they might contain PII, either yours or your customers'. This is one of the ways Claire protects against <a href="../sensitive-information-disclosure/">sensitive information disclosure</a>, #2 on the OWASP Top 10 for LLM Applications (2026).</p>
+<p>Personally Identifiable Information (PII) is any information that could identify an individual. Normally PII is classified so that you can implement the appropriate level of controls for each class. Business card information, for example, might not need any control since you give that away freely.</p>
+<p>You also have to be careful of information might not qualify as PII on their own but would when combined with other information (direct vs indirect PII). So for example your name plus a a medical report. Indivdually, no big deal, but together high risk.</p>
+<p>We classify data according to Low, Moderate, and High because they match the impact levels in NIST. That said, we apply the same control to each because it's but the safest and easiest to implement.</p>
+<ul>
+<li><strong>High-sensitivity</strong> — Poses a significant privacy, security, or compliance risk if exposed, e.g., social security number (SSN), credit card, personal health information (PHI). You don't need these for summarization, and they're considered toxic from a risk standpoint under both NIST and SOC 2. Hacking happens at this level.</li>
+<li><strong>Moderate-sensitivity</strong> — Doesn't pose an inherent risk when handled appropriately but can contribute to meaningful identification or privacy exposure when combined with other information, e.g., personal email addresses, personal mobile phone numbers, home mailing addresses, and other identifiers not intended for broad distribution. Doxxing happens at this level.</li>
+<li><strong>Low-sensitivity</strong> — Commonly shared in business communications, such as full names, job titles, business email addresses, and company names. Typically obtained through Single Sign-On (SSO) during account setup or given away in an email signature. Technically PII, but carries minimal risk if exposed.</li>
+</ul>
+<h2 id="de-identification">De-identification</h2>
+<p>When you remove PII, it's called <strong>de-identification</strong>, and there are many techniques to choose from including masking, redaction, and tokenization. We use tokenization: Before sending an email for summarization we pass it through a local model to replace any PII with dummy values. Once we get the summary back, if there are any tokens present we sub in the original value before storing it an sending it to you. This way the model has enough context to make a good summary without seeing sensitive information.</p>
 <table>
 <thead>
 <tr>
-<th><strong>Risk Level</strong></th>
-<th><strong>Examples</strong></th>
-<th><strong>How We Handle It</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>What We Tokenize</strong></th>
+<th><strong>Sensitivity</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Low Sensitivity (Preserved)</strong></td>
-<td>Names, job titles, company, work email</td>
-<td>Retained for clarity; secure access controls and encryption applied</td>
+<td><strong>Person</strong></td>
+<td>First, middle, last, full, other, and display names</td>
+<td>Low</td>
 </tr>
 <tr>
-<td><strong>Moderate Sensitivity (Conditional)</strong></td>
-<td>Personal email, mobile number, home address</td>
-<td>Retained only if clearly shared and contextually needed; masked or abstracted on escalation</td>
+<td><strong>Email</strong></td>
+<td>Email addresses</td>
+<td>Medium</td>
 </tr>
 <tr>
-<td><strong>High Sensitivity (Redacted)</strong></td>
-<td>SSNs, credit card numbers, passwords, PHI</td>
-<td>Immediately redacted upon detection; never stored or summarized, only abstracted in outputs</td>
+<td><strong>Phone</strong></td>
+<td>Phone numbers and phone IMEIs</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Address</strong></td>
+<td>Street addresses, streets, building numbers, secondary addresses, ZIP codes, nearby GPS coordinates</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>IPv4, IPv6, IP, and MAC addresses</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Account</strong></td>
+<td>Account numbers, IBANs, BICs</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Card</strong></td>
+<td>Credit card numbers and CVVs</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>ID</strong></td>
+<td>SSNs, PINs, vehicle VINs and registration marks</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Credential</strong></td>
+<td>Passwords and usernames</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Crypto</strong></td>
+<td>Bitcoin, Ethereum, and Litecoin addresses</td>
+<td>High</td>
 </tr>
 </tbody>
 </table>
-<h2 id="contextual-escalation">Contextual Escalation</h2>
-<p>If a low- or moderate-sensitivity detail appears alongside more sensitive subject matter—like medical or financial information—the LLM interprets the overall message as requiring greater protection. In these cases:</p>
-<ul>
-<li>The sensitive content is abstracted or redacted.</li>
-<li>The resulting summary preserves intent but does not expose high-risk data.</li>
-<li>Low-sensitivity elements (like names) may still appear, provided they don’t increase the risk.</li>
-</ul>
-<h3 id="example">Example</h3>
-<blockquote>
-<p>Original Message: “Here’s my number—(555) 678‑9101—I’ll be out next week for surgery.”
-Summary: “The user shared a personal contact number along with health-related information affecting their availability.”</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Important limitations</p>
+<p>We can't guarantee that PII will never reach the model provider. Our own evals which show that we can catch 80% of PII. If this service fails for any reason, the original text is sent to the LLM. We do not tokenize content beyond ~4K so if you're in the habit of tacking on your SSN to the end of lengthy emails, that's going to get through.</p>
+</div>
         </div>
 
         <!-- Prev / Next navigation -->
@@ -562,15 +589,7 @@ Summary: “The user shared a personal contact number along with health-related 
             <ul class="toc-sublist">
               
               <li class="toc-item">
-                <a href="#pii-collection" class="toc-link toc-link-sub">PII Collection</a>
-              </li>
-              
-              <li class="toc-item">
-                <a href="#classification-and-protection" class="toc-link toc-link-sub">Classification and Protection</a>
-              </li>
-              
-              <li class="toc-item">
-                <a href="#contextual-escalation" class="toc-link toc-link-sub">Contextual Escalation</a>
+                <a href="#de-identification" class="toc-link toc-link-sub">De-identification</a>
               </li>
               
             </ul>
