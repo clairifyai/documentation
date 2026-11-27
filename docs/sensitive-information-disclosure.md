@@ -2,7 +2,7 @@
 
 !!! tip "Go to the source"
 
-    Sensitive information disclosure is #2 on the OWASP Top 10 for LLM Applications (2025). See [LLM02: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/) for vulnerability examples, attack scenarios, and mitigations.
+    Sensitive information disclosure is #2 on the OWASP Top 10 for LLM Applications (2026). See [LLM02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) for vulnerability examples, attack scenarios, and mitigations.
 
 Sensitive information disclosure is when an LLM reveals something it shouldn't â€” personal data, financial or health records, confidential business information, or credentials. Disclosure is often the goal of a [prompt injection](prompt-injection.md) attack. Those attacks can work when sensitive information: 
 
@@ -11,7 +11,7 @@ Sensitive information disclosure is when an LLM reveals something it shouldn't â
 1. Appears or is baked into derivative artifacts like synthetic data (#1 is root cause).
 1. Can be inferred by observing the model from outside a session, e.g., logs, packet sniffing.
 
-We are not concerned with training or derivative artifacts. Those is not part of Clairify functionality, infrastructure, or development activities. Our primary concern is inference time and system logging. Specifically, during question answering, we do not want a user to see information beyond their privilege level. And during logging, we don't want to expose users' private information.
+We are not concerned with training or derivative artifacts. Those is not part of Clairify functionality, infrastructure, or development activities. Our primary concerns are inference time, third-party model providers, and system logging. Specifically, during question answering, we do not want a user to see information beyond their privilege level. And during logging, we don't want to expose users' private information.
 
 ## Inference time
 
@@ -27,6 +27,10 @@ For context retrieval (RAG), emails and files are chunked, vectorized, and store
 
 !!! tip "What about secrets?"
     Credentials and keys are never included in context because tool calling happens outside the model.
+
+## Third-party model providers
+
+Claire sends your emails to a third-party model provider to be summarized, so the provider is another place sensitive information could end up. Before an email leaves Claire, a local model replaces any PII it finds with dummy values. The provider summarizes the tokenized text, and Claire swaps the original values back in before storing the summary and showing it to you. See [How We Handle PII](pii-policy.md) for what we tokenize and the limits of this approach.
 
 ## Logging
 
